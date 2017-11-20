@@ -13,6 +13,7 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+app.set('port', (process.env.PORT || 300));
 app.use(cookieParser());
 app.use(express.static(path.resolve(__dirname, 'public')));
 
@@ -38,8 +39,8 @@ app.use(function(err, req, res, next) {
     res.render('error');
 });
 
-app.listen(process.env.PORT || 3000, function() {
-    console.log('listening on', http.address().port);
+app.listen(app.get('port'), function() {
+    console.log("App started on port" + app.get('port'));
 });
 
 module.exports = app;
