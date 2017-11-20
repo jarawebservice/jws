@@ -13,7 +13,7 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-app.set('port', (process.env.PORT || 300));
+app.set('port', (process.env.PORT || 3000));
 app.use(cookieParser());
 app.use(express.static(path.resolve(__dirname, 'public')));
 
