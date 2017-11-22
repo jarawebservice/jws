@@ -10,13 +10,7 @@ head
   <link rel="apple-touch-startup-image" href="/durandal/img/ios-startup-image-landscape.png" media="(orientation:landscape)" />
   <link rel="apple-touch-startup-image" href="/durandal/img/ios-startup-image-portrait.png" media="(orientation:portrait)" />
   <link rel="apple-touch-icon" href="/durandal/img/icon.png"/>
-  
-  <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="/css/ie10mobile.css" />
-  <link rel="stylesheet" href="/durandal/css/durandal.css" />
-  <link rel="stylesheet" href="/css/starterkit.css" />
-  |     
+      
   meta(http-equiv='x-ua-compatible', content='ie=edge')
   |     
   title Jaracare Web Services | An Internet Company
@@ -28,6 +22,8 @@ head
   link(rel='icon', type='image/png', href='img/favicon.png')
   |     
   link(rel='stylesheet', href='/stylesheets/bootstrap.css', type='text/css')
+  link(rel='stylesheet', href='/stylesheets/owl.carousel.min.css', type='text/css')
+  link(rel='stylesheet', href='/stylesheets/owl.theme.green.min.css', type='text/css')
   | 
   link(rel='stylesheet', href='/stylesheets/style.css')
   |     
@@ -39,7 +35,7 @@ head
   header
     // Fixed navbar
     nav.navbar.navbar-inverse.navbar-fixed-top
-      .container
+      .container-fluid
         .navbar-header
           button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
             span.sr-only Toggle navigation
@@ -49,7 +45,8 @@ head
             span.icon-bar
             |                         
             span.icon-bar
-          |                         
+          | 
+                                 
           a.navbar-brand(href='index.html')
             
               <img src="/images/logo.png" title="Jara Web Service" class="hidden-sm" /> 
@@ -147,83 +144,155 @@ head
                   |             ssss                            
                   li
                     a(href='dd-files.html') Search Engine Optimization
-                  li
-                  form.form-inline.my-2.my-lg-0
-                    input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
-                    |             
-                    button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+
+          .input-group
+            input.form-control(type='text', aria-label='...')
+            |     
+            .input-group-btn
+              button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                | Action 
+                span.caret
+              |         
+              ul.dropdown-menu.dropdown-menu-right
+                li
+                  a(href='#') Action
+                |             
+                li
+                  a(href='#') Another action
+                |             
+                li
+                  a(href='#') Something else here
+                |             
+                li.divider(role='separator')
+                |             
+                li
+                  a(href='#') Separated link
+            
+             
+            
+              
+            
+              
+           
+                 
         // /.nav-collapse
   |
 
   block content
 
-  footer 
-    .container
-    .row.push-down-top-lg.hidden-xs
-      .col-xs-offset-2.col-xs-3
-        img(src='img/html5-fundamentals.png', title='Jaracare Web Services')
-        |                         
-        p
-          | by 
-          a(href='http://jws.com.ng') Jaracare
-        |                         
-        p.lead
-          a(href='http://twitter.com/') Jaracare Web Services
-          |  is an
-          a(href='') online company
-          | ,
-          |                             
-          a(href='>instructor</a>, <a href=') writer
-          | , 
-          a(href='http://jaracare.com.ng ') podcaster
-          | , and
-          |                             a man of many hats at 
-          a(href=' ') Infragistics
-          | .
-        |                         
-        .push-down-top-md
-          a(href=' ')
-            img(src='img/Jaracare ', title='Jaracare ')
-      |                     
-      .col-xs-offset-2.col-xs-3
-        a(href=' ')
-          img.img-responsive(src=' ', title='Jara Web Services ')
-        ul
-          li
-            a(href="") Technology Partners
-          li 
-            a(href="") Sitemap
-          li 
-            a(href="") Company Policy
-          li 
-            a(href="") E-Brochure
-      |                     
-      .col-xs-offset-2.col-xs-3
-        a(href=' ')
-          img.img-responsive(src=' ', title='Jara Web Services ')
-        ul
-          li
-            a(href="") Technology Partners
-          li 
-            a(href="") Sitemap
-          li 
-            a(href="") Company Policy
-          li 
-            a(href="") E-Brochure
-          li 
-            a(href="") Privacy
-    div
-      a(href="") &copy; Jara Web Services 
-      | 
-      2017
+  footer.flex-rw
+      ul.footer-list-top
+        li
+          h4.footer-list-header About Pavilion
+        |         
+        li
+          a.generic-anchor.footer-list-anchor(href='/shop/about-mission', itemprop='significantLink') GET TO KNOW US
+        |         
+        li
+          a.generic-anchor.footer-list-anchor(href='/promos.html', itemprop='significantLink') PROMOS
+        |         
+        li
+          a.generic-anchor.footer-list-anchor(href='/retailers/new-retailers.html', itemprop='significantLink') BECOME A RETAILER
+        |         
+        li
+          a.generic-anchor.footer-list-anchor(href='/job-openings.html', itemprop='significantLink') JOB OPENINGS
+        |         
+        li
+          a.generic-anchor.footer-list-anchor(href='/shop/about-show-schedule', itemprop='significantLink') EVENTS
+      |     
+      ul.footer-list-top
+        li
+          h4.footer-list-header The Gift Selection
+        |         
+        li
+          a.generic-anchor.footer-list-anchor(href='/Angels/cat/id/70') ANGEL FIGURINES
+        |         
+        li
+          a.generic-anchor.footer-list-anchor(href='/Home-Decor/cat/id/64') HOME DECOR
+        |         
+        li
+          a.generic-anchor.footer-list-anchor(href='/Mugs/cat/id/32') MUGS
+        |         
+        li
+          a.generic-anchor.footer-list-anchor(href='/Pet-Lover/cat/id/108') PET LOVER
+        |         
+        li
+          a.generic-anchor.footer-list-anchor(href='/Ladies-Accessories/cat/id/117', target='_blank') HANDBAGS &amp; JEWELRY
+      |     
+      ul.footer-list-top
+        li#help
+          h4.footer-list-header Please Help Me
+        |         
+        li
+          a.generic-anchor.footer-list-anchor(href='/shop/about-contact', itemprop='significantLink') CONTACT
+        |         
+        li
+          a.generic-anchor.footer-list-anchor(href='/faq.html', itemprop='significantLink') FAQ
+        |         
+        li#find-a-store
+          a.generic-anchor.footer-list-anchor(href='/shop/store-locator', itemprop='significantLink') STORE LOCATOR
+        |         
+        li#user-registration
+          a.generic-anchor.footer-list-anchor(href='/shop/user-registration?URL=', itemprop='significantLink') NEW USERS
+        |         
+        li#order-tracking
+          a.generic-anchor.footer-list-anchor(href='/shop/order-status', itemprop='significantLink') ORDER STATUS
+      |     
+      section.footer-social-section.flex-rw
+        span.footer-social-overlap.footer-social-connect
+          | CONNECT 
+          span.footer-social-small with
+          |  US
+        |         
+        span.footer-social-overlap.footer-social-icons-wrapper
+          a.generic-anchor(href='https://www.pinterest.com/paviliongift/', target='_blank', title='Pinterest', itemprop='significantLink')
+            i.fa.fa-pinterest
+          |       
+          a.generic-anchor(href='https://www.facebook.com/paviliongift', target='_blank', title='Facebook', itemprop='significantLink')
+            i.fa.fa-facebook
+          |       
+          a.generic-anchor(href='https://twitter.com/PavilionGiftCo', target='_blank', title='Twitter', itemprop='significantLink')
+            i.fa.fa-twitter
+          |       
+          a.generic-anchor(href='http://instagram.com/paviliongiftcompany', target='_blank', title='Instagram', itemprop='significantLink')
+            i.fa.fa-instagram
+          |       
+          a.generic-anchor(href='https://www.youtube.com/channel/UCYgUODvd0qXbu_LkUWpTVEg', target='_blank', title='Youtube', itemprop='significantLink')
+            i.fa.fa-youtube
+          |       
+          a.generic-anchor(href='https://plus.google.com/+Paviliongift/posts', target='_blank', title='Google Plus', itemprop='significantLink')
+            i.fa.fa-google-plus
+      |     
+      section.footer-bottom-section.flex-rw
+        .footer-bottom-wrapper
+          i.fa.fa-copyright(role='copyright')
+          |  2015 Pavilion in 
+          address.footer-address(role='company address') Bergen, NY
+          span.footer-bottom-rights  - All Rights Reserved - 
+        |         
+        .footer-bottom-wrapper
+          a.generic-anchor(href='/terms-of-use.html', rel='nofollow') Terms
+          |  | 
+          a.generic-anchor(href='/privacy-policy.html', rel='nofollow') Privacy
+
 
   script(src='/javascripts/jquery.min.js', type='text/javascript')
   |     
   script(src='/javascripts/bootstrap.js', type='text/javascript')
   |     
   script(src='/javascripts/highlight/highlight.pack.js', type='text/javascript')
+  script(src='/javascripts/owl.carousel.min.js', type='text/javascript')
   |     
   script(src='/javascripts/app.js', type='text/javascript')
+  script.
+    $(document).ready(function() {
+    $('.owl-carousel').owlCarousel({ center: true, autoWidth:true, loop:true, margin:20, responsive:{ 600:{ items:2 } } });
+    $('.fadeOut').owlCarousel({ items:1, animateOut:'fadeOut', loop:true, margin:10, });
+
+    
+
+    });
+
   
           
 
