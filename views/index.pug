@@ -3,27 +3,107 @@ extends layout
 block content
   main
          
-   
+    .banner-container
+      .banner.banner-1.banner-selected
+        label.banner-item(for='banner-1')
+        |         
+        input#banner-1.banner-trigger(type='radio', name='banner', checked='checked')
+        |         
+        .banner-wrap
+          img.banner__img(src='http://imageshack.com/a/img18/3363/n6wn.jpg', alt='Nuestro negocio es fabricar eficiencia')
+          |             
+          .banner__overlay.banner__overlay--high-voltage
+          |             
+          .banner__content
+            .media
+              .media__img
+                i.fa.fa-refresh.fa-5x
+              |                     
+              .media__body
+                a#search-trigger.search-trigger.fa.fa-search.pull-right(href='#')
+                
+                p.banner-title
+                  | Our Business 
+                  
+                  span
+                    | 
+                    strong life itself.
+            
+      |     
+      .banner.banner-2
+        label.banner-item(for='banner-2')
+        |         
+        input#banner-2.banner-trigger(type='radio', name='banner')
+        |         
+        .banner-wrap
+          img.banner__img(src='http://imageshack.com/a/img18/3363/n6wn.jpg', alt='Nuestro negocio es fabricar eficiencia')
+          |             
+          .banner__overlay.banner__overlay--low-voltage
+          |             
+          .banner__content
+            .media
+              .media__img
+                i.fa.fa-power-off.fa-5x
+              |                     
+              .media__body
+                p.banner-title
+                  | Our Business
+                  span
+                    | is 
+                    strong life itself.
+      |     
+      .banner.banner-3
+        label.banner-item(for='banner-3')
+        |         
+        input#banner-3.banner-trigger(type='radio', name='banner')
+        |         
+        .banner-wrap
+          img.banner__img(src='http://imageshack.com/a/img18/3363/n6wn.jpg', alt='Nuestro negocio es fabricar eficiencia')
+          |             
+          .banner__overlay.banner__overlay--iluminations
+          |             
+          .banner__content
+            .media
+              .media__img
+                i.fa.fa-music.fa-5x
+              |                     
+              .media__body
+                p.banner-title
+                  | Our Business
+                  span
+                    | is 
+                    strong life itself.
+      |     
+      .banner.banner-4
+        label.banner-item(for='banner-4')
+        |         
+        input#banner-4.banner-trigger(type='radio', name='banner')
+        |         
+        .banner-wrap
+          img.banner__img(src='http://imageshack.com/a/img18/3363/n6wn.jpg', alt='Nuestro negocio es fabricar eficiencia')
+          |             
+          .banner__overlay.banner__overlay--renewable
+          |             
+          .banner__content
+            .media
+              .media__img
+                i.fa.fa-star.fa-5x
+              |                     
+              .media__body
+                p.banner-title
+                  | Our Business
+                  span
+                    | is 
+                    strong life itself.
+    
+    .body-overlay
+      form#search-overlay-form(role='search', method='GET', action='https://codepen.io/NelBarnatia/pen/KdKbLV', autocomplete='off')
+        input(type='search', placeholder='Start your search here', name='q', value='')
+        |         
+        p Press enter to search for a product
+        |         
+        span.fa.fa-times      
     article#content-container.container
-      #carousel-example-generic.carousel.slide(data-ride='carousel')     
-        ol.carousel-indicators
-          li.active(data-target='#carousel-example-generic', data-slide-to='0')
-          li(data-target='#carousel-example-generic', data-slide-to='1')
-          li(data-target='#carousel-example-generic', data-slide-to='2')
-          |
-        .carousel-inner(role='listbox')
-          .item.active
-            img(src='/images/kitchen.png', alt='...')
-            |             
-            .carousel-caption
-              | Carousel Demo
-          |         
-          .item
-            img(src='/images/view.png', alt='...')
-            |             
-            .carousel-caption
-              | Carousel Demo
-          |         We are all good now, and we hope to have another year here
       
       .container-down-top.home-layout
         a(href='selection.html')
