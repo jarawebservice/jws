@@ -1,8 +1,286 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
+}
+
+
+/**
+ * Vars
+ */
+
+
+/**
+ * Fonts
+ */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,600);
+
+/**
+   * Mixins (inuit.css)
+   */
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.banner__content {
+    width: 980px;
+    margin: 0 auto;
+}
+
+.cf:after,
+.media:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/**
+   * Media Object
+   */
+
+.media {
+    display: block;
+}
+
+.media__img {
+    float: left;
+    margin-right: 23px;
+}
+
+
+/**
+   * Reversed image location (right instead of left).
+   */
+
+.media__img--rev {
+    float: right;
+    margin-left: 23px;
+}
+
+.media__img img,
+.media__img--rev img {
+    display: block;
+}
+
+.media__body {
+    overflow: hidden;
+}
+
+.media__body,
+.media__body> :last-child {
+    margin-bottom: 0;
+}
+
+
+/**
+   * Accordion-Banner
+   */
+
+.banner-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.banner {
+    position: absolute;
+    top: 0;
+    width: 110px;
+    height: 450px;
+    z-index: 10;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+
+/*Elements*/
+
+.banner__img {
+    max-width: none;
+}
+
+.banner__img,
+.banner__overlay {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.banner__content {
+    padding-top: 140px;
+    position: relative;
+}
+
+
+/*Elements' Modifiers*/
+
+.banner__img--static {
+    display: block;
+}
+
+.banner__overlay--high-voltage {
+    background: rgba(202, 17, 17, 0.65);
+}
+
+.banner__overlay--low-voltage {
+    background: rgba(16, 60, 93, 0.8);
+}
+
+.banner__overlay--iluminations {
+    background: rgba(238, 183, 6, 0.6);
+}
+
+.banner__overlay--renewable {
+    background: rgba(0, 121, 98, 0.7);
+}
+
+.banner-item {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.banner-item:hover+.banner-trigger:not(:checked)+.banner-wrap {
+    width: 110px;
+    -webkit-transition: width 0.3s ease;
+    -moz-transition: width 0.3s ease;
+    -ms-transition: width 0.3s ease;
+    -o-transition: width 0.3s ease;
+    transition: width 0.3s ease;
+}
+
+.banner-trigger {
+    display: none;
+}
+
+.banner-trigger:checked~.banner-wrap {
+    width: 100%;
+    -webkit-transition: width 0.1s ease;
+    -moz-transition: width 0.1s ease;
+    -ms-transition: width 0.1s ease;
+    -o-transition: width 0.1s ease;
+    transition: width 0.1s ease;
+}
+
+.banner-wrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    overflow: hidden;
+    border-left: 2px solid #FFF;
+    border-right: 2px solid #FFF;
+    -webkit-transition: width 0.3s ease;
+    -moz-transition: width 0.3s ease;
+    -ms-transition: width 0.3s ease;
+    -o-transition: width 0.3s ease;
+    transition: width 0.3s ease;
+}
+
+.banner-selected {
+    position: relative;
+    width: 100%;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 5 !important;
+}
+
+.banner-selected .banner-wrap {
+    width: 100%;
+    border: none;
+}
+
+.banner-selected.banner-2 .banner__content {
+    padding-left: 100px;
+}
+
+.banner-selected.banner-3 .banner__content {
+    padding-left: 250px;
+}
+
+.banner-selected.banner-4 .banner__content {
+    padding-left: 430px;
+}
+
+.banner-1 {
+    left: 15%;
+    z-index: 10;
+}
+
+.banner-2 {
+    left: 21%;
+    z-index: 9;
+}
+
+.banner-3 {
+    left: 27%;
+    z-index: 8;
+}
+
+.banner-4 {
+    left: 72%;
+    z-index: 7;
+}
+
+.banner-1.banner-selected+.banner-2 {
+    left: 60%;
+}
+
+.banner-2.banner-selected+.banner-3,
+.banner-1.banner-selected+.banner-2+.banner-3 {
+    left: 66%;
+}
+
+.banner-title {
+    text-transform: uppercase;
+    color: #FFF;
+    margin: 0;
+    font-size: 40px;
+    font-size: 2.85714rem;
+    line-height: 1.15;
+}
+
+.banner-title span {
+    display: block;
+}
+
+.fa-5x {
+    font-size: 95px;
+    color: #FFF;
+}
+
+#standard-3 .search-txt-input {
+    width: 200px;
+    -webkit-transition: width 0.5s ease-out;
+    transition: width 0.5s ease-out;
+}
+
+#standard-3 input[type=text]:focus {
+    width: 300px;
+}
+
+.search-txt-input {
+    padding: 12px 20px;
+    font-size: 14px;
+    border: 1px solid #c8c8c8;
+    border-right: 0px;
+    border-top-left-radius: 4px 4px;
+    border-bottom-left-radius: 4px 4px;
+    width: 200px;
 }
