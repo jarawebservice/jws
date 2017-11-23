@@ -2,6 +2,8 @@ extends layout
 
 block content
   main
+
+    
          
     .banner-container
       .banner.banner-1.banner-selected
@@ -95,70 +97,67 @@ block content
                   span
                     | is 
                     strong to help you drive your core and diversionary processes.
-    
-    .body-overlay
-      form#search-overlay-form(role='search', method='GET', action='https://codepen.io/NelBarnatia/pen/KdKbLV', autocomplete='off')
-        input(type='search', placeholder='Start your search here', name='q', value='')
-        |         
-        p Press enter to search for a product
-        |         
-        span.fa.fa-times      
-    article#content-container.container
+  
+    article#content-container.container-fluid.well-lg
       
+      .container-fluid
+            h2(style="color: black") What are you tryin' to accomplish?
       .container-down-top.home-layout
-        a(href='selection.html')
-          .row.push-down-top-lg
-            .col-sm-offset-2.col-sm-3.text-right.visible-md.visible-lg
-              img.home-icon(src='/images/selection.png', title='Selection')
+        div.home-content
+          a(href='selection.html')
+            section.soft-dev
+              .push-down-top-lg
+                .text-right
+                  img.home-icon(src='/images/selection.png', title='Selection')
+                |                         
+                .text-left
+                  h2 Software Development
+                  |                             
+                  p We take your ideas, no matter how complex, and we help you turn them into application What is dictating it.
+            |  
+          a(href='forms-markup.html')
+            section.animation               
+              .push-down-top-lg
+                .text-right
+                  img.home-icon(src='/images/forms.png', title='Selection')
+                |  
+                .text-left
+                  h2 Web Animation
+                  |                           
+                  p Custom validation and new elements make web forms more expressive and help facilitate a better user experience.
             |                         
-            .col-sm-6.text-left
-              h2 Software Development
-              |                             
-              p We take your ideas, no matter how complex, and we help you turn them into application .
-        |                 
-        a(href='forms-markup.html')
-          .row.push-down-top-lg
-            .col-sm-6.text-right
-              h2 Web Animation
-              |                             
-              p
-                | Custom validation and new elements make web forms more expressive and help facilitate a better user experience.
+                
+                  
+          a(href='media-basics.html')
+            section.mobile                 
+              .push-down-top-lg
+                .text-right
+                  img.home-icon(src='/images/media.png', title='Media')
+                |                         
+                .text-left
+                  h2 Mobile Application Development
+                  |                             
+                  p have mastered the technique of creating mobile applications for IOS, Android, and Windows App 
+            |
+          a(href='canvas-basics.html')
+            section.web-telephony                 
+              .push-down-top-lg
+                .text-right
+                  img.home-icon(src='/images/canvas.png', alt='Canvas')
+                |
+                .text-left
+                  h2 Web Telephony, Call Center, Interactive Voice Prompt                             
+                  p A native drawing context allowing you to create images and text via JavaScript.
             |                         
-            .col-sm-3.visible-md.visible-lg
-              img.home-icon(src='/images/forms.png', title='Selection')
-        |                 
-        a(href='media-basics.html')
-          .row.push-down-top-lg
-            .col-sm-offset-2.col-sm-3.text-right.visible-md.visible-lg
-              img.home-icon(src='/images/media.png', title='Media')
-            |                         
-            .col-sm-6.text-left
-              h2 Mobile Application Development
-              |                             
-              p
-                | We have mastered the technique of creating mobile applications for IOS, Android, and Windows App 
-        |                 
-        a(href='canvas-basics.html')
-          .row.push-down-top-lg
-            .col-sm-6.text-right
-              h2 Web Telephony, Call Center, Interactive Voice Prompt
-              |                             
-              p
-                | A native drawing context allowing you to create images and text via JavaScript.
-            |                         
-            .col-sm-3.visible-md.visible-lg
-              img.home-icon(src='/images/canvas.png', alt='Canvas')
-        |                 
-        a(href='dd-basics.html')
-          .row.push-down-top-lg
-            .col-sm-offset-2.col-sm-3.text-right.visible-md.visible-lg
-              img.home-icon(src='/images/dragdrop.png', alt='Drag & Drop')
-            |                         
-            .col-sm-6.text-left
-              h2 Drag &amp; Drop Interactivity
-              |                             
-              p
-                | Native APIs to create draggable elements and customize drop targets.
-        |
+          a(href='dd-basics.html')
+            section.domain-service               
+              .push-down-top-lg
+                .text-right
+                  img.home-icon(src='/images/dragdrop.png', alt='Drag & Drop')
+                |                         
+                .text-left
+                  h2 Drag &amp; Drop Interactivity
+                  p Native APIs to create draggable elements and customize drop targets.
+            |
 
 

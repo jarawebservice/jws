@@ -22,8 +22,7 @@ head
   link(rel='icon', type='image/png', href='img/favicon.png')
   |     
   link(rel='stylesheet', href='/stylesheets/bootstrap.css', type='text/css')
-  link(rel='stylesheet', href='/stylesheets/owl.carousel.min.css', type='text/css')
-  link(rel='stylesheet', href='/stylesheets/owl.theme.green.min.css', type='text/css')
+ 
   | 
   link(rel='stylesheet', href='/stylesheets/style.css')
   |     
@@ -66,7 +65,6 @@ head
               .dropdown
                 span.nav-link(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                   | Web API
-                  span.caret
                 |                                     
                 ul.dropdown-menu(aria-labelledby='dLabel')
                   li
@@ -80,33 +78,15 @@ head
                   |                                         
                   
             |                             
+                                        
             li
               .dropdown
                 span.nav-link(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                   | Multimedia Services
-                  span.caret
                 |                                     
                 ul.dropdown-menu(aria-labelledby='dLabel')
                   li
-                    h5 multimedia Services
-                  li
-                    a(href='media-basics.html') Video Conferencing
-                  |                                         
-                  li
-                    a(href='media-scripted.html') ECatalog/Brochure
-                  |                                         
-                  li
-                    a(href='media-dynamic.html') Dynamic Load
-            |                             
-            li
-              .dropdown
-                span.nav-link(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-                  | Multimedia Services
-                  span.caret
-                |                                     
-                ul.dropdown-menu(aria-labelledby='dLabel')
-                  li
-                    a(href='canvas-basics.html') Live Streaming
+                    a(href='canvas-basics.html') Video Conferencing
                   |                                         
                   li
                     a(href='canvas-manipulation.html') ECatalog/Brochure
@@ -124,7 +104,6 @@ head
               .dropdown
                 span.nav-link(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                   | ICT Services
-                  span.caret
                 |                                     
                 ul.dropdown-menu(aria-labelledby='dLabel')
                   li
@@ -141,7 +120,7 @@ head
                   |                                         
                   li
                     a(href='dd-files.html') SMS Marketing
-                  |             ssss                            
+                  |                                      
                   li
                     a(href='dd-files.html') Search Engine Optimization
 
@@ -151,7 +130,6 @@ head
             .input-group-btn
               button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                 | Action 
-                span.caret
               |         
               ul.dropdown-menu.dropdown-menu-right
                 li
@@ -236,7 +214,7 @@ head
           a.generic-anchor.footer-list-anchor(href='/shop/user-registration?URL=', itemprop='significantLink') Get Quotation
         |         
         li#order-tracking
-          a.generic-anchor.footer-list-anchor(href='/shop/order-status', itemprop='significantLink') ORDER STATUS
+          a.generic-anchor.footer-list-anchor(href='/shop/order-status', itemprop='significantLink') How we work
       |     
       section.footer-social-section.flex-rw
         span.footer-social-overlap.footer-social-connect
@@ -281,17 +259,8 @@ head
   script(src='/javascripts/bootstrap.js', type='text/javascript')
   |     
   script(src='/javascripts/highlight/highlight.pack.js', type='text/javascript')
-  script(src='/javascripts/owl.carousel.min.js', type='text/javascript')
-  |     
   script(src='/javascripts/app.js', type='text/javascript')
-  script.
-    $(document).ready(function() {
-    $('.owl-carousel').owlCarousel({ center: true, autoWidth:true, loop:true, margin:20, responsive:{ 600:{ items:2 } } });
-    $('.fadeOut').owlCarousel({ items:1, animateOut:'fadeOut', loop:true, margin:10, });
-
-    
-
-    });
+ 
 
   
           

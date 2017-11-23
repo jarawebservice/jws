@@ -1,5 +1,6 @@
 #content-container {
     margin-top: 64px;
+    padding: 0;
 }
 
 .home-banner {
@@ -241,6 +242,41 @@ li .dropdown {
     text-transform: uppercase;
 }
 
+ul.nav.navbar-nav li {
+    padding: 15px;
+    margin-left: 5px;
+    font-size: 18px;
+}
+
+.home-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.navbar-brand {
+    margin-right: 20px;
+}
+
+section.domain-service,
+section.web-telephony,
+section.mobile,
+section.animation,
+section.soft-dev {
+    margin-top: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+    background: brown;
+    padding: 30px;
+    display: inline-block;
+    width: 25em;
+    text-wrap: wrap;
+}
+
+section.soft-dev {
+    flex-shrink: 0;
+}
+
 .caret {
     display: inline-block;
     margin-left: 3px;
@@ -248,7 +284,6 @@ li .dropdown {
 
 footer {
     background-color: #0d314e;
-    min-height: 400px;
     margin-top: 200px;
     width: 100%;
     color: #fff;
@@ -314,31 +349,6 @@ summary {
     width: 60%;
 }
 
-//autoprefixer & reset used
-//Tested on Chrome, Firefox, IE11, and iOS.  The responsiveness & the social section is a bit off on IE11.  I'm looking to fix that.
-//It would be best to break down the flex properties into logical classes.  I've actually done that more extensively on the live Pavilion site,  but I've only included one here: flex-rw.
-$primary-light-blue: #8db9ed;
-$primary-line-color: #ccc;
-* {
-    box-sizing: border-box;
-}
-
-html,
-body {
-    height: 100%;
-}
-
-body {
-    font: 11px "Open Sans", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    margin: auto;
-    display: flex;
-    flex-flow: column nowrap;
-    //This justify-content is essentially unnecessary in Firefox and Chrome due to the flex: 1 1 auto on the main.  However, it's needed to push the footer down on IE11
-    justify-content: space-between;
-}
-
 ul {
     list-style: none;
 }
@@ -347,30 +357,9 @@ a {
     text-decoration: none;
 }
 
-.generic-anchor {
-    color: $primary-light-blue;
-    &:visited {
-        color: $primary-light-blue;
-    }
-    &:hover {
-        color: $primary-line-color;
-    }
-}
-
 .flex-rw {
     display: flex;
     flex-flow: row wrap;
-}
-
-//This main is mostly to push the footer to the bottom and for demo purposes.
-main {
-    flex: 1 1 auto; //For IE11
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font: 10em "Oswald", sans-serif;
-    color: rgb(155, 155, 155);
-    line-height: 1;
 }
 
 footer {
