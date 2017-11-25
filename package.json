@@ -16,5 +16,9 @@
     },
     "engines": {
         "node": "7.0.0"
-    }
+    },
+    "main": "index.js",
+    "repository": "https://github.com/waleander/jws.com",
+    "author": "Akin Oluyele <waleander@gmail.com>",
+    "license": "MIT"
 }

@@ -2,9 +2,6 @@ extends layout
 
 block content
   main
-
-    
-         
     .banner-container
       .banner.banner-1.banner-selected
         label.banner-item(for='banner-1')
@@ -12,7 +9,7 @@ block content
         input#banner-1.banner-trigger(type='radio', name='banner', checked='checked')
         |         
         .banner-wrap
-          img.banner__img(src='http://imageshack.com/a/img18/3363/n6wn.jpg', alt='Nuestro negocio es fabricar eficiencia')
+          
           |             
           .banner__overlay.banner__overlay--high-voltage
           |             
@@ -21,15 +18,17 @@ block content
               .media__img
                 i.fa.fa-refresh.fa-5x
               |                     
-              .media__body
-                a#search-trigger.search-trigger.fa.fa-search.pull-right(href='#')
+              .media__body 
                 
-                p.banner-title
-                  | Our Business 
+                p.banner-title.video-para
+                  | From Zero 
                   
                   span
                     | 
-                    strong life itself.
+                    strong to hero
+                  video.vid-background(width="1300" autoplay height="800" src="/images/video-banner.mp4")
+                  
+                  
             
       |     
       .banner.banner-2
@@ -38,14 +37,14 @@ block content
         input#banner-2.banner-trigger(type='radio', name='banner')
         |         
         .banner-wrap
-          img.banner__img(src='http://imageshack.com/a/img18/3363/n6wn.jpg', alt='Nuestro negocio es fabricar eficiencia')
+          img.banner__img(src='/images/banner2.jpg', alt='Jaracare Web Service can turn around your company for better Information technology')
           |             
           .banner__overlay.banner__overlay--low-voltage
           |             
           .banner__content
             .media
               .media__img
-                i.fa.fa-power-off.fa-5x
+                i.fa.fa-heart.fa-5x
               |                     
               .media__body
                 p.banner-title
@@ -60,14 +59,14 @@ block content
         input#banner-3.banner-trigger(type='radio', name='banner')
         |         
         .banner-wrap
-          img.banner__img(src='http://imageshack.com/a/img18/3363/n6wn.jpg', alt='Nuestro negocio es fabricar eficiencia')
+          img.banner__img(src='/images/banner.png', alt='We can connect you to the best Application programming interfaces')
           |             
           .banner__overlay.banner__overlay--iluminations
           |             
           .banner__content
             .media
               .media__img
-                i.fa.fa-music.fa-5x
+                i.fa.fa-gears.fa-5x
               |                     
               .media__body
                 p.banner-title
@@ -82,7 +81,7 @@ block content
         input#banner-4.banner-trigger(type='radio', name='banner')
         |         
         .banner-wrap
-          img.banner__img(src='http://imageshack.com/a/img18/3363/n6wn.jpg', alt='Nuestro negocio es fabricar eficiencia')
+          img.banner__img.img4(src='/images/1.jpg', alt='From Abuja, Nigeria, we develop the best softwares and provide ICT support for our teaming clients.')
           |             
           .banner__overlay.banner__overlay--renewable
           |             
@@ -93,15 +92,15 @@ block content
               |                     
               .media__body
                 p.banner-title
-                  | Our Business
+                  | From the heart of Abuja, Nigeria
                   span
-                    | is 
-                    strong to help you drive your core and diversionary processes.
+                    | we 
+                    strong are  meeting Nigeria's ICT needs one organization at a time.
   
     article#content-container.container-fluid.well-lg
       
       .container-fluid
-            h2(style="color: black") What are you tryin' to accomplish?
+            h2.home-h2 What are you tryin' to accomplish?
       .container-down-top.home-layout
         div.home-content
           a(href='selection.html')
@@ -149,15 +148,9 @@ block content
                   h2 Web Telephony, Call Center, Interactive Voice Prompt                             
                   p A native drawing context allowing you to create images and text via JavaScript.
             |                         
-          a(href='dd-basics.html')
-            section.domain-service               
-              .push-down-top-lg
-                .text-right
-                  img.home-icon(src='/images/dragdrop.png', alt='Drag & Drop')
-                |                         
-                .text-left
-                  h2 Drag &amp; Drop Interactivity
-                  p Native APIs to create draggable elements and customize drop targets.
-            |
+    section
+      #content-container.container-fluid.well-lg
+        .container-fluid
+          h2.home-h2 How would you like to accomplish it
 
 

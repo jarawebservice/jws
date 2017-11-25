@@ -1,16 +1,12 @@
 doctype html
 head
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <meta name="format-detection" content="telephone=no"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  meta(charset="utf-8")
+  meta(http-equiv="X-UA-Compatible" content="IE=edge, chrome=1")
+  meta(name="apple-mobile-web-app-capable" content="yes")
+  meta(name="apple-mobile-web-app-status-bar-style" content="black")
+  meta(name="format-detection" content="telephone=no")
+  meta(name="viewport" content="width=device-width, initial-scale=1.0")
   
-  <link rel="apple-touch-startup-image" href="/durandal/img/ios-startup-image-landscape.png" media="(orientation:landscape)" />
-  <link rel="apple-touch-startup-image" href="/durandal/img/ios-startup-image-portrait.png" media="(orientation:portrait)" />
-  <link rel="apple-touch-icon" href="/durandal/img/icon.png"/>
-      
   meta(http-equiv='x-ua-compatible', content='ie=edge')
   |     
   title Jaracare Web Services | An Internet Company
@@ -22,11 +18,9 @@ head
   link(rel='icon', type='image/png', href='img/favicon.png')
   |     
   link(rel='stylesheet', href='/stylesheets/bootstrap.css', type='text/css')
- 
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   | 
   link(rel='stylesheet', href='/stylesheets/style.css')
-  |     
-  link(rel='stylesheet', href='/stylesheets/site.css', type='text/css')
   |     
   script(src='/javascripts/modernizr.min.js', type='text/javascript')
  
@@ -46,7 +40,7 @@ head
             span.icon-bar
           | 
                                  
-          a.navbar-brand(href='index.html')
+          a.navbar-brand(href='/')
             
               <img src="/images/logo.png" title="Jara Web Service" class="hidden-sm" /> 
               <img src="/images/logo-sm.png" title="Jara Web Service" class="visible-sm" />
@@ -56,8 +50,6 @@ head
             li
               a.nav-link(href='example.html') Mobile App
             |                             
-            li.separator.visible-md.visible-lg |
-            |                             
             li
               a.nav-link(href='selection.html') Web App
             |                             
@@ -66,7 +58,7 @@ head
                 span.nav-link(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                   | Web API
                 |                                     
-                ul.dropdown-menu(aria-labelledby='dLabel')
+                ul.dropdown-menu(aria-labelledby='dLabel', id='dropdown')
                   li
                     a(href='forms-markup.html') API Integration
                   |                                         
@@ -141,90 +133,101 @@ head
   footer.flex-rw
       ul.footer-list-top
         li
-          h4.footer-list-header About Jara Web Services
+          h4.footer-list-header About JWS
         |         
         li
-          a.generic-anchor.footer-list-anchor(href='/shop/about-mission', itemprop='significantLink') Who are we
+          a.generic-anchor.footer-list-anchor(href='/shop/about-mission', itemprop='significantLink') Who we are
         |         
+        li
+          a.generic-anchor.footer-list-anchor(href='/shop/about-mission', itemprop='significantLink') What we do
         li
           a.generic-anchor.footer-list-anchor(href='/promos.html', itemprop='significantLink') Our Team
         |         
         li
-          a.generic-anchor.footer-list-anchor(href='/retailers/new-retailers.html', itemprop='significantLink') our projects
+          a.generic-anchor.footer-list-anchor(href='/retailers/new-retailers.html', itemprop='significantLink') Portfolio
         |         
         li
           a.generic-anchor.footer-list-anchor(href='/job-openings.html', itemprop='significantLink') Contact Us
         |         
         li
-          a.generic-anchor.footer-list-anchor(href='/shop/about-show-schedule', itemprop='significantLink') Case Study
+          a.generic-anchor.footer-list-anchor(href='/shop/about-show-schedule', itemprop='significantLink') Our approach to work
+        li
+          a.generic-anchor.footer-list-anchor(href='/shop/about-show-schedule', itemprop='significantLink') Blog
+        li
+          a.generic-anchor.footer-list-anchor(href='/shop/about-show-schedule', itemprop='significantLink') FAQs
       |     
       ul.footer-list-top
         li
-          h4.footer-list-header Consultancy Services
+          h4.footer-list-header Service
+        |         
+        li 
+          i.fa.fa-code.fa-2x
+          a.generic-anchor.footer-list-anchor(href='/web-development') Web Apps Development
         |         
         li
-          a.generic-anchor.footer-list-anchor(href='/Angels/cat/id/70') Jaracare
+          i.fa.fa-mobile-phone.fa-2x
+          a.generic-anchor.footer-list-anchor(href='/mobile-development') Mobile Apps Development
         |         
         li
-          a.generic-anchor.footer-list-anchor(href='/Home-Decor/cat/id/64') Jaracare
+          i.fa.fa-cogs.fa-2x
+          a.generic-anchor.footer-list-anchor(href='/web-services') Web Services Development
         |         
         li
-          a.generic-anchor.footer-list-anchor(href='/Mugs/cat/id/32') Jaracare
+          i.fa.fa-globe.fa-2x
+          a.generic-anchor.footer-list-anchor(href='/web-authoring') Web Content Authoring
         |         
         li
-          a.generic-anchor.footer-list-anchor(href='/Pet-Lover/cat/id/108') Jaracare
-        |         
-        li
-          a.generic-anchor.footer-list-anchor(href='/Ladies-Accessories/cat/id/117', target='_blank') Webservices &amp; Jaracare
+          i.fa.fa-database.fa-2x
+          a.generic-anchor.footer-list-anchor(href='/domain-and-web-hosting') Domain &amp; Hosting
       |     
       ul.footer-list-top
         li#help
-          h4.footer-list-header Technological
+          h4.footer-list-header Technologies
         |         
         li
-          a.generic-anchor.footer-list-anchor(href='/shop/about-contact', itemprop='significantLink') CONTACT
+          a.generic-anchor.footer-list-anchor(href='/shop/about-contact', itemprop='significantLink') React
         |         
         li
-          a.generic-anchor.footer-list-anchor(href='/faq.html', itemprop='significantLink') FAQ
+          a.generic-anchor.footer-list-anchor(href='/faq.html', itemprop='significantLink') Xamarin
         |         
         li#find-a-store
-          a.generic-anchor.footer-list-anchor(href='/shop/store-locator', itemprop='significantLink') Legal
+          a.generic-anchor.footer-list-anchor(href='/shop/store-locator', itemprop='significantLink') Wordpress
         |         
         li#user-registration
-          a.generic-anchor.footer-list-anchor(href='/shop/user-registration?URL=', itemprop='significantLink') Get Quotation
+          a.generic-anchor.footer-list-anchor(href='/shop/user-registration?URL=', itemprop='significantLink') Express
         |         
         li#order-tracking
-          a.generic-anchor.footer-list-anchor(href='/shop/order-status', itemprop='significantLink') How we work
+          a.generic-anchor.footer-list-anchor(href='/shop/order-status', itemprop='significantLink') HTML5
       |     
       section.footer-social-section.flex-rw
         span.footer-social-overlap.footer-social-connect
-          | CONNECT 
-          span.footer-social-small with
-          |  US
+          | We 
+          span.footer-social-small are
+          |  Social animals
         |         
         span.footer-social-overlap.footer-social-icons-wrapper
-          a.generic-anchor(href='https://www.pinterest.com/paviliongift/', target='_blank', title='Pinterest', itemprop='significantLink')
+          a.generic-anchor(href='', target='_blank', title='Pinterest', itemprop='significantLink')
             i.fa.fa-pinterest
           |       
-          a.generic-anchor(href='https://www.facebook.com/paviliongift', target='_blank', title='Facebook', itemprop='significantLink')
+          a.generic-anchor(href='', target='_blank', title='Facebook', itemprop='significantLink')
             i.fa.fa-facebook
           |       
-          a.generic-anchor(href='https://twitter.com/PavilionGiftCo', target='_blank', title='Twitter', itemprop='significantLink')
+          a.generic-anchor(href='', target='_blank', title='Twitter', itemprop='significantLink')
             i.fa.fa-twitter
           |       
-          a.generic-anchor(href='http://instagram.com/paviliongiftcompany', target='_blank', title='Instagram', itemprop='significantLink')
+          a.generic-anchor(href='', target='_blank', title='Instagram', itemprop='significantLink')
             i.fa.fa-instagram
           |       
-          a.generic-anchor(href='https://www.youtube.com/channel/UCYgUODvd0qXbu_LkUWpTVEg', target='_blank', title='Youtube', itemprop='significantLink')
+          a.generic-anchor(href='', target='_blank', title='Youtube', itemprop='significantLink')
             i.fa.fa-youtube
           |       
-          a.generic-anchor(href='https://plus.google.com/+Paviliongift/posts', target='_blank', title='Google Plus', itemprop='significantLink')
+          a.generic-anchor(href='', target='_blank', title='Google Plus', itemprop='significantLink')
             i.fa.fa-google-plus
       |     
       section.footer-bottom-section.flex-rw
         .footer-bottom-wrapper
           i.fa.fa-copyright(role='copyright')
-          |  2015 Pavilion in 
+          |  2017 Jara Group in 
           address.footer-address(role='company address') Abuja, Nigeria
           span.footer-bottom-rights  - All Rights Reserved - 
         |         
