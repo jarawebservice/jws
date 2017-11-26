@@ -11,6 +11,7 @@
         "compass-sass-mixins": "^0.12.7",
         "cookie-parser": "~1.4.3",
         "debug": "~2.6.9",
+        "domainr-search-box": "^0.0.17",
         "express": "~4.15.5",
         "gulp": "^3.9.1",
         "gulp-autoprefixer": "^4.0.0",

@@ -29,6 +29,8 @@ head
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   | 
   link(rel='stylesheet', href='/stylesheets/style.css')
+  link(rel='stylesheet', type='text/css', href='//cdnjs.cloudflare.com/ajax/libs/domainr-search-box/0.0.5/domainr-search-box.css')
+
   |     
   script(src='/javascripts/modernizr.min.js', type='text/javascript')
  
@@ -253,6 +255,23 @@ head
   script(src='/javascripts/jquery.min.js', type='text/javascript')
   script(src='/javascripts/bootstrap.js', type='text/javascript')
   script(src='/javascripts/bundle.js', type='text/javascript')
+  script(src='//cdnjs.cloudflare.com/ajax/libs/domainr-search-box/0.0.5/domainr-search-box.min.js')
+
+  script.
+    new domainr.SearchBox({
+      mashapeKey: 'X-Mashape-Key: JPEuqp1dwymsh9J6fBdbeqUSOGDpp1QdM3VjsnuNyYdg8kC7Fm',
+      // clientId: 'yourClientId', // or alternatively your clientId (for high-volume customers), in which case you don't need a Mashape key
+      observe: document.getElementById('search'),
+      renderTo: document.getElementById('results'),
+      limit: 10, // limit to 10 results
+      registrar: 'namecheap.com', // only return a registrar's supported TLDs
+      defaults: ['coffee', 'rocks', 'co', 'io'], // include these TLDs by default
+      onSelect: function(result) {
+        window.open('https://api.domainr.com/v2/register?registrar=namecheap.com&domain=' + result.domain);
+      }
+    });
+
+    https://api.sandbox.namecheap.com/xml.response?ApiUser=ncuser&ApiKey=apikey&UserName=ncuser&ClientIp=121.22.123.22&Command=namecheap.domains.check&DomainList=domain1.com,domain2.com
  
 
   

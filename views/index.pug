@@ -27,28 +27,28 @@ block content
                       | to
                       strong  hero
                     
-      |     
-      .banner.banner-2
-        label.banner-item(for='banner-2')
-        |         
-        input#banner-2.banner-trigger(type='radio', name='banner')
-        |         
-        .banner-wrap
-          img.banner__img(src='/images/banner2.jpg', alt='Jaracare Web Service can turn around your company for better Information technology')
-          |             
-          .banner__overlay.banner__overlay--low-voltage
-          |             
-          .banner__content
-            .media
-              .media__img
-                i.fa.fa-heart.fa-5x
-              |                     
-              .media__body
-                p.banner-title
-                  | Our Business
-                  span
-                    | is 
-                    strong to meet your technological goals.
+      //- |     
+      //- .banner.banner-2
+      //-   label.banner-item(for='banner-2')
+      //-   |         
+      //-   input#banner-2.banner-trigger(type='radio', name='banner')
+      //-   |         
+      //-   .banner-wrap
+      //-     img.banner__img(src='/images/banner2.jpg', alt='Jaracare Web Service can turn around your company for better Information technology')
+      //-     |             
+      //-     .banner__overlay.banner__overlay--low-voltage
+      //-     |             
+      //-     .banner__content
+      //-       .media
+      //-         .media__img
+      //-           //- i.fa.fa-heart.fa-5x
+      //-         |                     
+      //-         .media__body
+      //-           p.banner-title
+      //-             | Our Business
+      //-             span
+      //-               | is 
+      //-               strong to meet your technological goals.
       |     
       .banner.banner-3
         label.banner-item(for='banner-3')
@@ -71,34 +71,35 @@ block content
                   span
                     | is 
                     strong to give your organisation a value in the tech space.
-      |     
-      .banner.banner-4
-        label.banner-item(for='banner-4')
-        |         
-        input#banner-4.banner-trigger(type='radio', name='banner')
-        |         
-        .banner-wrap
-          img.banner__img.img4(src='/images/1.jpg', alt='From Abuja, Nigeria, we develop the best softwares and provide ICT support for our teaming clients.')
-          |             
-          .banner__overlay.banner__overlay--renewable
-          |             
-          .banner__content
-            .media
-              .media__img
-                i.fa.fa-star.fa-5x
-              |                     
-              .media__body
-                p.banner-title
-                  | From the heart of Abuja, Nigeria
-                  span
-                    | we 
-                    strong are  meeting Nigeria's ICT needs one organization at a time.
+      //- |     
+      //- .banner.banner-4
+      //-   label.banner-item(for='banner-4')
+      //-   |         
+      //-   input#banner-4.banner-trigger(type='radio', name='banner')
+      //-   |         
+      //-   .banner-wrap
+      //-     img.banner__img.img4(src='/images/1.jpg', alt='From Abuja, Nigeria, we develop the best softwares and provide ICT support for our teaming clients.')
+      //-     |             
+      //-     .banner__overlay.banner__overlay--renewable
+      //-     |             
+      //-     .banner__content
+      //-       .media
+      //-         .media__img
+      //-           i.fa.fa-star.fa-5x
+      //-         |                     
+      //-         .media__body
+      //-           p.banner-title
+      //-             | From the heart of Abuja, Nigeria
+      //-             span
+      //-               | we 
+      //-               strong are  meeting Nigeria's ICT needs one organization at a time.
 
   section
     //- h3 Search Domains
     //- button#toggle-search.header-button Search
     form.search-form(action='')
-        input(name='search-terms', type='search', placeholder='Type here to search for the right Domain for you')
+        input( type='search', name='search' autofocus  placeholder='Claim that domain here')
+        <div id="results"></div>
         input(type='submit', value='find domain')
   
   article#content-container.container-fluid.well-lg
