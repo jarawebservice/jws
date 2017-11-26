@@ -1116,59 +1116,24 @@ li .dropdown {
     cursor: pointer;
 }
 
-#toggle-menu {
-    float: left;
-    background-position: 0 0;
-    background-color: #bc0023;
-}
-
-#toggle-search {
-    float: right;
-    background-position: -60px 0;
-    &.open:after {
-        top: 0;
-    }
-    &:after {
-        @include transition(right,
-        0.5s);
-        position: absolute;
-        top: 52px;
-        left: 50%;
-        margin-left: -8px;
-        content: "";
-        border-color: transparent transparent #e1e4e7;
-        border-style: solid;
-        border-width: 8px 8px 12px;
-    }
-}
-
-#toggle-basket {
-    position: relative;
-    float: right;
-    background-position: -120px 0;
-    &:before {
-        position: absolute;
-        top: 5px;
-        left: 0;
-        width: 2px;
-        height: 50px;
-        content: "";
-        background-color: #000;
-    }
-}
-
-#search-form {
+.search-form {
     @include transition(max-height,
     0.5s);
     position: absolute;
     top: 0;
-    left: 60px;
-    width: 100%;
-    max-height: 0;
+    left: 0px;
+    width: 90%;
+    max-height: 90px;
+    font-size: 20px;
     overflow: hidden;
-    background-color: #e1e4e7;
+    position: relative;
+    color: #fff;
+    background-color: #25323d;
+    width: 100%;
+    height: 75px;
+    margin: 0 auto;
     &.open {
-        max-height: 80px;
+        max-height: 90px;
     }
     fieldset {
         position: relative;
@@ -1189,13 +1154,12 @@ li .dropdown {
     }
     input[type="submit"] {
         position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 60px;
+        bottom: 10px;
+        right: 5px;
+        width: 200px;
         z-index: 5;
-        margin: 0;
-        padding: 0;
-        font-weight: 700;
+        margin: auto;
+        font-weight: 600;
         text-transform: uppercase;
         color: #516270;
         background: #c6cacd;
