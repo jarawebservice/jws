@@ -1167,3 +1167,11 @@ li .dropdown {
         cursor: pointer;
     }
 }
+
+section.search-section {
+    position: absolute;
+    bottom: 300px;
+    z-index: 300;
+    left: 300px;
+    width: 60%;
+}

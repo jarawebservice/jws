@@ -4,6 +4,13 @@ block content
   main
    
     .banner-container
+      section.search-section
+        //- h3 Search Domains
+        //- button#toggle-search.header-button Search
+        form.search-form(action='')
+            input( type='search', name='search' autofocus  placeholder='Claim that domain here')
+            <div id="results"></div>
+            input(type='submit', value='find domain')
       .banner.banner-1.banner-selected
         label.banner-item(for='banner-1')
         |         
@@ -50,10 +57,10 @@ block content
       //-               | is 
       //-               strong to meet your technological goals.
       |     
-      .banner.banner-3
-        label.banner-item(for='banner-3')
+      .banner.banner-4
+        label.banner-item(for='banner-2')
         |         
-        input#banner-3.banner-trigger(type='radio', name='banner')
+        input#banner-4.banner-trigger(type='radio', name='banner')
         |         
         .banner-wrap
           img.banner__img(src='/images/banner.png', alt='We can connect you to the best Application programming interfaces')
@@ -94,13 +101,7 @@ block content
       //-               | we 
       //-               strong are  meeting Nigeria's ICT needs one organization at a time.
 
-  section
-    //- h3 Search Domains
-    //- button#toggle-search.header-button Search
-    form.search-form(action='')
-        input( type='search', name='search' autofocus  placeholder='Claim that domain here')
-        <div id="results"></div>
-        input(type='submit', value='find domain')
+  
   
   article#content-container.container-fluid.well-lg
     .container-fluid
