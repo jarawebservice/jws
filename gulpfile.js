@@ -1,11 +1,14 @@
 var gulp = require('gulp'),
-    pug = require('gulp-pug');
-sass = require('gulp-sass'),
+    pug = require('gulp-pug'),
+    sass = require('gulp-sass'),
     minifyCSS = require('gulp-csso'),
     autoprefixer = require('gulp-autoprefixer'),
     nodemon = require('gulp-nodemon'),
-    livereload = require('gulp-livereload')
-sourcemaps = require('gulp-sourcemaps');
+    livereload = require('gulp-livereload'),
+    gutil = require('gulp-util'),
+    sourcemaps = require('gulp-sourcemaps'),
+    concat = require('gulp-concat');
+
 
 gulp.task('html', function() {
     return gulp.src('views/*.pug')
@@ -24,14 +27,14 @@ gulp.task('styles', function() {
         .pipe(livereload());
 });
 
-gulp.task('build-js', function() {
+gulp.task('scripts', function() {
     return gulp.src('public/javascripts/app.js')
         .pipe(sourcemaps.init())
         .pipe(concat('bundle.js'))
         //only uglify if gulp is ran with '--type production'
         .pipe(gutil.env.type === 'production' ? uglify() : gutil.noop())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('public/javascript'));
+        .pipe(gulp.dest('public/javascripts'));
 });
 
 gulp.task('pug', function() {
@@ -55,4 +58,4 @@ gulp.task('server', function() {
 
 gulp.task('serve', ['server', 'watch']);
 
-gulp.task('default', ['html', 'styles', 'serve']);
+gulp.task('default', ['html', 'styles', 'scripts', 'serve']);

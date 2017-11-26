@@ -2,6 +2,7 @@ extends layout
 
 block content
   main
+   
     .banner-container
       .banner.banner-1.banner-selected
         label.banner-item(for='banner-1')
@@ -9,27 +10,23 @@ block content
         input#banner-1.banner-trigger(type='radio', name='banner', checked='checked')
         |         
         .banner-wrap
-          
+          video(width="1300" autoplay height="800" loop src="/images/video-banner.mp4")
           |             
-          .banner__overlay.banner__overlay--high-voltage
+          .banner__overlay.banner__overlay--low-voltage
           |             
           .banner__content
             .media
               .media__img
                 i.fa.fa-refresh.fa-5x
-              |                     
-              .media__body 
-                
-                p.banner-title.video-para
-                  | From Zero 
-                  
-                  span
-                    | 
-                    strong to hero
-                  video.vid-background(width="1300" autoplay height="800" src="/images/video-banner.mp4")
-                  
-                  
-            
+                |                     
+                .media__body 
+                  p.banner-title
+                    | From Zero 
+                    
+                    span
+                      | to
+                      strong  hero
+                    
       |     
       .banner.banner-2
         label.banner-item(for='banner-2')
@@ -96,11 +93,18 @@ block content
                   span
                     | we 
                     strong are  meeting Nigeria's ICT needs one organization at a time.
+
+  section#search-domain
+    h3 Search Domains
+    button#toggle-search.header-button Search
+    form#search-form(action='')
+      fieldset
+        input(name='search-terms', type='search', placeholder='Search ()')
+        input(type='submit', value='Ok')
   
-    article#content-container.container-fluid.well-lg
-      
-      .container-fluid
-            h2.home-h2 What are you tryin' to accomplish?
+  article#content-container.container-fluid.well-lg
+    .container-fluid
+      h2.home-h2 What are you tryin' to accomplish?
       .container-down-top.home-layout
         div.home-content
           a(href='selection.html')
@@ -147,10 +151,11 @@ block content
                 .text-left
                   h2 Web Telephony, Call Center, Interactive Voice Prompt                             
                   p A native drawing context allowing you to create images and text via JavaScript.
-            |                         
-    section
-      #content-container.container-fluid.well-lg
-        .container-fluid
-          h2.home-h2 How would you like to accomplish it
+            |                 
+  
+  section
+    #content-container.container-fluid.well-lg
+      .container-fluid
+        h2.home-h2 How would you like to accomplish it
 
 
