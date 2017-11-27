@@ -437,7 +437,7 @@ select {
 
 h2,
 .h2 {
-    font-size: 1.6em;
+    font-size: 2.5em;
 }
 
 .text-left {
@@ -734,7 +734,7 @@ li .dropdown {
 }
 
 #search-domain {
-    @include pie-clearfix;
+    @include pie-clearfix();
     position: relative;
     color: #fff;
     background-color: #25323d;
@@ -809,7 +809,7 @@ li .dropdown {
         background: transparent;
         border: none;
         color: orange;
-        font-size: 1.5;
+        font-size: 1.5em;
         font-weight: 600;
     }
     input[type="submit"] {
