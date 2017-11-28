@@ -59,7 +59,7 @@
             var parent = $(this).parent();
 
             $('.banner').removeClass('banner-selected');
-            parent.addClass('banner-selected');
+            parent.addClass('banner-selected', 'dontShow');
         });
     });
 
