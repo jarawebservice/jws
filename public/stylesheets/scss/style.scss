@@ -487,7 +487,7 @@ footer {
     margin-top: 200px;
     color: $white;
     border-top: solid 20px $moreGrayish;
-    height: 64em;
+    height: 80em;
     margin-top: auto;
     width: 100%;
     padding: 20px 30px 0 40px;
@@ -559,14 +559,6 @@ a {
     border-bottom: 1px solid $mixBlue;
 }
 
-.footer-social-section::after {
-    content: "We are cool";
-    z-index: 1;
-    top: 50%;
-    left: 10px;
-    width: calc(100% - 20px);
-}
-
 .footer-social-overlap {
     position: relative;
     z-index: 2;
@@ -610,6 +602,72 @@ a {
     font-style: normal;
 }
 
+.search-form {
+    @include transition(max-height,
+    0.5s);
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 90%;
+    max-height: 90px;
+    font-size: 1.5em;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+    background-color: #f9fcff;
+    box-shadow: -1px 0px 24px 0px rgba(50, 50, 50, 1);
+    width: 100%;
+    height: 75px;
+    margin: 0 auto;
+    &.open {
+        max-height: 90px;
+    }
+    fieldset {
+        position: relative;
+        margin: 0 60px 0 0;
+        padding: 0;
+        border: none;
+    }
+    input {
+        @include box-sizing(border-box);
+        display: block;
+        height: 60px;
+    }
+    input[type="search"] {
+        width: 100%;
+        padding: 0 5px 0 22px;
+        background: transparent;
+        border: none;
+        color: orange;
+        font-size: 1.5em;
+        font-weight: 600;
+    }
+    input[type="submit"] {
+        position: absolute;
+        bottom: 10px;
+        right: 5px;
+        max-width: 200px;
+        z-index: 5;
+        margin: auto;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #516270;
+        background: #c6cacd;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+section.search-section {
+    position: absolute;
+    bottom: 300px;
+    z-index: 300;
+    width: 65%;
+    margin: auto;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
 @media only screen and(max-width: 768px) {
     .footer-list-header {
         font-size: 2em;
@@ -628,8 +686,36 @@ a {
     }
 }
 
+@media only screen and(max-width: 768px) {
+    section.search-section {
+        left: 35px;
+        width: 85%;
+    }
+    .search-form input[type=search] {
+        width: 100%;
+    }
+}
+
+@media only screen and(max-width: 415px) {
+    section.search-section {
+        left: 0px;
+        width: 85%;
+    }
+    .search-form input[type=search] {
+        width: 100%;
+        font-size: 1em;
+    }
+    .search-form input[type=submit] {
+        max-width: 100px;
+        font-size: .5em;
+        font-weight: 400;
+    }
+}
+
 @media only screen and(max-width: 568px) {
-    main {}
+    footer {
+        height: auto;
+    }
     .footer-list-top {
         width: 100%;
     }
@@ -770,68 +856,4 @@ li .dropdown {
     background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAA8CAQAAABlJ1gMAAABfElEQVR42u3ZsU7CUBhA4U6Iib5IITigOzMzzwUMmNA3MRofwMSRCDB1MPIAOoDBHAch0VhUCb2Ecr4uBJb23Oa/FKJIkiRJkiRJkiRJygENElJSEhpEmxz6W+Z7Vu43S71PlxvTZsiMGQ+0iTe7szY6EuCOmJg7IClwaEr0eOOzN/ocBwqdwnJhYyAtbGhK3ACQcEGZMhckANxSChIayHxduNCXwISzL6deYQT0Chma3+RzmRUWQO3b+2fAgkrOgbd0vfsQurN2A0qATgFD72hwDIHzzNM/B4YBRkbW6Chg6DlwlHn6R8Dc0PmHPgWeA22C//lsT2f0+tFRBwaGDrMZdgsYekejo7rm610NWFA1dIgHlqtgDyoHEXr1CN6nTokT6vQBgAktZ/Q2j6wfla6ZAOMcUx9g6I9h0WXEKy8M6FIlosU419SHNjp+WPp8Uxs6UGpDZ6Y2dJDUedzRTz/uSFP/nN3WAjaZrs38SNPQkiRJkiRJkiRJKoB36w+U2Cj/A/EAAAAASUVORK5CYII=');
     border: none;
     cursor: pointer;
-}
-
-.search-form {
-    @include transition(max-height,
-    0.5s);
-    position: absolute;
-    top: 0;
-    left: 0px;
-    width: 90%;
-    max-height: 90px;
-    font-size: 1.5em;
-    overflow: hidden;
-    position: relative;
-    color: #fff;
-    background-color: #f9fcff;
-    box-shadow: -1px 0px 24px 0px rgba(50, 50, 50, 1);
-    width: 100%;
-    height: 75px;
-    margin: 0 auto;
-    &.open {
-        max-height: 90px;
-    }
-    fieldset {
-        position: relative;
-        margin: 0 60px 0 0;
-        padding: 0;
-        border: none;
-    }
-    input {
-        @include box-sizing(border-box);
-        display: block;
-        height: 60px;
-    }
-    input[type="search"] {
-        width: 100%;
-        padding: 0 5px 0 22px;
-        background: transparent;
-        border: none;
-        color: orange;
-        font-size: 1.5em;
-        font-weight: 600;
-    }
-    input[type="submit"] {
-        position: absolute;
-        bottom: 10px;
-        right: 5px;
-        max-width: 200px;
-        z-index: 5;
-        margin: auto;
-        font-weight: 600;
-        text-transform: uppercase;
-        color: #516270;
-        background: #c6cacd;
-        border: none;
-        cursor: pointer;
-    }
-}
-
-section.search-section {
-    position: absolute;
-    bottom: 300px;
-    z-index: 300;
-    left: 300px;
-    width: 60%;
 }
