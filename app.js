@@ -7,7 +7,18 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var webAuthoring = require('./routes/web-authoring');
+var domainSearch = require('./routes/search-domain');
 var users = require('./routes/users');
+var web = require('./routes/web');
+var webAnime = require('./routes/web-animation');
+var videoCon = require('./routes/video-conferencing');
+var socialMarketing = require('./routes/social-marketing');
+var webHost = require('./routes/web-hosting');
+var ws = require('./routes/web-services');
+var ecat = require('./routes/ecatalog');
+var api = require('./routes/api');
+var mobile = require('./routes/mobile');
+var seo = require('./routes/seo');
 
 var app = express();
 
@@ -21,7 +32,18 @@ app.use(express.static(path.resolve(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/web-authoring', webAuthoring);
+app.use('/domain-search', domainSearch);
 app.use('/users', users);
+app.use('/mobile', mobile);
+app.use('/seo', seo);
+app.use('/video-conferencing', videoCon);
+app.use('/social-marketing', socialMarketing);
+app.use('/web-animation', webAnime);
+app.use('/web-hosting', webHost);
+app.use('/web-services', ws);
+app.use('/web', web);
+app.use('/ecatalog', ecat);
+app.use('/api', api);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

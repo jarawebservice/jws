@@ -1,5 +1,7 @@
 doctype html
+
 head
+  title #{title}
   meta(charset="utf-8")
   meta(http-equiv="X-UA-Compatible" content="IE=edge, chrome=1")
   meta(name="apple-mobile-web-app-capable" content="yes")
@@ -7,33 +9,21 @@ head
   meta(name="format-detection" content="telephone=no")
   meta(name="viewport" content="width=device-width, initial-scale=1.0")
   meta(name="google-site-verification" content="m_SUL8e5mVCb8mkYqMlg466KK-pAzSD_cLOHwwCPZkU")
-  
   meta(http-equiv='x-ua-compatible', content='ie=edge')
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="theme-color" content="#ffffff">
-
-  |     
-  title Jaracare Web Services | An Internet Company
-  |     
-  meta(name='description', content='Jaracare helps company achieve the goals using the right technologies as a lever')
-  |     
+  meta(name="theme-color" content="#ffffff")
+  link(rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png")
+  link(rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png")
+  link(rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png")
+  link(rel="manifest" href="/manifest.json")
+  link(rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5")
+  meta(name='description', content=content)
   meta(name='viewport', content='width=device-width, initial-scale=1')
-  |     
   link(rel='icon', type='image/png', href='img/favicon.png')
-  |     
   link(rel='stylesheet', href='/stylesheets/bootstrap.css', type='text/css')
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-  | 
+  link(rel="stylesheet" href="/font-awesome/css/font-awesome.min.css")
   link(rel='stylesheet', href='/stylesheets/style.css')
-  link(rel='stylesheet', type='text/css', href='//cdnjs.cloudflare.com/ajax/libs/domainr-search-box/0.0.5/domainr-search-box.css')
-
-  |     
   script(src='/javascripts/modernizr.min.js', type='text/javascript')
+  
 |
 body
   header
@@ -59,10 +49,10 @@ body
         #navbar.navbar-collapse.collapse
           ul.nav.navbar-nav
             li
-              a.nav-link(href='example.html') Mobile App
+              a.nav-link(href='/mobile') Mobile App
             |                             
             li
-              a.nav-link(href='selection.html') Web App
+              a.nav-link(href='/web') Web App
             |                             
             li
               .dropdown
@@ -71,14 +61,10 @@ body
                 |                                     
                 ul.dropdown-menu(aria-labelledby='dLabel', id='dropdown')
                   li
-                    a(href='forms-markup.html') API Integration
+                    a(href='/api') API Integration
                   |                                         
                   li
-                    a(href='forms-pseudo-classes.html') Web Services
-                  |                                         
-                  li
-                    a(href='forms-validation.html') Native Application
-                  |                                         
+                    a(href='/web-services') Web Services
                   
             |                             
                                         
@@ -89,43 +75,38 @@ body
                 |                                     
                 ul.dropdown-menu(aria-labelledby='dLabel')
                   li
-                    a(href='canvas-basics.html') Video Conferencing
+                    a(href='/video-conferencing') Video Conferencing
                   |                                         
                   li
-                    a(href='canvas-manipulation.html') ECatalog/Brochure
+                    a(href='ECatalog') ECatalog/Brochure
                   |                                         
                   li
-                    a(href='canvas-clipping.html') Web Animation
-                  |                                         
-                  li
-                    a(href='canvas-charts.html') Charts
-                  |                                         
-                  li
-                    a(href='canvas-video.html') Video
+                    a(href='Web-Animation') Web Animation
+                  
             |                             
             li
               .dropdown
                 span.nav-link(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-                  | ICT Services
+                  | Internet Services
                 |                                     
                 ul.dropdown-menu(aria-labelledby='dLabel')
                   li
-                    a(href='dd-basics.html') Web Hosting
+                    a(href='web-hosting') Web Hosting
                   |                                         
                   li
-                    a(href='dd-effects.html') Domain Name Registration
+                    a(href='domain') Domain Name Registration
                   |                                         
                   li
-                    a(href='dd-datatransfer.html') Internet Marketing
+                    a(href='internet') Internet Marketing
                   |                                         
                   li
-                    a(href='dd-files.html') Content Writing
+                    a(href='content-writing') Content Writing
                   |                                         
                   li
-                    a(href='dd-files.html') SMS Marketing
+                    a(href='sms') SMS Marketing
                   |                                      
                   li
-                    a(href='dd-files.html') Search Engine Optimization
+                    a(href='seo') Search Engine Optimization
 
         
           
@@ -147,25 +128,25 @@ footer.flex-rw.container-fluid
       h4.footer-list-header About JWS
     |         
     li
-      a.generic-anchor.footer-list-anchor(href='/shop/about-mission', itemprop='significantLink') Who we are
+      a.generic-anchor.footer-list-anchor(href='/who-we-are', itemprop='significantLink') Who we are
     |         
     li
-      a.generic-anchor.footer-list-anchor(href='/shop/about-mission', itemprop='significantLink') What we do
+      a.generic-anchor.footer-list-anchor(href='/what-we-do', itemprop='significantLink') What we do
     li
-      a.generic-anchor.footer-list-anchor(href='/promos.html', itemprop='significantLink') Our Team
+      a.generic-anchor.footer-list-anchor(href='/our-team', itemprop='significantLink') Our Team
     |         
     li
-      a.generic-anchor.footer-list-anchor(href='/retailers/new-retailers.html', itemprop='significantLink') Portfolio
+      a.generic-anchor.footer-list-anchor(href='/portfolio', itemprop='significantLink') Portfolio
     |         
     li
-      a.generic-anchor.footer-list-anchor(href='/job-openings.html', itemprop='significantLink') Contact Us
+      a.generic-anchor.footer-list-anchor(href='/contact', itemprop='significantLink') Contact Us
     |         
     li
-      a.generic-anchor.footer-list-anchor(href='/shop/about-show-schedule', itemprop='significantLink') Our approach to work
+      a.generic-anchor.footer-list-anchor(href='/our-approach', itemprop='significantLink') Our approach to work
     li
-      a.generic-anchor.footer-list-anchor(href='/shop/about-show-schedule', itemprop='significantLink') Blog
+      a.generic-anchor.footer-list-anchor(href='/blog', itemprop='significantLink') Blog
     li
-      a.generic-anchor.footer-list-anchor(href='/shop/about-show-schedule', itemprop='significantLink') FAQs
+      a.generic-anchor.footer-list-anchor(href='/faqs', itemprop='significantLink') FAQs
   |     
   ul.footer-list-top
     li
@@ -175,7 +156,7 @@ footer.flex-rw.container-fluid
       
       |   
       i.fa.fa-code   
-      a.generic-anchor.footer-list-anchor(href='/web-development') 
+      a.generic-anchor.footer-list-anchor(href='/web') 
         | Web Apps Development
 
     |         
@@ -183,7 +164,7 @@ footer.flex-rw.container-fluid
       
       |   
       i.fa.fa-mobile-phone   
-      a.generic-anchor.footer-list-anchor(href='/mobile-development') 
+      a.generic-anchor.footer-list-anchor(href='/mobile') 
         | Mobile Apps Development
     |         
     li
@@ -214,19 +195,19 @@ footer.flex-rw.container-fluid
       h4.footer-list-header Technologies
     |         
     li
-      a.generic-anchor.footer-list-anchor(href='/shop/about-contact', itemprop='significantLink') React
+      a.generic-anchor.footer-list-anchor(href='react', itemprop='significantLink') React
     |         
     li
-      a.generic-anchor.footer-list-anchor(href='/faq.html', itemprop='significantLink') Xamarin
+      a.generic-anchor.footer-list-anchor(href='/xamarin', itemprop='significantLink') Xamarin
     |         
     li#find-a-store
-      a.generic-anchor.footer-list-anchor(href='/shop/store-locator', itemprop='significantLink') Wordpress
+      a.generic-anchor.footer-list-anchor(href='/wordpress', itemprop='significantLink') Wordpress
     |         
     li#user-registration
-      a.generic-anchor.footer-list-anchor(href='/shop/user-registration?URL=', itemprop='significantLink') Express
+      a.generic-anchor.footer-list-anchor(href='/express', itemprop='significantLink') Express
     |         
     li#order-tracking
-      a.generic-anchor.footer-list-anchor(href='/shop/order-status', itemprop='significantLink') HTML5
+      a.generic-anchor.footer-list-anchor(href='/html5', itemprop='significantLink') HTML5
   |     
   section.footer-social-section.flex-rw
     span.footer-social-overlap.footer-social-connect
@@ -269,27 +250,3 @@ footer.flex-rw.container-fluid
 script(src='/javascripts/jquery.min.js', type='text/javascript')
 script(src='/javascripts/bootstrap.js', type='text/javascript')
 script(src='/javascripts/bundle.js', type='text/javascript')
-script(src='//cdnjs.cloudflare.com/ajax/libs/domainr-search-box/0.0.5/domainr-search-box.min.js')
-
-script.
-  new domainr.SearchBox({
-    mashapeKey: 'X-Mashape-Key: JPEuqp1dwymsh9J6fBdbeqUSOGDpp1QdM3VjsnuNyYdg8kC7Fm',
-    // clientId: 'yourClientId', // or alternatively your clientId (for high-volume customers), in which case you don't need a Mashape key
-    observe: document.getElementById('search'),
-    renderTo: document.getElementById('results'),
-    limit: 10, // limit to 10 results
-    registrar: 'namecheap.com', // only return a registrar's supported TLDs
-    defaults: ['coffee', 'rocks', 'co', 'io'], // include these TLDs by default
-    onSelect: function(result) {
-      window.open('https://api.domainr.com/v2/register?registrar=namecheap.com&domain=' + result.domain);
-    }
-  });
-
-  https://api.sandbox.namecheap.com/xml.response?ApiUser=ncuser&ApiKey=apikey&UserName=ncuser&ClientIp=121.22.123.22&Command=namecheap.domains.check&DomainList=domain1.com,domain2.com
- 
-
-  
-          
-
-  
-

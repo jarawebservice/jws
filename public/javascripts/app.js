@@ -94,4 +94,26 @@
 
     });
 
+    // $('.search-form').submit(function(event) {
+    //     var username = "YOUR_USERNAME";
+    //     var password = "YOUR_PASSWORD";
+    //     var domain = $('search_text').val();
+    //     var format = "JSON"
+    //     $.ajax({
+    //         url: "http://www.whoisxmlapi.com/whoisserver/WhoisService",
+    //         dataType: "json",
+    //         data: {
+    //             cmd: "GET_DN_AVAILABILITY",
+    //             domainName: domain,
+    //             username: 'waleander',
+    //             password: 'iamborn2win',
+    //             outputFormat: format
+    //         },
+    //         success: function(data) {
+    //             $("#results").append("<pre>" + JSON.stringify(data, "", 2) + "</pre>");
+    //         }
+    //     })
+    // });
+
+
 }(window, jQuery));

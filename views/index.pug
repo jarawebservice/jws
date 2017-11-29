@@ -2,13 +2,14 @@ extends layout
 
 block content
   main(role='main ')
-   
+    h1 Looking for software developers in Nigeria you can count on? You've come to the right place. 
+    //- 
     .banner-container
       section.search-section
         //- h3 Search Domains
         //- button#toggle-search.header-button Search
-        form.search-form(action='')
-            input( type='search', name='search' autofocus  placeholder='Claim that domain here')
+        form.search-form(action='/domain-search')
+            input( type='search', name='search_text' autofocus  placeholder='Claim that domain here')
             input(type='submit', value='find domain')
             <div id="results"></div>
       .banner.banner-1.banner-selected
@@ -74,10 +75,10 @@ block content
               |                     
               .media__body
                 p.banner-title
-                  | Our Business
-                  span
-                    | is 
-                    strong to give your organisation a value in the tech space.
+                  |We develop software, from the idea study and ending with testing and post-release technical support. 
+                  We create Web services that work seamlessly and without interruption, helping clients manage their business, solve non-standard technological issues, and give even more value to users. 
+                  We specialize in solving complex problems and implement pinpoint solutions to suit your business needs.
+                  
       //- |     
       //- .banner.banner-4
       //-   label.banner-item(for='banner-4')
@@ -109,67 +110,66 @@ block content
         .container-down-top.home-layout
           div.home-content  
             section.soft-dev
-              p
-                .push-down-top-lg
-                  img.home-icon(src='/images/selection.png', title='Selection')
-                  |                         
-                  .text-left
-                    h2 Software Development
-                    |                             
-                    p We take your ideas, no matter how complex, and we help you turn them into application What is dictating it.
-              button.read-more(type="button")
-                | learn more...
+              .push-down-top-lg
+                img.home-icon(src='/images/selection.png', title='Selection')
+                |                         
+                .text-left
+                  h2 Software Development
+                  |                             
+                  p We take your ideas, no matter how complex, and we help you turn them into application What is dictating it.
+                  button.read-more(type="button")
+                    | learn more...
               |  
             section.animation               
-              p
-                .push-down-top-lg
-                  img.home-icon(src='/images/forms.png', title='Selection')
-                  |  
-                  .text-left
-                    h2 Web Animation
-                    |                           
-                    p Custom validation and new elements make web forms more expressive and help facilitate a better user experience.
-              button.read-more(type="button")
-                | learn more...
+              .push-down-top-lg
+                img.home-icon(src='/images/forms.png', title='Selection')
+                |  
+                .text-left
+                  h2 Web Animation
+                  |                           
+                  p Custom validation and new elements make web forms more expressive and help facilitate a better user experience.
+                  button.read-more(type="button")
+                    | learn more...
               |                         
                   
                     
             section.mobile                 
-              p
-                .push-down-top-lg
-                  img.home-icon(src='/images/media.png', title='Media')
-                  |                         
-                  .text-left
-                    h2 Mobile Application Development
-                    |                             
-                    p have mastered the technique of creating mobile applications for IOS, Android, and Windows App 
-              button.read-more(type="button")
-                | learn more...
+              .push-down-top-lg
+                img.home-icon(src='/images/media.png', title='Media')
+                |                         
+                .text-left
+                  h2 Mobile Application Development
+                  |                             
+                  p have mastered the technique of creating mobile applications for IOS, Android, and Windows App 
+                  button.read-more(type="button")
+                    | learn more...
               |
             section.web-telephony                 
-              p
-                .push-down-top-lg
-                  img.home-icon(src='/images/canvas.png', alt='Canvas')
-                  |
-                  .text-left
-                    h2 Web Telephony, Call Center, Interactive Voice Prompt                             
-                    p A native drawing context allowing you to create images and text via JavaScript.
-              button.read-more(type="button")
-                | learn more...
+              .push-down-top-lg
+                img.home-icon(src='/images/canvas.png', alt='Canvas')
+                |
+                .text-left
+                  h2 Web Telephony, Call Center, Interactive Voice Prompt                             
+                  p A native drawing context allowing you to create images and text via JavaScript.
+                  button.read-more(type="button")
+                      | learn more...
               |                 
     
-    section
-      #content-container2.container-fluid.well-lg
-        .container-fluid
+    section.well-lg#content-container2.container-fluid      
           h2.home-section-h2 How would you like to accomplish it
           p Every organization, no matter how stable and organized it is, has a few  peculiarities. Our job is to help figure out the Unique Selling Proposal of any organization and to reposition it for the future.
           div.home-content
             section.estimate
+              h3 Brief us and let's estimate
               span estimate your projects
             section.estimate
+              h3 start with an NDA
               span Do you have propriety information to share? Let's provide you with a non-disclosure aggrement(NDA)
             section.call
+              h3 Schedule a meeting via Skype
               span We can provide you with 30 mintues of of our time on skype to discuss your next big thing
+    section.well-lg.container-fluid
+      p We are like pigeons, we stay with you through the ups and downs. We are fully committed to your project throughout the development lifecyle, event to the post production phase
 
 
 
