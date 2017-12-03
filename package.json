@@ -2,12 +2,9 @@
     "name": "jws",
     "version": "0.0.0",
     "private": true,
-    "scripts": {
-        "start": "node app.js",
-        "build": "gulp"
-    },
     "dependencies": {
         "body-parser": "~1.18.2",
+        "chai": "^4.1.2",
         "compass-sass-mixins": "^0.12.7",
         "cookie-parser": "~1.4.3",
         "debug": "~2.6.9",
@@ -23,6 +20,7 @@
         "gulp-sass": "^3.1.0",
         "gulp-sourcemaps": "^2.6.1",
         "gulp-util": "^3.0.8",
+        "mocha": "^4.0.1",
         "morgan": "~1.9.0",
         "pug": "2.0.0-beta11",
         "serve-favicon": "~2.4.5",
@@ -34,5 +32,10 @@
     "main": "index.js",
     "repository": "https://github.com/waleander/jws.com",
     "author": "Akin Oluyele <waleander@gmail.com>",
-    "license": "MIT"
+    "license": "MIT",
+    "scripts": {
+        "start": "node app.js",
+        "build": "gulp",
+        "test": ".circleci/test"
+    }
 }
