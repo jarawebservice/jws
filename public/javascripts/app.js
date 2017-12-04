@@ -115,5 +115,26 @@
     //     })
     // });
 
+    $(".btn-default").on("click", function() {
+        alert("There is nothing more to learn... now go away.");
+    });
+
+    var skewContentHandler = function(defaultHtml) {
+        var $skew = $(".skew");
+        var $skewWrapper = $(".skew-wrapper");
+        var $display = $(".skew-content-target");
+        $skew.hover(function() {
+            var content = $(this).find(".skew-content").html();
+            $display.hide().html(content).fadeIn(250);
+        });
+
+        $skewWrapper.mouseleave(function() {
+            $display.hide().html(defaultHtml).fadeIn(250);
+        })
+    }
+
+    skewTargetHtml = $(".skew-content-target").html();
+    skewContentHandler(skewTargetHtml);
+
 
 }(window, jQuery));
