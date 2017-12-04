@@ -14,6 +14,13 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/mongo:3.4.4
 
+deployment: 
+  dockerhub:
+    branch: master
+    commands:
+      - $DOCKER_HUB_TRIGGER
+
+
     working_directory: ~
 
     steps:

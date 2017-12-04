@@ -678,7 +678,7 @@ a {
     input[type="search"] {
         width: 100%;
         padding: 0 5px 0 22px;
-        background: transparent;
+        background: rgba(255, 255, 255, 0.2);
         border: none;
         color: orange;
         font-size: 1.5em;
@@ -687,7 +687,7 @@ a {
     input[type="submit"] {
         position: absolute;
         bottom: 10px;
-        right: 5px;
+        right: 3px;
         max-width: 200px;
         z-index: 5;
         margin: auto;
@@ -904,4 +904,8 @@ li .dropdown {
     background: $primaryColor;
     padding: 15px;
     color: orange;
+}
+
+.search-form {
+    background-color: rgba(41, 72, 125, 0.29);
 }

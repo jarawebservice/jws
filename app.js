@@ -20,6 +20,7 @@ var ecat = require('./routes/ecatalog');
 var api = require('./routes/api');
 var mobile = require('./routes/mobile');
 var seo = require('./routes/seo');
+var contact = require('./routes/contact');
 
 var app = express();
 
@@ -45,6 +46,7 @@ app.use('/web-services', ws);
 app.use('/web', web);
 app.use('/ecatalog', ecat);
 app.use('/api', api);
+app.use('/contact', contact);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

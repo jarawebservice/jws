@@ -8,9 +8,9 @@ block content
       section.search-section
         //- h3 Search Domains
         //- button#toggle-search.header-button Search
-        form.search-form(action='/domain-search')
-            input( type='search', name='search_domain' autofocus  placeholder='Claim that domain here')
-            input(type='submit', value='find domain')
+        form.search-form.form-inline(action='/domain-search')
+            input.form-control( type='search', name='search_domain' autofocus  placeholder='Claim that domain here')
+            input.btn.btn-default(type='submit', value='find domain')
             <div id="results"></div>
       .banner.banner-1.banner-selected
         label.banner-item(for='banner-1')
