@@ -289,7 +289,7 @@ ul {
     &.nav.navbar-nav li {
         padding: 5px;
         margin-left: 5px;
-        font-size: 1.5em;
+        font-size: 2em;
     }
 }
 
@@ -380,7 +380,10 @@ input[type="week"] {
 
 .nav-link {
     color: antiquewhite;
-    text-transform: uppercase;
+}
+
+.nav-pad {
+    padding: 15px;
 }
 
 input {
@@ -560,6 +563,7 @@ summary {
 
 .navbar-inverse {
     background: $primaryColor;
+    height: 12em;
 }
 
 %section {
@@ -569,12 +573,32 @@ summary {
 
 .home-section-h2 {
     @extend %section;
-    color: gray;
+    color: #1a293e;
+    text-align: center;
 }
 
 .home-h2 {
     color: rgba(255, 165, 0, 0.65);
     @extend %section;
+}
+
+p.header-description {
+    font-size: 2em;
+    text-align: center;
+    color: #1a293e;
+}
+
+span.header-description {
+    font-size: 2em;
+    color: #1a293e;
+}
+
+.estimate,
+.nda,
+.call {
+    h3 {
+        color: #1a293e;
+    }
 }
 
 a {
@@ -629,7 +653,7 @@ a {
 .footer-social-connect {
     display: flex;
     align-items: center;
-    font: 3.5em general;
+    font: 3.5em $general;
     color: $white;
 }
 
@@ -671,7 +695,7 @@ a {
     color: #fff;
     background-color: #f9fcff;
     box-shadow: -1px 0px 24px 0px rgba(50, 50, 50, 1);
-    width: 100%;
+    width: 60%;
     height: 70px;
     margin: 0 auto;
     &.open {
@@ -714,9 +738,11 @@ a {
 
 section.search-section {
     z-index: 300;
-    width: 60%;
-    margin: auto auto 20px auto;
-    border-radius: 10px;
+    width: 90%;
+    margin: auto auto 20px;
+    /* border-radius: 10px; */
+    border-bottom: 1px groove antiquewhite;
+    padding-bottom: 30px;
 }
 
 article#content-container {
@@ -1018,7 +1044,7 @@ a.generic-anchor.footer-list-anchor {
 }
 
 span.estimate-proj {
-    margin-top: 17px;
+    margin-top: 35px;
     a {
         background: yellowgreen;
         border-radius: 0;
@@ -1027,6 +1053,14 @@ span.estimate-proj {
 
 .btn {
     radius: 0px;
+}
+
+.section-3header {
+    background: #f5f5f5;
+}
+
+.plain {
+    background: #fff;
 }
 
 .text-left {
@@ -1188,3 +1222,75 @@ span.estimate-proj {
 //     border-radius: 5px;
 //     margin: 10px;
 // }
+$color_1: #FFF;
+$background_color_1: #F5D328;
+
+/* Text Overlay */
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: cadetblue;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+#lab_video_text_overlay {
+    h2 {
+        font-size: 4em;
+        color: antiquewhite;
+    }
+    .btn {
+        border-radius: 0;
+        text-transform: uppercase;
+        font-weight: 200;
+    }
+    .btn-warning {
+        background-color: $background_color_1;
+    }
+    position: absolute;
+    color: $color_1;
+    width: 100%;
+    top: 25%;
+    z-index: 1000;
+    .container {
+        text-align: center;
+        margin: 0px auto;
+        // background-color: #669900;
+    }
+}
+
+@media screen and (max-width:991px) {
+    #lab_video_text_wrap {
+        height: 300px;
+    }
+}
+
+@media screen and (max-width:650px) {
+    #lab_video_text_wrap {
+        height: 250px;
+    }
+    #lab_video_text_overlay {
+        h2 {
+            font-size: 2em;
+        }
+        p {
+            font-size: .6em;
+        }
+    }
+}

@@ -2,27 +2,62 @@ extends layout
 
 block content
   main(role='main ')
+    section#lab_video_slider
+      .container-fluid
+        .row
+          meta(name='viewport' content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1')
+          // Link Swiper's CSS
+          
+          // Swiper
+          .swiper-container
+            .swiper-wrapper
+              #slide_one.swiper-slide
+                #lab_video_text_overlay
+                  .container
+                    h2(style="font-size:2.5em") shifting the paradigms of tech in Nigeria 
+                    p We believe that technology is core to any organization success in this age. We can help transform ideas into software product, right from the requirements elicitation to when the software is in use
+                    a.btn.btn-default(href='/projects') View Our Work
+                    a.btn.btn-warning(href='/aboutus') Learn About Us
+                // end #lab_overlay
+                video.slider-video(width='100%' preload='auto' loop='' autoplay='' style='visibility: visible; width: 100%;' poster='//dl.dropbox.com/s/ijyaav8qzkdtyt5/lab-coding-screenshot.jpg')
+                  source(type='video/mp4' src='/images/lab-coding.mp4')
+                  source(src='/images/lab-coding.mp4' type='video/mp4')
+                  source(src='/images/lab-coding.webm' type='video/webm')
+                  source(src='/images/lab-coding.ogg' type='video/ogg')
+              #slide_two.swiper-slide
+                // VIDEO
+                video.slider-video(width='100%' preload='auto' loop='' autoplay='' style='visibility: visible; width: 100%;' poster='//dl.dropbox.com/s/5aeyg9ntj1fs8v1/typing-numbers.jpg')
+                  source(src='/images/typing-numbers.mp4' type='video/mp4')
+                  source(src='/images/typing-numbers.webm' type='video/webm')
+                  source(src='/images/typing-numbers.ogv' type='video/ogg')
+                // END VIDEO
+            //- // Add Pagination
+            //- .swiper-pagination
+            //- // Add Arrows
+            //- .swiper-button-next
+            //- .swiper-button-prev
+         
     //- h1.masthead Looking for software developers in Nigeria you can count on? You've come to the right place. 
    
-    .banner-container
+    //- .banner-container
 
-      .skew-wrapper
-        .skew-track
-          .skew
-            .skew-background-image(style="background-image:url('/images/projects.png')")
-            .skew-content
-              h2 Jara Web Service #1 in Software development in Nigeria
-          .skew
-            .skew-background-image(style="background-image:url('images/banner2.jpg')")
-            .skew-content
-              h2 First amongst all
-          .skew
-            .skew-background-image(style="background-image:url('images/mobile.png')")
-            .skew-content
-              h2 Your satisfaction is our utmost concern
-        .skew-content-target
-          h2 We transform ideas into software product, right from the requirements elicitation to software support
-          a.btn-banner(href='#') Learn More
+    //-   .skew-wrapper
+    //-     .skew-track
+    //-       .skew
+    //-         .skew-background-image(style="background-image:url('/images/projects.png')")
+    //-         .skew-content
+    //-           h2 Jara Web Service #1 in Software development in Nigeria
+    //-       .skew
+    //-         .skew-background-image(style="background-image:url('images/banner2.jpg')")
+    //-         .skew-content
+    //-           h2 First amongst all
+    //-       .skew
+    //-         .skew-background-image(style="background-image:url('images/mobile.png')")
+    //-         .skew-content
+    //-           h2 Your satisfaction is our utmost concern
+    //-     .skew-content-target
+    //-       h2 We transform ideas into software product, right from the requirements elicitation to software support
+    //-       a.btn-banner(href='#') Learn More
     article#content-container.container-fluid.well-lg
       section.search-section
     
@@ -36,7 +71,7 @@ block content
           div.home-content  
             section.soft-dev
               .push-down-top-lg
-                img.home-icon(src='/images/softdev.png', title='Selection')
+                img.home-icon(src='/images/softdev.png', title='Software development')
                 |                         
                 .text-left
                   h2 Software Development
@@ -62,7 +97,7 @@ block content
                     
             section.mobile                 
               .push-down-top-lg
-                img.home-icon(src='/images/mobiledev.png', title='Media')
+                img.home-icon(src='/images/mobiledev.png', title='mobile application development')
                 |                         
                 .text-left
                   h2 Mobile Apps Development
@@ -84,25 +119,33 @@ block content
                     | learn more
               |                 
     
-    section.well-lg#content-container2.container-fluid      
+    section.well-lg#content-container2.container-fluid.section-3header      
           h2.home-section-h2 How would you like to accomplish it
-          p Every organization, no matter how stable and organized it is, has a few  peculiarities. Our job is to help figure out the Unique Selling Proposal of any organization and to reposition it for the future.
-          div.home-content
+          p.header-description we would shine the light on all facets of your company and reveal your domain model
+          div.home-content.plain
             section.estimate
-              h3 Brief us and let's estimate
-              span estimate your projects
+              h3 Write a brief
+              span.header-description estimate your projects
             section.nda
               h3 start with an NDA
-              span Do you have propriety information to share? Let's provide you with a non-disclosure aggrement(NDA)
+              span.header-description Do you have propriety information to share? Let's provide you with a non-disclosure aggrement(NDA)
             section.call
-              h3 Schedule a meeting via Skype
-              span We can provide you with 30 mintues of of our time on skype to discuss your next big thing
+              h3 Schedule a meeting
+              span.header-description We can provide you with 30 mintues of of our time on skype to discuss your next big thing
     section.well-lg.container-fluid
       h2.home-section-h2 Our work culture
       p We are like pigeons, we stay with you through the ups and downs. We are fully committed to your project throughout the development lifecyle, event to the post production phase
 
     section.well-lg.container-fluid
       p We are like pigeons, we stay with you through the ups and downs. We are fully committed to your project throughout the development lifecyle, event to the post production phase
-
+    script.
+                var swiper = new Swiper('.swiper-container', {
+                pagination: '.swiper-pagination',
+                paginationClickable: true,
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
+                spaceBetween: 30,
+                autoplay: 2,
+                autoplayDisableOnInteraction: false
 
 

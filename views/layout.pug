@@ -22,6 +22,7 @@ head
   link(rel='stylesheet', href='/stylesheets/bootstrap.css', type='text/css')
   link(rel="stylesheet" href="/font-awesome/css/font-awesome.min.css")
   link(rel='stylesheet', href='/stylesheets/style.css')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.2.5/css/swiper.min.css')
   script(src='/javascripts/modernizr.min.js', type='text/javascript')
   
 |
@@ -43,11 +44,12 @@ body
                                 
           a.navbar-brand(href='/')
             
-              <img src="/images/logo.png" title="Jara Web Service" class="hidden-sm" /> 
-              <img src="/images/logo-sm.png" title="Jara Web Service" class="visible-sm" />
+            <img width="100" height="120" src="/images/logo.png" title="Jara Web Service" class="hidden-sm" /> 
+            <img src="/images/logo-sm.png" title="Jara Web Service" class="visible-sm hidden-md" />
+            //- <img src="/images/logo-sm.png" title="Jara Web Service" class="visible-sm" />
         |                     
         #navbar.navbar-collapse.collapse
-          ul.nav.navbar-nav
+          ul.nav.navbar-nav.nav-pad
             li
               a.nav-link(href='/mobile') Mobile App
             |                             
@@ -71,7 +73,7 @@ body
             li
               .dropdown
                 span.nav-link(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-                  | Multimedia Services
+                  | Multimedia 
                 |                                     
                 ul.dropdown-menu(aria-labelledby='dLabel')
                   li
@@ -87,7 +89,7 @@ body
             li
               .dropdown
                 span.nav-link(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-                  | Internet Services
+                  | Domain & Hosting
                 |                                     
                 ul.dropdown-menu(aria-labelledby='dLabel')
                   li
