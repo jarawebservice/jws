@@ -3,133 +3,40 @@ extends layout
 block content
   main(role='main ')
     //- h1.masthead Looking for software developers in Nigeria you can count on? You've come to the right place. 
-    //- 
+   
     .banner-container
-      section.search-section
-        //- h3 Search Domains
-        //- button#toggle-search.header-button Search
-        form.search-form.form-inline(action='/domain-search')
-            input.form-control( type='search', name='search_domain' autofocus  placeholder='Claim that domain here')
-            input.btn.btn-default(type='submit', value='find domain')
-            <div id="results"></div>
 
       .skew-wrapper
         .skew-track
           .skew
-            .skew-background-image(style="background-image:url('/images/banner.png')")
+            .skew-background-image(style="background-image:url('/images/projects.png')")
             .skew-content
-              h1 Jara Web Service #1 in Software development in Nigeria
+              h2 Jara Web Service #1 in Software development in Nigeria
           .skew
             .skew-background-image(style="background-image:url('images/banner2.jpg')")
             .skew-content
-              h1 First amongst all
+              h2 First amongst all
           .skew
             .skew-background-image(style="background-image:url('images/mobile.png')")
             .skew-content
-              h1 Your satisfaction is our utmost concern
+              h2 Your satisfaction is our utmost concern
         .skew-content-target
-          h1 We develop software, from the idea study and ending with testing and post-release technical support
+          h2 We develop software, from the idea study and ending with testing and post-release technical support
           a.btn-banner(href='#') Learn More
-      //- .banner.banner-1.banner-selected
-      //-   label.banner-item(for='banner-1')
-      //-   |         
-      //-   input#banner-1.banner-trigger(type='radio', name='banner', checked='checked')
-      //-   |         
-      //-   .banner-wrap
-      //-     video(width="1300" autoplay height="800" loop src="/images/video-banner.mp4")
-      //-     |             
-      //-     .banner__overlay.banner__overlay--low-voltage
-      //-     |             
-      //-     .banner__content
-      //-       .media
-      //-         .media__img
-      //-           i.fa.fa-refresh.fa-5x
-      //-           |                     
-      //-           .media__body 
-      //-             p.banner-title
-      //-               | From Zero 
-                    
-      //-               span
-      //-                 | to
-      //-                 strong  hero
-                    
-      //- |     
-      //- .banner.banner-2
-      //-   label.banner-item(for='banner-2')
-      //-   |         
-      //-   input#banner-2.banner-trigger(type='radio', name='banner')
-      //-   |         
-      //-   .banner-wrap
-      //-     img.banner__img(src='/images/banner2.jpg', alt='Jaracare Web Service can turn around your company for better Information technology')
-      //-     |             
-      //-     .banner__overlay.banner__overlay--low-voltage
-      //-     |             
-      //-     .banner__content
-      //-       .media
-      //-         .media__img
-      //-           //- i.fa.fa-heart.fa-5x
-      //-         |                     
-      //-         .media__body
-      //-           p.banner-title
-      //-             | Our Business
-      //-             span
-      //-               | is 
-      //-               strong to meet your technological goals.
-      //- |     
-      //- .banner.banner-4
-      //-   label.banner-item(for='banner-4')
-      //-   |         
-      //-   input#banner-4.banner-trigger(type='radio', name='banner')
-      //-   |         
-      //-   .banner-wrap
-      //-     img.banner__img(src='/images/banner.png', alt='We can connect you to the best Application programming interfaces')
-      //-     |             
-      //-     .banner__overlay.banner__overlay--iluminations
-      //-     |             
-      //-     .banner__content
-      //-       .media
-      //-         .media__img
-      //-           i.fa.fa-gears.fa-5x
-      //-         |                     
-      //-         .media__body
-      //-           p.banner-title
-      //-             |We develop software, from the idea study and ending with testing and post-release technical support. 
-      //-             We create Web services that work seamlessly and without interruption, helping clients manage their business, solve non-standard technological issues, and give even more value to users. 
-      //-             We specialize in solving complex problems and implement pinpoint solutions to suit your business needs.
-                  
-      //- |     
-      //- .banner.banner-4
-      //-   label.banner-item(for='banner-4')
-      //-   |         
-      //-   input#banner-4.banner-trigger(type='radio', name='banner')
-      //-   |         
-      //-   .banner-wrap
-      //-     img.banner__img.img4(src='/images/1.jpg', alt='From Abuja, Nigeria, we develop the best softwares and provide ICT support for our teaming clients.')
-      //-     |             
-      //-     .banner__overlay.banner__overlay--renewable
-      //-     |             
-      //-     .banner__content
-      //-       .media
-      //-         .media__img
-      //-           i.fa.fa-star.fa-5x
-      //-         |                     
-      //-         .media__body
-      //-           p.banner-title
-      //-             | From the heart of Abuja, Nigeria
-      //-             span
-      //-               | we 
-      //-               strong are  meeting Nigeria's ICT needs one organization at a time.
-
-  
-  
     article#content-container.container-fluid.well-lg
+      section.search-section
+    
+        form.search-form.form-inline(action='/domain-search')
+            input.form-control( type='search', name='search_domain' autofocus  placeholder='Claim that domain here')
+            input.btn.btn-default(type='submit', value='find domain')
+            <div id="results"></div>
       .container-fluid
         h2.home-h2 What are you tryin' to accomplish?
         .container-down-top.home-layout
           div.home-content  
             section.soft-dev
               .push-down-top-lg
-                img.home-icon(src='/images/selection.png', title='Selection')
+                img.home-icon(src='/images/softdev.png', title='Selection')
                 |                         
                 .text-left
                   h2 Software Development
@@ -153,10 +60,10 @@ block content
                     
             section.mobile                 
               .push-down-top-lg
-                img.home-icon(src='/images/media.png', title='Media')
+                img.home-icon(src='/images/mobiledev.png', title='Media')
                 |                         
                 .text-left
-                  h2 Mobile Application Development
+                  h2 Mobile Apps Development
                   |                             
                   p have mastered the technique of creating mobile applications for IOS, Android, and Windows App 
                   button.read-more(type="button")
@@ -167,7 +74,7 @@ block content
                 img.home-icon(src='/images/canvas.png', alt='Canvas')
                 |
                 .text-left
-                  h2 Web Telephony, Call Center, Interactive Voice Prompt                             
+                  h2 Web Telephony                             
                   p A native drawing context allowing you to create images and text via JavaScript.
                   button.read-more(type="button")
                       | learn more...

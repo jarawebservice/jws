@@ -514,7 +514,7 @@ section {
 }
 
 footer {
-    background-color: $primaryColor;
+    background: $primaryColor;
     margin-top: 200px;
     color: $white;
     border-top: solid 20px $moreGrayish;
@@ -546,7 +546,7 @@ summary {
 }
 
 .navbar-inverse {
-    background-color: $primaryColor;
+    background: $primaryColor;
 }
 
 %section {
@@ -582,7 +582,7 @@ a {
 
 .footer-list-header {
     color: $white;
-    background: lighten($primaryColor, 5);
+    background: lighten($primaryColor1, 5);
     padding: 10px 0 10px 20px;
     box-shadow: -2px 4px 3px 0px rgba(0, 0, 0, 0.25);
 }
@@ -661,6 +661,7 @@ a {
     width: 100%;
     height: 75px;
     margin: 0 auto;
+    border-radius: 10px;
     &.open {
         max-height: 90px;
     }
@@ -678,8 +679,8 @@ a {
     input[type="search"] {
         width: 100%;
         padding: 0 5px 0 22px;
-        background: rgba(255, 255, 255, 0.2);
-        border: none;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
         color: orange;
         font-size: 1.5em;
         font-weight: 600;
@@ -701,12 +702,14 @@ a {
 }
 
 section.search-section {
-    position: absolute;
-    bottom: 200px;
-    right: 250px;
     z-index: 300;
     width: 60%;
-    margin: auto 50px;
+    margin: auto auto 20px auto;
+    border-radius: 10px;
+}
+
+article#content-container {
+    padding-top: 20px;
 }
 
 @media only screen and(max-width: 768px) {
@@ -912,7 +915,6 @@ li .dropdown {
 $color_1: #fff;
 $color_2: #333;
 $font_family_1: "Century Gothic";
-$background_color_1: #555;
 $background_color_2: transparent;
 $background_color_3: rgba(0,
 0,
@@ -923,31 +925,20 @@ $background_color_4: rgba(0,
 0,
 .1);
 $background_color_5: #fff;
-// &:root {
-//     font-size: 16px;
-// }
-body {
-    // background-color: $background_color_1;
-    font-family: $font_family_1;
-    margin: 50px 0;
-}
-
 h1 {
     font-size: 3rem;
 }
 
 .skew-wrapper {
-    height: 350px;
+    height: 40em;
     margin: 0 auto;
     overflow: hidden;
     position: relative;
     width: 1170px;
-    margin-top: 30px;
-    margin-bottom: 20px;
 }
 
 .skew-track {
-    height: 100%;
+    // height: 100%;
     left: calc(-1170px / 4);
     position: absolute;
     width: 1000em;
@@ -974,7 +965,7 @@ h1 {
 }
 
 .skew-background-image {
-    background-image: url("/images/banner.png");
+    background-image: url("http://lorempixel.com/1680/994/nature");
     background-position: center;
     background-size: cover;
     height: 100%;
@@ -1010,21 +1001,27 @@ h1 {
     width: 50%;
 }
 
-.btn-banner {
-    border: 2px solid #fff;
-    border-radius: 2em;
-    color: $color_1;
-    display: inline-block;
-    font-size: 1.5em;
-    max-width: 200px;
-    padding: 15px;
-    text-align: center;
-    text-decoration: none;
-    transition: .5s;
-    width: 100%;
-    &:hover {
-        background-color: $background_color_5;
-        color: $color_2;
+span.estimate-proj {
+    margin-top: 17px;
+    a {
+        background: yellowgreen;
+        border-radius: 0;
+    }
+}
+
+.btn {
+    radius: 0px;
+}
+
+.text-left {
+    h2 {
+        color: antiquewhite;
+    }
+    p {
+        color: yellowgreen;
+    }
+    button.read-more {
+        color: antiquewhite;
     }
 }
 
@@ -1150,22 +1147,24 @@ h1 {
 //         }
 //     }
 // }
-// @-webkit-keyframes square {
-//     0% {
-//         transform: translateY(0);
-//     }
-//     100% {
-//         transform: translateY(-700px) rotate(600deg);
-//     }
-// }
-// @keyframes square {
-//     0% {
-//         transform: translateY(0);
-//     }
-//     100% {
-//         transform: translateY(-700px) rotate(600deg);
-//     }
-// }
+@-webkit-keyframes square {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-700px) rotate(600deg);
+    }
+}
+
+@keyframes square {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-700px) rotate(600deg);
+    }
+}
+
 // p {
 //     background: linear-gradient(to left, #141E30, #243B55);
 //     font-size: 21px;
