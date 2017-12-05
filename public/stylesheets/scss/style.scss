@@ -479,6 +479,13 @@ h2,
     }
 }
 
+section.call,
+section.estimate,
+section.nda {
+    margin: auto;
+    width: 30%;
+}
+
 @media only screen and(max-width: 730px) {
     section.animation,
     section.soft-dev,
