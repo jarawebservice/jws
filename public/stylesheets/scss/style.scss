@@ -549,7 +549,7 @@ footer {
     margin-top: 200px;
     color: $white;
     border-top: solid 20px $moreGrayish;
-    height: 80em;
+    height: 60em;
     margin-top: auto;
     width: 100%;
     padding: 20px 30px 0 40px;
@@ -964,7 +964,7 @@ li .dropdown {
 
 .dropdown-menu {
     left: -50%;
-    background: rgba(154, 205, 50, 0.82);
+    background: rgba(24, 51, 57, 0.74);
     width: 350px;
     li {
         a:hover {
@@ -1606,4 +1606,14 @@ select {
 
 .main-domain {
     margin-top: 100px;
+}
+
+.dropdown-menu>li>a {
+    display: block;
+    padding: 3px 10px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.5;
+    color: #9acd32;
+    white-space: nowrap;
 }

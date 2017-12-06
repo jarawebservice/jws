@@ -1,9 +1,10 @@
 extends layout
 
 block content
-  - var res = response
+ 
   main(style="margin-top: 30px;")
     section.result 
       h1 Domain Search result
         p Your Domain 
-          span(style="color:green") #{res.domain} is #{res.status}
+          span(style="color:green") response.body
+          is response.name
