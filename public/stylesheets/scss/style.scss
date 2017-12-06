@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Lato|Montserrat|Titillium+Web|Vollkorn+SC');
 @import "node_modules/compass-sass-mixins/lib/compass";
 @import "node_modules/compass-sass-mixins/lib/compass/css3";
 @import "./variable.scss";
@@ -44,11 +44,12 @@ body {
 
 .read-more {
     background: transparent;
-    border: 1px solid orange;
+    border: 1px solid #cccccc;
     width: auto;
     height: auto;
-    font-size: 2em;
+    font-size: 1.7em;
     padding: 5px 10px 5px 10px;
+    font-family: montserrat;
 }
 
 ul.dropdown {
@@ -288,7 +289,7 @@ ul {
     &.nav.navbar-nav li {
         padding: 15px 20px 15px 20px;
         margin-left: 5px;
-        font-size: 2em;
+        font-size: 15px;
     }
 }
 
@@ -455,7 +456,9 @@ select {
 
 h2,
 .h2 {
-    font-size: 2.5em;
+    font-size: 25px;
+    font-family: montserrat;
+    font-weight: 500;
 }
 
 .text-left {
@@ -469,6 +472,18 @@ h2,
 .separator {
     color: $aquamarine;
     margin-top: 20px;
+}
+
+.schedule-btn {
+    margin: auto;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+    background: #9acd32;
+    border: 0;
+    cursor: pointer;
+    height: 40px;
+    width: 70px;
 }
 
 .home-content {
@@ -568,29 +583,51 @@ summary {
 
 %section {
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .home-section-h2 {
     @extend %section;
-    color: #1a293e;
     text-align: center;
+    color: #16243a;
+    text-transform: none;
 }
 
 .home-h2 {
     color: rgba(255, 165, 0, 0.65);
+    font-family: Montserrat;
     @extend %section;
+    text-transform: none;
+    color: #ccc;
+    font-size: 25px;
+    font-family: montserrat;
+    font-weight: 500;
 }
 
 p.header-description {
-    font-size: 2em;
+    font-size: 15px;
     text-align: center;
     color: #1a293e;
+    font-family: montserrat;
 }
 
 span.header-description {
-    font-size: 2em;
+    font-size: 16px;
     color: #1a293e;
+    font-family: montserrat;
+    font-weight: 300;
+}
+
+h3.home-section-h3 {
+    color: #172438;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+img.techs {
+    width: 300px;
+    height: 300px;
 }
 
 .estimate,
@@ -598,6 +635,8 @@ span.header-description {
 .call {
     h3 {
         color: #1a293e;
+        font-size: 20px;
+        font-weight: 500;
     }
 }
 
@@ -699,7 +738,8 @@ a {
     height: 70px;
     margin: 0 auto;
     &.open {
-        max-height: 90px;
+        max-height: 70px;
+        height: 50px;
     }
     fieldset {
         position: relative;
@@ -714,14 +754,15 @@ a {
     }
     input[type="search"] {
         width: 100%;
-        padding: 0 5px 0 22px;
+        padding: 0 5px 0 722px;
         color: orange;
         font-size: 1.5em;
         font-weight: 600;
+        height: 43px;
     }
     input[type="submit"] {
         position: absolute;
-        bottom: 5px;
+        bottom: 3px;
         right: 3px;
         max-width: 200px;
         z-index: 5;
@@ -732,6 +773,7 @@ a {
         background: #9acd32;
         border: none;
         cursor: pointer;
+        height: 40px;
     }
 }
 
@@ -754,6 +796,8 @@ a.show {
     cursor: pointer;
     margin: 0 5px 10px 0;
     font-size: 1.6em;
+    font-family: montserrat;
+    ;
 }
 
 a.show:hover,
@@ -907,20 +951,29 @@ li .dropdown {
     margin: 10px;
 }
 
+.home-icons {
+    margin-left: 40px;
+    width: 100%;
+}
+
 .home-layout p {
-    font-size: 1.6em;
+    font-size: 16px;
+    font-family: "Titillium Web";
+    font-weight: 200;
 }
 
 .dropdown-menu {
     left: -50%;
-    background: $dropdown;
-    width: 400px;
+    background: rgba(154, 205, 50, 0.82);
+    width: 350px;
     li {
         a:hover {
-            background: darken($trueRed, 8);
+            background: rgb(154, 205, 50);
+            color: #172336;
         }
         a:focus {
-            background: darken($trueRed, 8);
+            background: rgb(154, 205, 50);
+            color: #172336;
         }
     }
 }
@@ -978,6 +1031,7 @@ li .dropdown {
 .search-form {
     background-color: rgba(41, 72, 125, 0.29);
     border: none;
+    height: 50px;
 }
 
 $color_1: #fff;
@@ -1090,7 +1144,7 @@ span.estimate-proj {
 }
 
 .plain {
-    background: #fff;
+    background: rgba(26, 40, 61, 0.25);
 }
 
 .text-left {
@@ -1098,7 +1152,7 @@ span.estimate-proj {
         color: antiquewhite;
     }
     p {
-        color: yellowgreen;
+        color: antiquewhite;
     }
     button.read-more {
         color: antiquewhite;
@@ -1282,8 +1336,9 @@ $background_color_1: #F5D328;
 
 #lab_video_text_overlay {
     h2 {
-        font-size: 4em;
+        font-weight: 700;
         color: antiquewhite;
+        font-family: Montserrat;
     }
     .btn {
         border-radius: 0;
@@ -1547,4 +1602,8 @@ select {
 
 .invalid {
     border: .063em solid red;
+}
+
+.main-domain {
+    margin-top: 100px;
 }

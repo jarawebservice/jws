@@ -168,9 +168,6 @@
     });
 
 
-    /* This code handles all of the navigation stuff.
-     ** Probably leave it. Credit to https://bootsnipp.com/snippets/featured/form-wizard-and-validation
-     */
     var navListItems = $('div.setup-panel div a'),
         allWells = $('.setup-content'),
         allNextBtn = $('.nextBtn');
