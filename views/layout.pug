@@ -51,13 +51,14 @@ body
         #navbar.navbar-collapse.collapse
           ul.nav.navbar-nav.nav-pad
             li
-              a.nav-link(href='/mobile') Mobile App
+              span.nav-link
+                a.nav-link(href='/mobile') Mobile App
             |                             
             li
-              a.nav-link(href='/web') Web App
+              span.nav-link
+                a.nav-link(href='/web') Web App
             |                             
-            li
-              .dropdown
+            li.dropdown
                 span.nav-link(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                   | Web API
                 |                                     
@@ -70,8 +71,7 @@ body
                   
             |                             
                                         
-            li
-              .dropdown
+            li.dropdown
                 span.nav-link(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                   | Multimedia 
                 |                                     
@@ -86,8 +86,7 @@ body
                     a(href='Web-Animation') Web Animation
                   
             |                             
-            li
-              .dropdown
+            li.dropdown
                 span.nav-link(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                   | Domain & Hosting
                 |                                     
