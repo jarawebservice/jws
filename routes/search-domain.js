@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
 
     .end(function(response) {
         output = response.body;
-        console.log(response.body);
+        console.log(output);
     });
     return next();
 }, function(req, res) {

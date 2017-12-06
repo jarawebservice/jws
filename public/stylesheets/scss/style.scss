@@ -48,8 +48,12 @@ body {
     width: auto;
     height: auto;
     font-size: 1.7em;
-    padding: 5px 10px 5px 10px;
+    padding: 10px 15px;
     font-family: montserrat;
+}
+
+a.read-more {
+    text-decoration: none;
 }
 
 ul.dropdown {
@@ -754,7 +758,7 @@ a {
     }
     input[type="search"] {
         width: 100%;
-        padding: 0 5px 0 722px;
+        padding: 0 5px 0 3px;
         color: orange;
         font-size: 1.5em;
         font-weight: 600;
@@ -821,6 +825,10 @@ section.search-section {
 
 article#content-container {
     padding-top: 20px;
+}
+
+p.masthead-para {
+    font-family: montserrat;
 }
 
 @media only screen and(max-width: 768px) {
