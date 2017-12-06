@@ -2,6 +2,8 @@
 @import "node_modules/compass-sass-mixins/lib/compass";
 @import "node_modules/compass-sass-mixins/lib/compass/css3";
 @import "./variable.scss";
+@import "./arrow.scss";
+@import "./form.scss";
 %extend_1 {
     clear: both;
     margin-top: 20px;
@@ -561,7 +563,7 @@ summary {
 
 .navbar-inverse {
     background: $primaryColor;
-    height: 12em;
+    height: 8em;
 }
 
 %section {
@@ -716,7 +718,6 @@ a {
         color: orange;
         font-size: 1.5em;
         font-weight: 600;
-        border: 1px solid white;
     }
     input[type="submit"] {
         position: absolute;
@@ -732,6 +733,37 @@ a {
         border: none;
         cursor: pointer;
     }
+}
+
+input.ctrl-form {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+.main-lede {
+    height: 150px;
+}
+
+.main-action {
+    margin-top: 20px;
+}
+
+a.show {
+    background: #19273b;
+    display: inline-block;
+    padding: 20px;
+    cursor: pointer;
+    margin: 0 5px 10px 0;
+    font-size: 1.6em;
+}
+
+a.show:hover,
+a.show-active {
+    background: #73a6a3;
+}
+
+.section {
+    background: #eee;
+    padding: 20px;
 }
 
 section.search-section {
@@ -1291,4 +1323,228 @@ $background_color_1: #F5D328;
             font-size: .6em;
         }
     }
+}
+
+// File Upload
+form.file-upload {
+    width: 80%;
+    height: 100%;
+    margin: 1rem auto;
+}
+
+.file-upload input[type=text] {
+    background-color: transparent;
+    width: 100%;
+    font-size: 80%;
+    text-align: center;
+    /*text-transform: uppercase;*/
+    padding: 1rem 2rem;
+    border: 0;
+}
+
+label.file {
+    position: relative;
+    display: block;
+    width: 100%;
+    font-size: 1.7em;
+    text-align: center;
+    text-transform: uppercase;
+    border: 2px dashed #ccc;
+    margin: 3rem 0;
+    padding: 3rem;
+}
+
+label.file:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+label.file:active,
+label.file.focus {
+    border-color: #09f;
+}
+
+input[type=file] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    outline: 0;
+    border: 1px solid red;
+}
+
+button.upload {
+    color: #eee;
+    background-color: #666;
+    padding: 1rem 2rem;
+    border: 0;
+    outline: none;
+}
+
+button.upload:hover,
+button.upload:focus {
+    background-color: #333;
+}
+
+button.upload:active {
+    color: #fff;
+    background-color: #000;
+}
+
+.sml {
+    display: inline-block;
+    color: #eee;
+    background-color: rgba(0, 200, 0, 0.67);
+    border-radius: 1rem;
+    font-size: smaller;
+    margin: 1rem 0 0 0;
+    padding: 0.67rem 1rem;
+}
+
+//appointment form
+.row-appt::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+[class*="col-"] {
+    float: left;
+    padding: .938em;
+}
+
+.col-1 {
+    width: 8.33%;
+}
+
+.col-2 {
+    width: 16.66%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.33%;
+}
+
+.col-5 {
+    width: 41.66%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33%;
+}
+
+.col-8 {
+    width: 66.66%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.33%;
+}
+
+.col-11 {
+    width: 91.66%;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+
+/* form */
+
+#appt-form {
+    width: 35em;
+    margin: 7% auto;
+    font-family: sans-serif;
+}
+
+label {
+    font-size: 1.4em;
+}
+
+input[type="date"],
+input[type="time"],
+select,
+input[type="tel"],
+input[type="email"],
+input[type="text"] {
+    border: none;
+    border: .063em solid #D6D2D2;
+    border-radius: 3px;
+    width: 100%;
+    font-size: 1.5em;
+    height: 1.8em;
+}
+
+.time-zone select {
+    font-size: 1.5em;
+}
+
+select.appt-sel {
+    font-size: 1.5em;
+}
+
+textarea.txt-appt {
+    width: 100%;
+    height: 10em;
+    border-radius: 3px;
+    resize: none;
+    border-color: #D6D2D2;
+}
+
+.header-appt {
+    padding-left: .938em;
+}
+
+button-appt-btn {
+    float: right;
+}
+
+button.appt-btn {
+    display: inline-block;
+    width: 10em;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.2em;
+    border: none;
+    height: 3em;
+    font-size: 0.9em;
+    background-color: #F44242;
+    line-height: 3em;
+}
+
+button.appt-btn:hover {
+    background-color: #F55A5A;
+    box-shadow: 0 0.75em 1em 0 rgba(0, 0, 0, 0.24), 0 1.063em 3.125em 0 rgba(0, 0, 0, 0.19);
+}
+
+button.appt-btn:active {
+    background-color: #D63A3A;
+}
+
+select {
+    -moz-appearanc: none;
+    -webkit-appearanc: none;
+}
+
+.valid {
+    border: .063em solid lightgreen;
+}
+
+.invalid {
+    border: .063em solid red;
 }

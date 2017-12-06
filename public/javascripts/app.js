@@ -115,9 +115,6 @@
     //     })
     // });
 
-    $(".btn-default").on("click", function() {
-        alert("There is nothing more to learn... now go away.");
-    });
 
     var skewContentHandler = function(defaultHtml) {
         var $skew = $(".skew");
@@ -133,8 +130,138 @@
         })
     }
 
-    skewTargetHtml = $(".skew-content-target").html();
+    var skewTargetHtml = $(".skew-content-target").html();
     skewContentHandler(skewTargetHtml);
 
+
+    $('.section').not("#section1").hide();
+    $('.show').click(function() {
+        $("a.show-active").removeClass("show-active");
+        $(this).addClass("show-active");
+        $('#section' + $(this).attr('target')).fadeIn(400).siblings('.section').fadeOut(0);
+    });
+
+    // For the form 
+    //validation
+    $('input, select').tooltipster({
+        trigger: 'custom',
+        onlyOne: false,
+        position: 'right',
+        theme: 'tooltipster-light'
+    });
+
+    $("#form").validate({
+        errorPlacement: function(error, element) {
+            var lastError = $(element).data('lastError'),
+                newError = $(error).text();
+
+            $(element).data('lastError', newError);
+
+            if (newError !== '' && newError !== lastError) {
+                $(element).tooltipster('content', newError);
+                $(element).tooltipster('show');
+            }
+        },
+        success: function(label, element) {
+            $(element).tooltipster('hide');
+        }
+    });
+
+
+    /* This code handles all of the navigation stuff.
+     ** Probably leave it. Credit to https://bootsnipp.com/snippets/featured/form-wizard-and-validation
+     */
+    var navListItems = $('div.setup-panel div a'),
+        allWells = $('.setup-content'),
+        allNextBtn = $('.nextBtn');
+
+    allWells.hide();
+
+    navListItems.click(function(e) {
+        e.preventDefault();
+        var $target = $($(this).attr('href')),
+            $item = $(this);
+
+        if (!$item.hasClass('disabled')) {
+            navListItems.removeClass('btn-primary').addClass('btn-default');
+            $item.addClass('btn-primary');
+            $('input, select').tooltipster("hide");
+            allWells.hide();
+            $target.show();
+            $target.find('input:eq(0)').focus();
+        }
+    });
+
+    /* Handles validating using jQuery validate.
+     */
+    allNextBtn.click(function() {
+        var curStep = $(this).closest(".setup-content"),
+            curStepBtn = curStep.attr("id"),
+            nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+            curInputs = curStep.find("input"),
+            isValid = true;
+
+        //Loop through all inputs in this form group and validate them.
+        for (var i = 0; i < curInputs.length; i++) {
+            if (!$(curInputs[i]).valid()) {
+                isValid = false;
+            }
+        }
+
+        if (isValid) {
+            //Progress to the next page.
+            nextStepWizard.removeClass('disabled').trigger('click');
+            // # # # AJAX REQUEST HERE # # # 
+
+            /*
+            Theoretically, in order to preserve the state of the form should the worst happen, we could use an ajax call that would look something like this:
+               
+            //Prepare the key-val pairs like a normal post request.
+            var fields = {};
+            for(var i= 0; i < curInputs.length; i++){
+              fields[$(curInputs[i]).attr("name")] = $(curInputs[i]).attr("name").val();
+            }
+               
+            $.post(
+                "location.php",
+                fields,
+                function(data){
+                  //Silent success handler.
+                }                
+            );
+               
+            //The FINAL button on last page should have its own logic to finalize the enrolment.
+            */
+        }
+    });
+
+    $('div.setup-panel div a.btn-primary').trigger('click');
+
+    $(document).ready(function() {
+        $('input[type=file]').change(function() {
+            //console.log(this.files);
+            var f = this.files;
+            var el = $(this).parent();
+            if (f.length > 1) {
+                console.log(this.files, 1);
+                el.text('Sorry, multiple files are not allowed');
+                return;
+            }
+            // el.removeClass('focus');
+            el.html(f[0].name + '<br>' +
+                '<span class="sml">' +
+                'type: ' + f[0].type + ', ' +
+                Math.round(f[0].size / 1024) + ' KB</span>');
+        });
+
+        $('input[type=file]').on('focus', function() {
+            $(this).parent().addClass('focus');
+        });
+
+        $('input[type=file]').on('blur', function() {
+            $(this).parent().removeClass('focus');
+        });
+
+    });
 
 }(window, jQuery));

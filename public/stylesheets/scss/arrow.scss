@@ -1,0 +1,127 @@
+$purple: #afb4d7;
+$purple-dark: scale-lightness($purple, -10%);
+$purple-darker: scale-lightness($purple, -20%);
+$purple-darkest: scale-lightness($purple, -30%);
+$green: #cce8a4;
+$green-light: scale-lightness(#cce8a4, 20%);
+$green-dark: scale-lightness($green, -10%);
+$green-darker: scale-lightness($green, -30%);
+$green-darkest: scale-lightness($green, -50%);
+@mixin css-arrow($box-edge: bottom, $edge-side: center, $arrow-size: 10px, $edge-side-offset: 0, $fill-color: black, $border-color: none, $border-style: border) {
+    // initiate internal variables
+    $box-edge-inverse: bottom;
+    $edge-side-pos: $edge-side;
+    $edge-side-pos-value: 0;
+    // establish inverse variables
+    @if $box-edge==top {
+        $box-edge-inverse: bottom;
+    }
+    @else if $box-edge==right {
+        $box-edge-inverse: left;
+    }
+    @else if $box-edge==bottom {
+        $box-edge-inverse: top;
+    }
+    @else if $box-edge==left {
+        $box-edge-inverse: right;
+    }
+    // calculate remaining internal variables
+    @if ($box-edge=='top' or $box-edge=='bottom') {
+        @if $edge-side==center {
+            $edge-side-pos: left;
+            $edge-side-pos-value: 50%;
+            $edge-side-offset: (-$arrow-size);
+        }
+    }
+    @if ($box-edge=='left' or $box-edge=='right') {
+        @if $edge-side==center {
+            $edge-side-pos: top;
+            $edge-side-pos-value: 50%;
+            $edge-side-offset: (-$arrow-size);
+        }
+    }
+    &:after,
+    &:before {
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border: solid rgba(#fff, 0);
+    }
+    &:after {
+        border-color: rgba(#fff, 0);
+        border-width: $arrow-size - 1;
+        #{$box-edge}: (-$arrow-size) - $arrow-size + 2;
+        border-#{$box-edge-inverse}-color: $fill-color;
+        #{$edge-side-pos}: $edge-side-pos-value;
+        margin-#{$edge-side-pos}: $edge-side-offset + 1;
+    }
+    @if $border-style==flag {
+        border-radius: 2px;
+        &:before {
+            border-color: rgba(#fff, 0);
+            border-width: $arrow-size - 1;
+            #{$box-edge}: (-$arrow-size) - $arrow-size + 2;
+            border-#{$box-edge-inverse}-color: $border-color;
+            #{$edge-side-pos}: $edge-side-pos-value;
+            margin-#{$edge-side-pos}: $edge-side-offset + 2;
+        }
+    }
+    @else {
+        &:before {
+            border-color: rgba(#fff, 0);
+            border-width: $arrow-size;
+            #{$box-edge}: (-$arrow-size) - $arrow-size;
+            border-#{$box-edge-inverse}-color: $border-color;
+            #{$edge-side-pos}: $edge-side-pos-value;
+            margin-#{$edge-side-pos}: $edge-side-offset;
+        }
+    }
+}
+
+.arrow {
+    position: relative;
+    float: left;
+    float: left;
+    width: 100px;
+    height: 30px;
+    padding: 10px 5px 0;
+    margin: 20px;
+    background: black;
+    border-radius: 3px;
+    font-family: menlo, monaco, "andale mono", "courier new", fixed;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    &.default {
+        @include css-arrow;
+    }
+    &.small {
+        background: $purple;
+        @include css-arrow(left, center, 6px, 0, $purple);
+    }
+    &.med {
+        background: $purple-dark;
+        @include css-arrow(top, left, 8px, 10px, $purple-dark);
+    }
+    &.large {
+        background: $purple-darker;
+        @include css-arrow(bottom, right, 14px, 25px, $purple-darker);
+    }
+    &.border {
+        color: $green-darkest;
+        width: 98px;
+        height: 28px;
+        border: 1px solid $green-darker;
+        background: $green-light;
+        @include css-arrow(top, center, 18px, 0, $green-light, $green-darker);
+    }
+    &.flag {
+        color: $green-darkest;
+        border-radius: 3px 0 0 3px;
+        background: $green;
+        box-shadow: 0 1px 0 $purple;
+        @include css-arrow(right, center, 20px, 0, $green, $purple-dark, flag);
+    }
+}

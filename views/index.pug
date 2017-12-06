@@ -14,7 +14,7 @@ block content
               #slide_one.swiper-slide
                 #lab_video_text_overlay
                   .container
-                    h2(style="font-size:2.5em") shifting the paradigms of tech in Nigeria 
+                    h2(style="font-size:2.5em") Shifting the paradigms of tech in Nigeria 
                     p We believe that technology is core to any organization success in this age. We can help transform ideas into software product, right from the requirements elicitation to when the software is in use
                     a.btn.btn-default(href='/projects') View Our Work
                     a.btn.btn-warning(href='/aboutus') Learn About Us
@@ -25,6 +25,12 @@ block content
                   source(src='/images/lab-coding.webm' type='video/webm')
                   source(src='/images/lab-coding.ogg' type='video/ogg')
               #slide_two.swiper-slide
+                #lab_video_text_overlay
+                  .container
+                    h2(style="font-size:2.5em") Our Team has the expertise to deliver the best in class software products
+                    p We believe that technology is core to any organization success in this age. We can help transform ideas into software product, right from the requirements elicitation to when the software is in use
+                    a.btn.btn-default(href='/projects') View Our Work
+                    a.btn.btn-warning(href='/aboutus') Learn About Us
                 // VIDEO
                 video.slider-video(width='100%' preload='auto' loop='' autoplay='' style='visibility: visible; width: 100%;' poster='//dl.dropbox.com/s/5aeyg9ntj1fs8v1/typing-numbers.jpg')
                   source(src='/images/typing-numbers.mp4' type='video/mp4')
@@ -62,7 +68,7 @@ block content
       section.search-section
     
         form.search-form.form-inline(action='/domain-search')
-            input.form-control( type='search', name='search_domain' autofocus  placeholder='Claim that domain here')
+            input.ctrl-form( type='search', name='search_domain' autofocus  placeholder='Claim that domain here')
             input.btn.btn-default(type='submit', value='find domain')
             <div id="results"></div>
       .container-fluid
@@ -124,14 +130,348 @@ block content
           p.header-description we would shine the light on all facets of your company and reveal your domain model
           div.home-content.plain
             section.estimate
-              h3 Write a brief
-              span.header-description estimate your projects
+              div.main-lede
+                h3 Write a brief
+                span.header-description Spare us some details about your project 
+              div.main-action
+                a.show.show-active(target='1') estimate
             section.nda
-              h3 start with an NDA
-              span.header-description Do you have propriety information to share? Let's provide you with a non-disclosure aggrement(NDA)
+              div.main-lede
+                h3 Start with an NDA
+                span.header-description Do you have propriety information to share? Let's provide you with a non-disclosure aggrement(NDA)
+              div.main-action
+                a.show(target='2') submit NDA
             section.call
-              h3 Schedule a meeting
-              span.header-description We can provide you with 30 mintues of of our time on skype to discuss your next big thing
+              div.main-lede
+                h3 Schedule a meeting
+                span.header-description We can provide you with 30 mintues of of our time on skype to discuss your next big thing
+              div.main-action
+                a.show(target='3') Schedule
+
+
+          section#section1.section
+            h4 Write a brief
+            .container
+              .stepwizard
+                .stepwizard-row.setup-panel
+                  .stepwizard-step
+                    a.btn.btn-primary.btn-circle(href='#step-1', type='button') 1
+                    p Company details
+                  .stepwizard-step
+                    a.btn.btn-default.btn-circle.disabled(href='#step-2', type='button') 2
+                    p Project details
+                  .stepwizard-step
+                    a.btn.btn-default.btn-circle.disabled(href='#step-3', type='button') 3
+                    p Submission and feedback
+              form#form(role='form')
+                #step-1.row.setup-content
+                  .col-xs-12
+                    .col-md-11
+                      h3  Company Details
+                      .form-group
+                        label.control-label Email
+                        input#firstName.form-control(maxlength='100', type='email', required='', placeholder='Enter Email Address')
+                      .form-group
+                        label.control-label Last Name
+                        input.form-control(maxlength='100', type='text', required='required', placeholder='Enter Last Name')
+                      button.btn.btn-primary.nextBtn.pull-right(type='button') Next
+                #step-2.row.setup-content
+                  .col-xs-12
+                    .col-md-11
+                      h3  Project Details
+                      .form-group
+                        label.control-label Company Name
+                        input.form-control(maxlength='200', type='text', required='required', placeholder='Enter Company Name')
+                      .form-group
+                        label.control-label Company Address
+                        input.form-control(maxlength='200', type='text', required='required', placeholder='Enter Company Address')
+                      button.btn.btn-primary.nextBtn.pull-right(type='button') Next
+                #step-3.row.setup-content
+                  .col-xs-12
+                    .col-md-11
+                      h3  Step 3
+                      p Take a moment to review the form, and edit any information.
+                      button.btn.btn-success.pull-right(type='submit') Finish!
+
+          section#section2.section
+            h3 Upload Your NDA here, we will sign it and send it back to you
+            form.file-upload(method='post', action='/upload')
+              input(type='text', value='Click here and press tab to test keyboard interaction.')
+              label.file
+                | Drop a file or click to select one
+                input(type='file', multiple='')
+                // use multiple, even if it’s not allowed, to be able to show an info text
+              button.upload(type='submit') Upload
+            //
+              TODO:
+              • add clear/reset option
+              • add validation of type and size
+          section#section3.section
+            h3 Book a schedule on skype
+            form#apptForm(action='#', method='post')
+              .header.row
+                h2 Schedule an Appointment
+              // row
+              .row
+                .inputs.date.col-4
+                  label(for='') Date
+                  br
+                  input(type='date', id='')
+                .inputs.time.col-4
+                  label(for='') Time
+                  br
+                  input(type='time', id='')
+                .inputs.time-zone.col-4
+                  label(for='') Time Zone
+                  br
+                  select.appt-sel
+                    option Timezone
+                    option Lagos Central African Time
+                    option London GMT
+                    option Pacific
+                    option Mountain
+                    option Central
+                    option Eastern
+                    option Atlantic
+                    option Chamarro
+                    option Samoa
+                    option Hawaii-Aleutian
+                    option Alaska
+              // row
+              .row
+                .inputs.contact.col-6
+                  label(for='contactNumber') Contact Number
+                  br
+                  input#contactNumber(type='tel')
+                .inputs.email.col-6
+                  label(for='') Skype ID (Email)
+                  br
+                  input(type='email', id='')
+              // row
+              .row
+                .inputs.message.col-12
+                  label(for='') Message
+                  br
+                  textarea.txt-appt
+              // row
+              .row
+                .col-12
+                  button(type='submit')
+                    strong Submit
+              // row
+
+
+
+            //- #index.route
+            //- #oct-week-3.route
+            //- #oct-week-4.route
+            //- #nov-week-1.route
+            //- #schedule.route
+            //- main.cal-device
+            //-   header.cal-header
+            //-     .cal-subheader
+            //-     .cal-bar
+            //-       .cal-button.-left
+            //-         i.fa.fa-bars.-calendar
+            //-         a.fa.fa-chevron-left.-schedule(href='#index')
+            //-       .cal-title
+            //-         .cal-heading.-calendar Calendar
+            //-         .cal-heading.-schedule Wednesday, November 10
+            //-       .cal-button.-right
+            //-         i.fa.fa-search
+            //-   section.cal-app
+            //-     header.cal-week
+            //-       .cal-weekday SUN
+            //-       .cal-weekday MON
+            //-       .cal-weekday TUE
+            //-       .cal-weekday WED
+            //-       .cal-weekday THU
+            //-       .cal-weekday FRI
+            //-       .cal-weekday SAT
+            //-     .cal-scene.-calendar
+            //-       .cal-month.-october
+            //-         header.cal-header
+            //-           a.cal-link(href='#oct-week-1')
+            //-             span October
+            //-           a.cal-arrow(href='#nov-week-1')
+            //-             i.fa.fa-chevron-up
+            //-           a.cal-arrow(href='#oct-week-4')
+            //-             i.fa.fa-chevron-up
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day(href='#schedule')
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-       .cal-month.-november
+            //-         header.cal-header
+            //-           a.cal-link(href='#nov-week-1')
+            //-             span November
+            //-           a.cal-arrow
+            //-             i.fa.fa-chevron-up
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day(href='#schedule')
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day(href='#schedule')
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day(href='#schedule')
+            //-         a.cal-day(href='#schedule')
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-       .cal-month.-december
+            //-         header.cal-header
+            //-           a.cal-link
+            //-             span December
+            //-           a.cal-arrow(href='#nov-week-1')
+            //-             i.fa.fa-chevron-down
+            //-           a.cal-arrow(href='#oct-week-3')
+            //-             i.fa.fa-chevron-down
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day(href='#schedule')
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day(href='#schedule')
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-       .cal-month.-january
+            //-         header.cal-header
+            //-           .cal-link
+            //-             span January
+            //-           a.cal-arrow(href='#oct-week-4')
+            //-             i.fa.fa-chevron-down
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-         a.cal-day
+            //-     .cal-scene.-schedule
+            //-       .cal-item
+            //-         .cal-time
+            //-           span 08:00
+            //-         .cal-task
+            //-           p wake up
+            //-       .cal-item.-long
+            //-         .cal-time
+            //-           span 12:15
+            //-         .cal-task
+            //-           p meeting with the team, discussing the project requirements
+            //-       .cal-item
+            //-         .cal-time
+            //-           span 13:00
+            //-         .cal-task
+            //-           p lunch with Peter
+            //-           a
+            //-             i.fa.fa-map-marker
+            //-             | cafe 
+            //-             q Petit brasserie
+            //-       .cal-item
+            //-         .cal-time
+            //-           span 14:30
+            //-         .cal-task
+            //-           p call with Johnathan and Stevie
+            //-       .cal-item.-long
+            //-         .cal-time
+            //-           span 16:45
+            //-         .cal-task
+            //-           p project presentation
+            //-           a
+            //-             i.fa.fa-map-marker
+            //-             | Head Office
+            //-       .cal-item
+            //-         .cal-time
+            //-           span 18:00
+            //-         .cal-task
+            //-           p call with Johnathan and Stevie
+            //-       .cal-item.-long
+            //-         .cal-time
+            //-           span 19:00
+            //-         .cal-task
+            //-           p David's birthday party
+            //-           a
+            //-             i.fa.fa-map-marker
+            //-             | bar 
+            //-             q Tailor's John
+            //-       .cal-item
+            //-         .cal-time
+            //-         .cal-task
     section.well-lg.container-fluid
       h2.home-section-h2 Our work culture
       p We are like pigeons, we stay with you through the ups and downs. We are fully committed to your project throughout the development lifecyle, event to the post production phase
@@ -139,13 +479,14 @@ block content
     section.well-lg.container-fluid
       p We are like pigeons, we stay with you through the ups and downs. We are fully committed to your project throughout the development lifecyle, event to the post production phase
     script.
-                var swiper = new Swiper('.swiper-container', {
-                pagination: '.swiper-pagination',
-                paginationClickable: true,
-                nextButton: '.swiper-button-next',
-                prevButton: '.swiper-button-prev',
-                spaceBetween: 30,
-                autoplay: 2,
-                autoplayDisableOnInteraction: false
+      var swiper = new Swiper('.swiper-container', {
+      pagination: '.swiper-pagination',
+      paginationClickable: true,
+      nextButton: '.swiper-button-next',
+      prevButton: '.swiper-button-prev',
+      spaceBetween: 1,
+      autoplay: 5000,
+      autoplayDisableOnInteraction: false
+      });
 
 
