@@ -17,11 +17,10 @@ router.get('/', function(req, res, next) {
 
     .end(function(response) {
         output = response.body;
-        console.log(output);
+        return next();
     });
-    return next();
 }, function(req, res) {
-
+    console.log(output);
     res.render('search-domain', { title: 'Search Result', response: output });
 });
 

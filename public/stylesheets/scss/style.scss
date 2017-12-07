@@ -1625,3 +1625,39 @@ select {
     color: #9acd32;
     white-space: nowrap;
 }
+
+div#response {
+    background: rgba(24, 37, 57, 0.72);
+    padding: 30px;
+}
+
+h1.result {
+    color: white
+}
+
+h2.result {
+    color: white
+}
+
+table.result {
+    width: 85%;
+    max-width: 100%;
+    margin-bottom: 23px;
+}
+
+thead.result {
+    font-size: 16px;
+    font-weight: 600;
+    color: yellowgreen;
+}
+
+tr.result {
+    font-size: 15px;
+    font-weight: 500;
+    color: chartreuse;
+}
+
+span.register {
+    font-size: 16px;
+    color: white;
+}

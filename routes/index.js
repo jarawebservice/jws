@@ -5,7 +5,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'jara web Service', description: 'Jaracare helps company achieve the goals using the right technologies as a lever' });
+    res.render('index', { title: 'jara web Service', description: 'Jara Web Services helps company achieve the goals using the right technologies as a lever' });
 });
 
 module.exports = router;
