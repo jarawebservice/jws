@@ -4,17 +4,13 @@ block content
   main(role='main ')
     section#lab_video_slider
       .container-fluid
-        .row(style="height: 400px;")
-          meta(name='viewport' content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1')
-          // Link Swiper's CSS
-          
-          // Swiper
+        .row.row-height
           .swiper-container
             .swiper-wrapper
               #slide_one.swiper-slide
                 #lab_video_text_overlay
                   .container
-                    h2(style="font-size:2.5em") Shifting the paradigms of tech in Nigeria 
+                    h2(style="") Shifting the paradigms of tech in Nigeria 
                     p.masthead-para We believe that technology is core to any organization success in this age. We can help transform ideas into software product, right from the requirements elicitation to when the software is in use
                     a.btn.btn-default(href='/projects') View Our Work
                     a.btn.btn-warning(href='/aboutus') Learn About Us
@@ -27,7 +23,7 @@ block content
               #slide_two.swiper-slide
                 #lab_video_text_overlay
                   .container
-                    h2(style="font-size:2.5em") Our Team has the expertise to deliver the best in class software products
+                    h2(style="") Our Team has the expertise to deliver the best in class software products
                     p.masthead-para We believe that technology is core to any organization success in this age. We can help transform ideas into software product, right from the requirements elicitation to when the software is in use
                     a.btn.btn-default(href='/projects') View Our Work
                     a.btn.btn-warning(href='/aboutus') Learn About Us
@@ -59,7 +55,7 @@ block content
                   |                             
                   p Our software development shop employs time tested technologies and proven philosophy to deliver products that not only meets requirements, but that are also adaptible.
               div.home-content-btn
-                a.read-more(href="")
+                a.read-more(href="software-development")
                   | learn more
               |  
             section.animation               
@@ -72,7 +68,7 @@ block content
                   |                           
                   p Animation is the state of the art of the web. We deliver products from Virtual Reality website to animated E-brochure.
               div.home-content-btn
-                a.read-more(href="")
+                a.read-more(href="web-animation")
                   | learn more
               |                         
                   
@@ -87,19 +83,19 @@ block content
                   |                             
                   p We have mastered the technique of creating mobile applications for IOS, Android, and Windows App with Xamarin
               div.home-content-btn
-                a.read-more(href="")
+                a.read-more(href="mobile")
                   | learn more
               |
             section.web-telephony 
               .push-down-top-lg
                 div.home-icons                
-                  img.home-icon(src='/images/telephony.png', alt='Canvas')
+                  img.home-icon(src='/images/telephony.png', alt='Telephony')
                 |
                 .text-left
                   h2 Internet Telephony                             
                   p  We create call center solutions for businesses, and help them reach a teeming audience via automated calls and SMS
               div.home-content-btn
-                a.read-more(href="")
+                a.read-more(href="telephony")
                     | learn more
               |                 
     
@@ -144,7 +140,7 @@ block content
                   .stepwizard-step
                     a.btn.btn-default.btn-circle.disabled(href='#step-3', type='button') 3
                     p Submission and feedback
-              form#form(role='form')
+              form#form(role='form' action="/write-brief" method="post")
                 #step-1.row.setup-content
                   .col-xs-12
                     .col-md-11
@@ -176,11 +172,12 @@ block content
 
           section#section2.section.well-lg
             h3 Upload Your NDA here, we will sign it and send it back to you
-            form.file-upload(method='post', action='/upload')
-              input(type='text', value='Click here and press tab to test keyboard interaction.')
+            form.file-upload(method='post', action='nda/upload', encType='multipart/form-data', ref='uploadForm' )
+              label(for="Name") Full Name
+              input(type='text', value='Type your name here' name="fullname")
               label.file
                 | Drop a file or click to select one
-                input(type='file', multiple='')
+                input(type='file', multiple='' name='nda')
                 // use multiple, even if it’s not allowed, to be able to show an info text
               button.pull-right.schedule-btn(type='submit') Upload
             //
@@ -189,22 +186,34 @@ block content
               • add validation of type and size
           section#section3.section.well-lg
             h3 Book a schedule on skype
-            form#apptForm(action='#', method='post')
+            
+            form(action='/schedule/add', method='post')
               .header.row
               // row
               .row
+                .inputs.contact.col-6
+                  label(for='fullname') Full Name
+                  <br/>
+                  input#fullname(type='text', name='fullname')
+                .inputs.email.col-6
+                  label(for='email') Email
+                  <br/>
+                  input(type='email', name='email', id='')
+              // row
+              // row
+              .row
                 .inputs.date.col-4
-                  label(for='') Date
-                  br
-                  input(type='date', id='')
+                  label(for='date') Date
+                  <br/>
+                  input(type='date', id='', name='date')
                 .inputs.time.col-4
-                  label(for='') Time
-                  br
-                  input(type='time', id='')
+                  label(for='time') Time
+                  <br/>
+                  input(type='time', id='', name='time')
                 .inputs.time-zone.col-4
-                  label(for='') Time Zone
-                  br
-                  select.appt-sel
+                  label(for='timezone') Time Zone
+                  <br/>
+                  select.appt-sel(name='timezone')
                     option Timezone
                     option Lagos Central African Time
                     option London GMT
@@ -221,18 +230,18 @@ block content
               .row
                 .inputs.contact.col-6
                   label(for='contactNumber') Contact Number
-                  br
-                  input#contactNumber(type='tel')
+                  <br/>
+                  input#contactNumber(type='tel', name='contactNumber')
                 .inputs.email.col-6
-                  label(for='') Skype ID (Email)
-                  br
-                  input(type='email', id='')
+                  label(for='skypeid') Skype ID (Email)
+                  <br/>
+                  input(type='text', id='', name='skypeid')
               // row
               .row
                 .inputs.message.col-12
-                  label(for='') Message
-                  br
-                  textarea.txt-appt
+                  label(for='message') Message
+                  <br/>
+                  textarea.txt-appt(name='message')
               // row
               .row
                 .col-12
@@ -244,14 +253,19 @@ block content
 
     section.well-lg.container-fluid
       h2.home-section-h2 Our work culture
-      h3.home-section-h3 We work with Agility
-      img.culture(src="images/Softmodel.png")
-      //- p We are like pigeons, we stay with you through the ups and downs. We are fully committed to your project throughout the development lifecyle, event to the post production phase
-      h3.home-section-h3 We employ time-tested technologies and tools to do our job
-      
-      img.techs(src="images/html5.png" caption="HTML5")
-      img.techs(src="images/reactjs.png")
-      img.techs(src="images/DNC.png")
+      .container.culture-home
+        .row
+          img.col-md-6.culture(src="images/Softmodel.png", alt="", fl)
+          div.col-md-4
+            p We are agile we adhere to Agile, that means flexibility and capacity to accomodate changes, to stay open to ideas to the very end of the Software development lifecycle.
+        //- p We are like pigeons, we stay with you through the ups and downs. We are fully committed to your project throughout the development lifecyle, event to the post production phase
+        .row
+          h3.home-section-h3 We employ time-tested technologies and tools to do our job
+          
+          img.techs(src="images/html5.png" caption="HTML5")
+          img.techs(src="images/reactjs.png")
+          img.techs(src="images/DNC.png")
+          img.techs(src="images/css3.png")
 
     section.well-lg.container-fluid
     script.

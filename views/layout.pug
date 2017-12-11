@@ -27,19 +27,22 @@ head
   //- meta(name='msapplication-TileImage', content='images/fav/ms-icon-144x144.png')
   //- meta(name='theme-color', content='transparent')
   //- link(rel='stylesheet', href='/stylesheets/reset.css')
+
   link(rel='stylesheet', href='/stylesheets/bootstrap.css', type='text/css')
   link(rel="stylesheet" href="/font-awesome/css/font-awesome.min.css")
   link(rel='stylesheet', href='/stylesheets/style.css')
   script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
   link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.2.5/css/swiper.min.css')
   
+  
   script(src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.2.5/js/swiper.min.js')
 
   
- 
-  
-|
 body
+  ul.errors
+    if errors
+      each error, i in errors
+        li.alert.alert-danger #{error.msg}
   header
     // Fixed navbar
     nav.navbar.navbar-inverse.navbar-fixed-top
@@ -70,6 +73,9 @@ body
             li
               span.nav-link
                 a.nav-link(href='/web') Web App
+            li
+              span.nav-link
+                a.nav-link(href='/case-studies') Case Studies
             |                             
             li.dropdown
                 span.nav-link(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
@@ -81,27 +87,10 @@ body
                   |                                         
                   li
                     a(href='/web-services') Web Services
-                  
-            |                             
-                                        
-            li.dropdown
-                span.nav-link(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-                  | Multimedia 
-                |                                     
-                ul.dropdown-menu(aria-labelledby='dLabel')
-                  li
-                    a(href='/video-conferencing') Video Conferencing
-                  |                                         
-                  li
-                    a(href='ECatalog') ECatalog/Brochure
-                  |                                         
-                  li
-                    a(href='Web-Animation') Web Animation
-                  
             |                             
             li.dropdown
                 span.nav-link(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-                  | Domain & Hosting
+                  | Services
                 |                                     
                 ul.dropdown-menu(aria-labelledby='dLabel')
                   li
@@ -123,7 +112,7 @@ body
                     a(href='seo') Search Engine Optimization
 
           span.pull-right.estimate-proj 
-            a.btn.btn-info(href="") Estimate Project
+            a.btn.btn-info(href="estimate-project") Estimate Project
 
         
           
@@ -150,7 +139,7 @@ footer.flex-rw.container-fluid
     li
       a.generic-anchor.footer-list-anchor(href='/what-we-do', itemprop='significantLink') What we do
     li
-      a.generic-anchor.footer-list-anchor(href='/our-team', itemprop='significantLink') Our Team
+      a.generic-anchor.footer-list-anchor(href='/team', itemprop='significantLink') Our Team
     |         
     li
       a.generic-anchor.footer-list-anchor(href='/portfolio', itemprop='significantLink') Portfolio
@@ -159,7 +148,7 @@ footer.flex-rw.container-fluid
       a.generic-anchor.footer-list-anchor(href='/contact', itemprop='significantLink') Contact Us
     |         
     li
-      a.generic-anchor.footer-list-anchor(href='/our-approach', itemprop='significantLink') Our approach to work
+      a.generic-anchor.footer-list-anchor(href='/culture', itemprop='significantLink') Our approach to work
     li
       a.generic-anchor.footer-list-anchor(href='/blog', itemprop='significantLink') Blog
     li
@@ -276,5 +265,6 @@ script(src='/javascripts/modernizr.min.js', type='text/javascript')
 script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
 script(src='https://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js')
 script(src='https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/js/jquery.tooltipster.min.js')
+script(src="/javascripts/foundation.min.js")
 script(src='/javascripts/bundle.js', type='text/javascript')
 

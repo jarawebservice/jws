@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    main
+          form.form-group(method='post', action='/register')
+            div
+                label(for='name') Name
+                input.form-control(type='text', name='name', placeholder='Name')
+            div
+                label(for='username') Username
+                input.form-control(type='text', name='username', placeholder='Username')
+            div
+                label(for='email') Email
+                input.form-control(type='email', name='email', placeholder='Email')
+            div
+                label(for='password') Password
+                input.form-control(type='password', name='password', placeholder='Password')
+            div
+                label(for='password2') Confirm Password
+                input.form-control(type='password', name='password2', placeholder='Confirm Password')
+                button(type='submit') Register
+            br
+            |  Have An Account? 
+            a(href='/') Login Now

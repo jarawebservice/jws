@@ -1,35 +1,104 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var unirest = require('unirest');
+const express = require('express'),
+    path = require('path'),
+    favicon = require('serve-favicon'),
+    logger = require('morgan'),
+    cookieParser = require('cookie-parser'),
+    bodyParser = require('body-parser'),
+    expressValidator = require('express-validator'),
+    session = require('express-session'),
+    flash = require('connect-flash'),
+    unirest = require('unirest'),
+    mongoose = require('mongoose'),
+    fileUpload = require('express-fileupload'),
+    passport = require('passport'),
+    Strategy = require('passport-facebook').Strategy;
 
-var index = require('./routes/index');
-var webAuthoring = require('./routes/web-authoring');
-var domainSearch = require('./routes/search-domain');
-var users = require('./routes/users');
-var web = require('./routes/web');
-var webAnime = require('./routes/web-animation');
-var videoCon = require('./routes/video-conferencing');
-var socialMarketing = require('./routes/social-marketing');
-var webHost = require('./routes/web-hosting');
-var ws = require('./routes/web-services');
-var ecat = require('./routes/ecatalog');
-var api = require('./routes/api');
-var mobile = require('./routes/mobile');
-var seo = require('./routes/seo');
-var contact = require('./routes/contact');
+mongoose.connect('mongodb://localhost/jws', { useMongoClient: true });
 
-var app = express();
+mongoose.Promise = global.Promise;
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
+const db = mongoose.connection;
+
+const app = express();
+
 app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
 app.set('port', (process.env.PORT || 3000));
 app.use(cookieParser());
 app.use(express.static(path.resolve(__dirname, 'public')));
+
+// Body Parser Middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// Express Messages
+app.use(require('connect-flash')());
+app.use(function(req, res, next) {
+    res.locals.messages = require('express-messages')(req, res);
+    next();
+});
+
+app.use(fileUpload());
+
+// Express Validator
+app.use(expressValidator({
+    errorFormatter: (param, msg, value) => {
+        const namespace = param.split('.'),
+            root = namespace.shift(),
+            formParam = root;
+
+        while (namespace.length) {
+            formParam += '[' + namespace.shift() + ']';
+        }
+        return {
+            param: formParam,
+            msg: msg,
+            value: value
+        };
+    }
+
+}));
+
+//Express flash
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+}))
+
+
+// Routes
+const index = require('./routes/index'),
+    webAuthoring = require('./routes/web-authoring'),
+    domainSearch = require('./routes/search-domain'),
+    users = require('./routes/users'),
+    web = require('./routes/web'),
+    webAnime = require('./routes/web-animation'),
+    videoCon = require('./routes/video-conferencing'),
+    socialMarketing = require('./routes/social-marketing'),
+    webHost = require('./routes/web-hosting'),
+    ws = require('./routes/web-services'),
+    ecat = require('./routes/ecatalog'),
+    api = require('./routes/api'),
+    mobile = require('./routes/mobile'),
+    telephony = require('./routes/telephony'),
+    softdev = require('./routes/software-development'),
+    seo = require('./routes/seo'),
+    contact = require('./routes/contact'),
+    estimate = require('./routes/estimate'),
+    brief = require('./routes/brief'),
+    schedule = require('./routes/schedule'),
+    nda = require('./routes/nda'),
+    register = require('./routes/register'),
+    login = require('./routes/login'),
+    team = require('./routes/our-team'),
+    who = require('./routes/who-we-are'),
+    portfolio = require('./routes/portfolio'),
+    culture = require('./routes/culture'),
+    what = require('./routes/what-we-do');
+
 
 
 app.use('/', index);
@@ -47,13 +116,32 @@ app.use('/web', web);
 app.use('/ecatalog', ecat);
 app.use('/api', api);
 app.use('/contact', contact);
+app.use('/estimates', estimate);
+app.use('/briefs', brief);
+app.use('/software-development', softdev);
+app.use('/telephony', telephony);
+app.use('/nda', nda);
+app.use('/schedule', schedule);
+app.use('/register', register);
+app.use('/login', login);
+app.use('/team', team);
+app.use('/who-we-are', who);
+app.use('/what-we-do', what);
+app.use('/portfolio', portfolio);
+app.use('/culture', culture);
+
+
+
+
+
+
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-});
+// app.use(function(req, res, next) {
+//     var err = new Error('Not Found');
+//     err.status = 404;
+//     next(err);
+// });
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -66,6 +154,6 @@ app.use(function(err, req, res, next) {
     res.render('error');
 });
 
-app.listen(app.get('port'), function() {
+app.listen(app.get('port'), () => {
     console.log("App started on port" + app.get('port'));
 });

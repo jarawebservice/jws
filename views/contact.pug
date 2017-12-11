@@ -1,17 +1,28 @@
 extends layout
 
-block content
-    section.container
-        form(method="post" action="contact/send")
+block content 
+    
+    
+    section.container-fluid.row
+        .col-md-5.col-lg-offset-1.col-md-6
+            form(method="post" action="contact/send")
             h1 Contact us here
-            .form-group
-                label Name
-                input.form-control(type="text", name="name", placeholder="Enter Your Name")
-            .form-group
-                label Email
-                input.form-control(type="Email", name="email", placeholder="Enter Your Email")
-            .form-group
-                label Message
-                textarea.form-control( name="message", placeholder="Enter Your Message")
-            button.btn.btn-default(type="submit") submit
-        
+            <br/>
+                .form-group
+                    label Name
+                    input.form-control(type="text", name="name", placeholder="Enter Your Name")
+                    <br/>
+                .form-group
+                    label Email
+                    input.form-control(type="Email", name="email", placeholder="Enter Your Email")
+                    <br/>
+
+                .form-group
+                    label Message
+                    textarea.form-control( name="message", placeholder="Enter Your Message")
+                    <br/>
+            button.btn.btn-default.btn-block(type="submit") submit
+        .col-md-4.col-lg-offset-2.col-md-6.col-md-offset-6
+            h2  Address  
+            .responsive-embed
+                img(src='https://maps.googleapis.com/maps/api/staticmap?center=campbell&zoom=13&scale=false&size=600x300&maptype=roadmap&sensor=false&format=png&visual_refresh=true" alt="Google Map of campbell' alt="")

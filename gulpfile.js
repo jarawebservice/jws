@@ -1,4 +1,4 @@
-var gulp = require('gulp'),
+const gulp = require('gulp'),
     pug = require('gulp-pug'),
     sass = require('gulp-sass'),
     minifyCSS = require('gulp-csso'),
@@ -58,4 +58,4 @@ gulp.task('server', function() {
 
 gulp.task('serve', ['server', 'watch']);
 
-gulp.task('default', ['html', 'styles', 'scripts', 'serve']);
+gulp.task('default', ['scripts', 'styles', 'serve']);

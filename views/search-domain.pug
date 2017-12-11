@@ -12,26 +12,27 @@ block content
               span.oops 
                 | Oops! 
               | The Domain #{response.domain} is already registered
-          table.result.container.table.table-condensed
-            thead.result
-              th Domain Name
-              th status
-              th ID
-              th Created on
-              th Expires On
-              th Updated On
-              th Registrant
-              th Owner
-            tbody
-              tr.result
-                td #{response.domain}
-                td #{response.status}
-                td #{response.domain_id}
-                td #{response.created_on}
-                td #{response.expires_on}
-                td #{response.updated_on}
-                td #{response.registrar.name}
-                td #{response.admin_contacts.name}
+          .table-responsive
+            table.result.container.table.table-condensed
+              thead.result
+                th Domain Name
+                th status
+                th ID
+                th Created on
+                th Expires On
+                th Updated On
+                th Registrant
+                th Owner
+              tbody
+                tr.result
+                  td #{response.domain}
+                  td #{response.status}
+                  td #{response.domain_id}
+                  td #{response.created_on}
+                  td #{response.expires_on}
+                  td #{response.updated_on}
+                  td #{response.registrar.name}
+                  td #{response.admin_contacts.name}
         else 
           div
             h2.result 
@@ -42,26 +43,27 @@ block content
               | to continue or 
               a(href="/login") login 
               | if you have an account with JWS
-          table.result.container.table.table-condensed
-            thead.result
-              th Domain Name
-              th status
-              th ID
-              th Created on
-              th Expires On
-              th Updated On
-              th Registrant
-              th Owner
-            tbody
-              tr.result
-                td #{response.domain}
-                td #{response.status}
-                td not available
-                td not available
-                td not available
-                td not available
-                td not available
-                td not available
+          .table-responsive
+            table.result.container.table.table-condensed
+              thead.result
+                th Domain Name
+                th status
+                th ID
+                th Created on
+                th Expires On
+                th Updated On
+                th Registrant
+                th Owner
+              tbody
+                tr.result
+                  td #{response.domain}
+                  td #{response.status}
+                  td not available
+                  td not available
+                  td not available
+                  td not available
+                  td not available
+                  td not available
           
         
           

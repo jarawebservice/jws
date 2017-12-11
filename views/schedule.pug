@@ -1,0 +1,32 @@
+extends layout
+
+block content
+    h1 Manage Schedule
+    //- ul.list-group
+    //-     each schedule, i in schedules
+    //-         li.list-group-item
+    //-             a(href='schedule/view/' + schedule._id) #{schedule.fullname}
+    table(class="table table-striped")
+        thead
+            th Fullname
+            th Email
+            th Date
+            th Time
+            th Timezone
+            th Contact
+            th SkypeId
+            th message
+        tbody
+        each schedule, i in schedules
+            tr
+                td #{schedule.fullname}
+                td #{schedule.email}
+                td #{schedule.date}
+                td #{schedule.time}
+                td #{schedule.timezone}
+                td #{schedule.pNumber}
+                td #{schedule.skypeId}
+                td #{schedule.message}
+                td 
+                    a.btn.btn-tiny.btn-default(href='schedule/edit/' + schedule._id) Edit
+    
