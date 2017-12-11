@@ -116,7 +116,7 @@ app.use('/web', web);
 app.use('/ecatalog', ecat);
 app.use('/api', api);
 app.use('/contact', contact);
-app.use('/estimates', estimate);
+app.use('/estimate', estimate);
 app.use('/briefs', brief);
 app.use('/software-development', softdev);
 app.use('/telephony', telephony);
