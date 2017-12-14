@@ -2,7 +2,7 @@ extends layout
 
 block content
     main
-          form.form-group(method='post', action='/register')
+          form.form-group.container(method='post', action='/register')
             div
                 label(for='name') Name
                 input.form-control(type='text', name='name', placeholder='Name')

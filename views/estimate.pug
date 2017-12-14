@@ -1,5 +1,71 @@
 extends layout
 
 block content
-    main.estimate
-        h1 Estimate your software project here
+    main.estimate-section.container-fluid
+        h1.h1 Estimate your software project here
+        .container-fluid
+            form.container.estimate-form(action="submit-project")
+                .row
+                    .col-md-5
+                        label(for="first-name") FIRST NAME*
+                        input.input-est(type="text", name="first name")
+
+                    .col-md-5
+                        label(for="last-name") LAST NAME*
+                        input.input-est(type="text", name="Last name")
+
+                br
+                .row
+                    .col-md-5
+                        label(for="email") EMAIL*
+                        input.input-est(type="email", name="email")
+                    .col-md-5
+
+                        label(for="pnum") PHONE NUMBER*
+                        input.input-est(type="text", name="first name")
+                br
+                .row
+                    .col-md-5
+                        label(for="company-name") COMPANY NAME*
+                        input.input-est(type="text", name="company-name")
+                
+
+                    .col-md-5
+                        label(for="ctype") COMPANY TYPE*
+                        select.input-est(name="ctype")
+                            option(value="Company Type" disabled) Company Type
+                            option(value="Early State") Early State
+                            option(value="late State") late State
+                            option(value="small or Medium-sized Business") small or Medium-sized Business
+                            option(value="Enterprise") Enterprise
+                            option(value="Non-profit") Non-profit
+                            option(value="Other")
+                br
+                .row    
+                    .col-md-5
+                        input(type="checkbox" id="consulting" name="services" value="consulting") 
+                        label.est-chckbx-lbl(for="consulting") Consulting
+                    .col-md-5
+                        input(type="checkbox" id="webdev" name="services" value="Web Development") 
+                        label(for="webdev") Web Development
+                .row
+                    .col-md-5
+                        input(type="checkbox" id="ui-ux" name="services" value="UI/UX") 
+                        label.est-chckbx-lbl(for="consulting") UI/UX
+                    .col-md-5
+                        input(type="checkbox" id="cloudservices" name="services" value="cloudservices") 
+                        label.est-chckbx-lbl(for="cloudservices") Cloud Services
+                .row
+                    .col-md-5
+                        input(type="checkbox" id="mobdev" name="services" value="mobdev") 
+                        label.est-chckbx-lbl(for="mobdev") Mobile Development
+                    .col-md-5
+                        input(type="checkbox" id="webtel" name="services" value="webtel") 
+                        label.est-chckbx-lbl(for="webtel") Web Telephony
+                .row
+                    .col-md-10
+                        textarea.est-txtarea(name="message", cols="90", rows="10")
+                .row
+                    .col-md-10
+                        input.btn.bnt-default(type="button", name="send", value="submit")
+                

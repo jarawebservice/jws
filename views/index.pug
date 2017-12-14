@@ -34,7 +34,7 @@ block content
                   source(src='/images/typing-numbers.ogv' type='video/ogg')
                 // END VIDEO
       
-    article#content-container.container-fluid.well-lg
+    article#content-container.container-fluid
       section.search-section
     
         form.search-form.form-inline(action='/domain-search')
@@ -99,7 +99,7 @@ block content
                     | learn more
               |                 
     
-    section.well-lg#content-container2.container-fluid.section-3header      
+    section#content-container2.container-fluid.section-3header      
           h2.home-section-h2 How would you like to accomplish it
           p.header-description we would shine the light on all facets of your company and reveal your domain model
           div.home-content.plain
@@ -180,10 +180,7 @@ block content
                 input(type='file', multiple='' name='nda')
                 // use multiple, even if it’s not allowed, to be able to show an info text
               button.pull-right.schedule-btn(type='submit') Upload
-            //
-              TODO:
-              • add clear/reset option
-              • add validation of type and size
+           
           section#section3.section.well-lg
             h3 Book a schedule on skype
             
@@ -251,23 +248,36 @@ block content
 
 
 
-    section.well-lg.container-fluid
+    section.container-fluid
       h2.home-section-h2 Our work culture
-      .container.culture-home
-        .row
-          img.col-md-6.culture(src="images/Softmodel.png", alt="", fl)
-          div.col-md-4
-            p We are agile we adhere to Agile, that means flexibility and capacity to accomodate changes, to stay open to ideas to the very end of the Software development lifecycle.
+      .container-fluid.culture-home
+        .row.culture-pitch
+          .container-fluid.culture
+            h3.home-section-h3  Proven and Tested Technology Stacks
+            img.culture-img(src="images/tech-stack.jpg", alt="technology stack")
+            p The technology stacks we use have been tested and have been proven to deliver in their domain. Whether we are building a transformation pipeline, a client-facing web application, or a native cross-platform mobile application, we would deploy the best tools and platform in bringing the best experience to our clients. 
         //- p We are like pigeons, we stay with you through the ups and downs. We are fully committed to your project throughout the development lifecyle, event to the post production phase
-        .row
-          h3.home-section-h3 We employ time-tested technologies and tools to do our job
-          
+        .row.culture-pitch
+          .container-fluid.culture
+            h3.home-section-h3 Proven and Tested Philosophy
+            img.culture-img(src="images/agile-process.jpg", alt="Agile process")
+            p We are disciplined in agile but we are not purists. Rather we rely on our discretion in replanning and reshifting our focus to ensure a smooth application lifecycle. Our low-level Agile framework is XP, so we enforce it within our developer sub-team. We leave teams to focus more on construction stuffs, We are more concerned about how the cross-functional teams work together on a project, so we embrace Scrum whole-heartedly. With us, your project would be in a stable state all the time.
+        .row.culture-pitch
+          .container-fluid.culture
+            h3.home-section-h3 The client is king
+            img.culture-img(src="images/client-king.gif", alt="Client is king")
+            p In line with our Scrum mindset we not only bring the client as part of the project team, we are responsive to are clients and are interested in ways they would get the best return on their investment. This means we build with the business in mind as much as we want to listen to the needs of the client.
+        .well.tech-img
           img.techs(src="images/html5.png" caption="HTML5")
           img.techs(src="images/reactjs.png")
-          img.techs(src="images/DNC.png")
-          img.techs(src="images/css3.png")
+          img.techs(src="images/net.png")
+          img.techs(src="images/asp.png")
+          img.techs(src="images/expressjs.jpg")
+          img.techs(src="images/git.png")
+          img.techs(src="images/jquery.png")
+          img.techs(src="images/csharp.png")
 
-    section.well-lg.container-fluid
+    section.container-fluid
     script.
       var swiper = new Swiper('.swiper-container', {
       pagination: '.swiper-pagination',

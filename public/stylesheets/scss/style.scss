@@ -287,7 +287,7 @@ ul.dropdown {
 
 #content-container {
     padding: 0;
-    background: $primaryColor;
+    background: #500505;
     padding-bottom: 10px;
 }
 
@@ -302,6 +302,8 @@ ul {
         padding: 15px 20px 15px 20px;
         margin-left: 5px;
         font-size: 15px;
+        font-family: "Montserrat", sans-serif;
+        line-height: 1.7;
     }
 }
 
@@ -392,7 +394,8 @@ input[type="week"] {
 }
 
 .nav-link {
-    color: antiquewhite;
+    color: #fff;
+    text-decoration: none;
 }
 
 .nav-pad {
@@ -538,7 +541,7 @@ section {
 }
 
 footer {
-    background: $primaryColor;
+    background: #500505;
     margin-top: 200px;
     color: $white;
     border-top: solid 20px $moreGrayish;
@@ -570,7 +573,7 @@ summary {
 }
 
 .navbar-inverse {
-    background: $primaryColor;
+    background: #500505;
     height: 8em;
 }
 
@@ -584,17 +587,18 @@ summary {
     text-align: center;
     color: #16243a;
     text-transform: none;
+    font-weight: 400;
+    font-size: 30px;
+    font-family: Montserrat;
 }
 
 .home-h2 {
-    color: rgba(255, 165, 0, 0.65);
-    font-family: Montserrat;
-    @extend %section;
     text-transform: none;
-    color: #ccc;
-    font-size: 25px;
+    color: #fff;
+    font-size: 30px;
     font-family: montserrat;
-    font-weight: 500;
+    font-weight: 400;
+    text-align: center;
 }
 
 p.header-description {
@@ -616,6 +620,8 @@ h3.home-section-h3 {
     font-size: 20px;
     margin-top: 30px;
     margin-bottom: 20px;
+    font-family: montserrat;
+    font-weight: 200;
 }
 
 img.techs {
@@ -654,8 +660,8 @@ a {
 }
 
 .footer-list-header {
-    color: $white;
-    background: lighten($primaryColor1, 5);
+    color: #088a61;
+    background: #400303;
     padding: 10px 0 10px 20px;
     box-shadow: -2px 4px 3px 0px rgba(0, 0, 0, 0.25);
 }
@@ -729,8 +735,8 @@ a {
     overflow: hidden;
     position: relative;
     color: #fff;
-    background-color: #f9fcff;
-    box-shadow: -1px 0px 24px 0px rgba(50, 50, 50, 1);
+    background-color: rebeccapurple;
+    box-shadow: 0px 14px 24px 0 #323232;
     width: 60%;
     height: 70px;
     margin: 0 auto;
@@ -752,10 +758,10 @@ a {
     input[type="search"] {
         width: 100%;
         padding: 0 5px 0 3px;
-        color: orange;
+        color: #18263a;
         font-size: 1.5em;
-        font-weight: 600;
-        height: 43px;
+        font-weight: 200;
+        height: 48px;
     }
     input[type="submit"] {
         position: absolute;
@@ -767,10 +773,10 @@ a {
         font-weight: 600;
         text-transform: uppercase;
         color: white;
-        background: #9acd32;
+        background: #663399;
         border: none;
         cursor: pointer;
-        height: 40px;
+        height: 45px;
     }
 }
 
@@ -786,20 +792,26 @@ input.ctrl-form {
     margin-top: 20px;
 }
 
+.well-lg,
+.well,
+well-md {
+    border-radius: none;
+}
+
 a.show {
-    background: #19273b;
+    background: #30055a;
     display: inline-block;
     padding: 10px;
     cursor: pointer;
     margin: 0 5px 10px 0;
     font-size: 1.6em;
     font-family: montserrat;
-    ;
+    text-decoration: none;
 }
 
 a.show:hover,
 a.show-active {
-    background: #73a6a3;
+    background: #3264b4;
 }
 
 .section {
@@ -820,6 +832,7 @@ article#content-container {
 
 p.masthead-para {
     font-family: montserrat;
+    font-weight: 100;
 }
 
 li .dropdown {
@@ -838,15 +851,48 @@ li .dropdown {
 }
 
 .home-layout p {
-    font-size: 16px;
-    font-family: "Titillium Web";
+    font-size: 15px;
+    font-family: "Montserrat";
     font-weight: 200;
+    color: rgba(255, 255, 255, .6);
+}
+
+.culture-img {
+    float: right;
+    width: 300px;
+    height: 300px;
+}
+
+.culture {
+    p {
+        font-family: montserrat;
+        font-weight: 200px;
+        font-size: 18px;
+    }
+}
+
+.tech-img {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 10px;
+}
+
+.tech-img img {
+    width: 80px;
+    height: 120px;
+}
+
+.culture-pitch {
+    border-bottom: 6px groove darkred;
+    padding-bottom: 10px;
+    padding-top: 20px;
 }
 
 .dropdown-menu {
     left: -50%;
-    background: rgba(24, 51, 57, 0.74);
+    background: rgb(231, 244, 247);
     width: 350px;
+    border-top: 10px inset rebeccapurple;
     li {
         a:hover {
             background: rgb(154, 205, 50);
@@ -912,7 +958,9 @@ li .dropdown {
 .search-form {
     background-color: rgba(41, 72, 125, 0.29);
     border: none;
-    height: 50px;
+    height: 55px;
+    width: 70%;
+    box-shadow: -4px -3px 12px 0 #323232;
 }
 
 $color_1: #fff;
@@ -933,13 +981,13 @@ h1 {
 }
 
 a.generic-anchor.footer-list-anchor {
-    color: antiquewhite;
+    color: #fff;
 }
 
 span.estimate-proj {
     margin-top: 35px;
     a {
-        background: yellowgreen;
+        background: rebeccapurple;
         border-radius: 0;
     }
 }
@@ -958,9 +1006,6 @@ span.estimate-proj {
 
 .text-left {
     h2 {
-        color: antiquewhite;
-    }
-    p {
         color: antiquewhite;
     }
     button.read-more {
@@ -1023,22 +1068,25 @@ $background_color_1: #F5D328;
 
 #lab_video_text_overlay {
     h2 {
-        font-weight: 700;
-        color: antiquewhite;
+        font-weight: 200;
+        color: #faebd7;
         font-family: Montserrat;
+        font-size: 55px;
     }
     .btn {
         border-radius: 0;
         text-transform: uppercase;
         font-weight: 200;
+        padding: 10px;
+        width: 150px;
     }
     .btn-warning {
-        background-color: $background_color_1;
+        background-color: rebeccapurple;
     }
     position: absolute;
     color: $color_1;
     width: 100%;
-    top: 25%;
+    top: 10%;
     z-index: 1000;
     .container {
         text-align: center;
@@ -1902,5 +1950,35 @@ $contact-us-section-padding: 2rem;
     }
     .row-height {
         height: 400px;
+    }
+}
+
+// Estimate form
+.estimate-form {
+    margin-top: 30px;
+    .row {
+        margin: auto;
+        width: 100%;
+        .input-est {
+            height: 40px;
+        }
+        li {
+            list-style-type: none;
+        }
+        .est-chckbx-lbl {
+            // vertical-align: text-bottom;
+        }
+        .est-txtarea {
+            border: 1px groove darkblue;
+            margin-top: 10px;
+        }
+    }
+}
+
+.estimate-section {
+    margin: auto;
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
     }
 }
