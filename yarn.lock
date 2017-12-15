@@ -365,6 +365,10 @@ boom@2.x.x:
   dependencies:
     hoek "2.x.x"
 
+bourbon@^4.2.6:
+  version "4.3.4"
+  resolved "https://registry.yarnpkg.com/bourbon/-/bourbon-4.3.4.tgz#4da380029e92c0c8f9764c779451a134b11e7cc3"
+
 boxen@^1.2.1:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/boxen/-/boxen-1.2.2.tgz#3f1d4032c30ffea9d4b02c322eaf2ea741dcbce5"
@@ -2626,6 +2630,12 @@ negotiator@0.6.1:
 next-tick@1:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
+
+node-bourbon@^4.2.8:
+  version "4.2.8"
+  resolved "https://registry.yarnpkg.com/node-bourbon/-/node-bourbon-4.2.8.tgz#e444f1f09434ab7650ea318c28e2e103d3f942cd"
+  dependencies:
+    bourbon "^4.2.6"
 
 node-gyp@^3.3.1:
   version "3.6.2"

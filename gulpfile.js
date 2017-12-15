@@ -19,7 +19,9 @@ gulp.task('html', function() {
 gulp.task('styles', function() {
     return gulp.src('public/stylesheets/scss/*.scss', { style: 'expanded' })
         .pipe(sourcemaps.init())
-        .pipe(sass())
+        .pipe(sass({
+            includePaths: require('node-bourbon').includePaths
+        }))
         .pipe(autoprefixer('last 2 version'))
         .pipe(minifyCSS())
         .pipe(sourcemaps.write())
