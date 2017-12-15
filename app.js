@@ -97,8 +97,9 @@ const index = require('./routes/index'),
     who = require('./routes/who-we-are'),
     portfolio = require('./routes/portfolio'),
     culture = require('./routes/culture'),
-    what = require('./routes/what-we-do');
-faqs = require('./routes/faqs');
+    what = require('./routes/what-we-do'),
+    caseStudy = require('./routes/case-study'),
+    faqs = require('./routes/faqs');
 
 
 
@@ -131,6 +132,7 @@ app.use('/what-we-do', what);
 app.use('/portfolio', portfolio);
 app.use('/culture', culture);
 app.use('/faqs', faqs);
+app.use('/case-study', caseStudy);
 
 
 

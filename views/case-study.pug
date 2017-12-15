@@ -1,0 +1,37 @@
+extends layout
+
+
+block content
+    style
+            include ../public/stylesheets/case.css
+
+    main
+    
+        h1.h1(style="text-align:center") Case studies
+        .showcase(style="margin-top:30px;")
+            .thumbnail.thumbnail--awesome
+                .thumbnail__overlay
+                    a.btn-case(href='#0') DETAILS
+            .desc
+                p Case Study 1
+                h2 Jaracare
+                p
+                    | Jaracare connects Doctors to patients!
+        .showcase
+            .thumbnail
+                .thumbnail__overlay
+                    a.btn-case(href='#0') DETAILS
+            .desc
+                p Case Study 2
+                h2 Lagos Traffic Simulation Software
+                p
+                    | This project maps the roads in Lagos and simulates traffic within the metropolis!
+        .showcase
+            .thumbnail
+                .thumbnail__overlay
+                    a.btn-case(href='#0') DETAILS
+            .desc
+                p Case Study 3
+                h2 Car Rental System
+                p
+                    | This is a Domain Driven project designed around requirements in the Car rental industry
