@@ -1,24 +1,135 @@
 extends layout
-
 block content
-    main
-          form.form-group.container(method='post', action='/register')
-            div
-                label(for='name') Name
-                input.form-control(type='text', name='name', placeholder='Name')
-            div
-                label(for='username') Username
-                input.form-control(type='text', name='username', placeholder='Username')
-            div
-                label(for='email') Email
-                input.form-control(type='email', name='email', placeholder='Email')
-            div
-                label(for='password') Password
-                input.form-control(type='password', name='password', placeholder='Password')
-            div
-                label(for='password2') Confirm Password
-                input.form-control(type='password', name='password2', placeholder='Confirm Password')
-                button(type='submit') Register
-            br
-            |  Have An Account? 
-            a(href='/') Login Now
+    style.
+        body{
+            font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background:#00555e;
+        }
+
+        .what{
+            text-align: center;
+            line-height: 1;
+            padding: 0;
+            margin: 0;
+            color: #fff;
+            font-size: 60px;
+            font-weight: lighter;
+            margin-top:10%;
+        }
+        input[type=date], input[type=email], input[type=tel], input[type=text], input[type=time], select {
+            border: .063em solid #d6d2d2;
+            border-radius: 3px;
+            width: 17em;
+            font-size: 1.2em;
+            height:130px;
+        }
+
+        input{
+            
+            border-bottom-width: 2px;
+            font-weight: bold;
+            margin: 0 auto;
+            display: block;
+            background: 0;
+            border: 0;
+            border-bottom: 3px solid #fff;
+            color: #fff;
+            outline: none;
+            text-align: center;
+            
+            font-size:40px;
+        }
+
+        .pass, .passr, .pnum, .submit{
+            display:none;
+        }
+
+        .info{
+        
+            color:rgb(32, 32, 32);
+            text-align:center;
+            font-size:20px;
+            text-transform:uppercase;
+        
+        }
+    main    
+        h1.h1 Login here
+        .user.what.visible
+            | Type your email
+            input.focus(type='text')
+        .pass.what
+            | Type your password
+            input.cool1(type='password')
+        .passr.what
+            | Type your password again
+            input.cool2(type='password')
+        .pnum.what
+            | Type your phone number
+            input.cool3(type='tel')
+        .submit.what
+            input.btn.btn-lg.btn-info.btn-default.submit(type='button', value="submit")
+            p.info Press submit Register.
+
+    script.
+        $(document).ready(function(){
+            $('.focus').focus();
+            $(document).keypress(function(e) {
+                if(e.which == 13) {
+                    var user = $('.user');
+                    var pass = $('.pass');
+                    var passr = $('.passr');
+                    var number = $('.pnum');
+                    var submit = $('.submit');
+                    $('.focus').focus();
+                    if(user.hasClass('visible')){
+                        user.removeClass('visible').fadeOut(function(){
+                            pass.addClass('visible').fadeIn(function(){
+                                $('.cool1').focus();
+                            });
+                        });
+                    }
+                    else if(pass.hasClass('visible')){
+                        pass.removeClass('visible').fadeOut(function(){
+                            passr.addClass('visible').fadeIn(function(){
+                                $('.cool2').focus();
+                        });
+                    });
+                    } else if(passr.hasClass('visible')){
+                        passr.removeClass('visible').fadeOut(function(){
+                            number.addClass('visible').fadeIn(function(){
+                             $('.cool3').focus();
+                            });
+                        });
+                    }
+                    else if(number.hasClass('visible')) {
+                        number.removeClass('visible').fadeOut(function(){
+                        submit.addClass('visible').fadeIn(function(){
+                            $('.submit').focus();
+                        })
+                        });
+                    }
+                }
+            });
+        });
+
+    
+        //-   form.form-group.container(method='post', action='/register')
+        //-     div
+        //-         label(for='name') Name
+        //-         input.form-control(type='text', name='name', placeholder='Name')
+        //-     div
+        //-         label(for='username') Username
+        //-         input.form-control(type='text', name='username', placeholder='Username')
+        //-     div
+        //-         label(for='email') Email
+        //-         input.form-control(type='email', name='email', placeholder='Email')
+        //-     div
+        //-         label(for='password') Password
+        //-         input.form-control(type='password', name='password', placeholder='Password')
+        //-     div
+        //-         label(for='password2') Confirm Password
+        //-         input.form-control(type='password', name='password2', placeholder='Confirm Password')
+        //-         button(type='submit') Register
+        //-     br
+        //-     |  Have An Account? 
+        //-     a(href='/') Login Now

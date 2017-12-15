@@ -1,0 +1,76 @@
+$color-1:#00555f;
+$color-2:#666;
+$color-3:#aaa;
+$color-4:#fff;
+* {
+    // -webkit-box-sizing: border-box;
+    // -moz-box-sizing: border-box;
+    // box-sizing: border-box;
+    position: relative;
+}
+
+body {
+    background: $color-1;
+    font-family: montserrat;
+}
+
+.timeline {
+    font: normal bold 16px/1.6rem "Open Sans Condensed";
+    padding: 1rem;
+}
+
+.timeline .circle {
+    background: $color-3;
+    border: .5rem solid $color-2;
+    border-radius: 100%;
+    height: 2.25rem;
+    margin: auto;
+    width: 2.25rem;
+    vertical-align: middle;
+}
+
+.timeline ul {
+    margin: 0;
+    padding: 0;
+}
+
+.timeline em {
+    color: $color-2;
+    display: block;
+    font-weight: bold;
+    font-weight: 100;
+}
+
+.timeline li {
+    border: 0 solid $color-3;
+    color: $color-4;
+    font-family: "Open Sans";
+    list-style-type: none;
+    padding: 1rem 2rem;
+    width: calc(50% + 1px);
+}
+
+.timeline li:after {
+    background: $color-3;
+    border-radius: 100%;
+    content: "";
+    display: inline-block;
+    height: 1rem;
+    position: absolute;
+    right: calc(-.5rem - 1px);
+    width: 1rem;
+}
+
+.timeline li:nth-child(even):after {
+    left: calc(-.5rem - 1px);
+}
+
+.timeline li:nth-child(odd) {
+    border-right-width: 2px;
+    text-align: right;
+}
+
+.timeline li:nth-child(even) {
+    border-left-width: 2px;
+    left: calc(50% - 1px);
+}

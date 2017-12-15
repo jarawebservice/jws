@@ -1,14 +1,14 @@
 extends layout
 
 block content
-  <div class="quote">
-        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-        <span class="sr-only">Loading...</span>
-    </div>
- 
+  .loader
+    .loading-dot
+    .loading-dot
+    .loading-dot
+    .loading-dot
   main(style="margin-top: 30px;")
       section.result 
-        h1.result Domain Search result
+        h1.h1 Domain Search result
       #response
         if response.status == 'registered'
           div
