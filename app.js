@@ -99,7 +99,8 @@ const index = require('./routes/index'),
     culture = require('./routes/culture'),
     what = require('./routes/what-we-do'),
     caseStudy = require('./routes/case-study'),
-    faqs = require('./routes/faqs');
+    faqs = require('./routes/faqs'),
+    domain = require('./routes/domain-web-hosting');
 
 
 
@@ -133,6 +134,7 @@ app.use('/portfolio', portfolio);
 app.use('/culture', culture);
 app.use('/faqs', faqs);
 app.use('/case-study', caseStudy);
+app.use('/domain-web-hosting', domain);
 
 
 
