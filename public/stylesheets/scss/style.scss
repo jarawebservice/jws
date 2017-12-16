@@ -4,6 +4,16 @@
 @import "./variable.scss";
 @import "./arrow.scss";
 @import "./form.scss";
+$font: 'Raleway',
+sans-serif;
+$white: #fff;
+$black: #050a1e;
+$gray: #aaacaf;
+$border: #2762c1;
+$dark-blue: #0f224d;
+$db: #10214c;
+$gradient: #3B305F;
+//make a sprite
 %extend_1 {
     clear: both;
     margin-top: 20px;
@@ -40,6 +50,7 @@ main.contact {
 body {
     font-size: $base-font-size;
     font-family: $general;
+    $grid-background-column-width: 30px !default
 }
 
 .navbar-inverse {
@@ -61,6 +72,7 @@ body {
 
 a.read-more:hover {
     background: #035862;
+    $default-text-shadow-spread: false !default;
 }
 
 a.read-more {
@@ -290,7 +302,7 @@ ul.dropdown {
 
 #content-container {
     padding: 0;
-    background: #0a0931;
+    background: $gradient;
     padding-bottom: 10px;
 }
 
@@ -404,6 +416,7 @@ input[type="week"] {
 .nav-link {
     color: #fff;
     text-decoration: none;
+    letter-spacing: 0.1em;
 }
 
 .nav-pad {
@@ -483,6 +496,7 @@ h2,
     font-size: 25px;
     font-family: montserrat;
     font-weight: 500;
+    letter-spacing: 0.2px;
 }
 
 .text-left {
@@ -549,7 +563,7 @@ section {
 }
 
 footer {
-    background: #0a0931;
+    background: $gradient;
     margin-top: 200px;
     color: $white;
     border-top: solid 20px $moreGrayish;
@@ -581,7 +595,7 @@ summary {
 }
 
 .navbar-inverse {
-    background: #0a0931;
+    background: $gradient;
     height: 8em;
 }
 
@@ -607,6 +621,7 @@ summary {
     font-family: montserrat;
     font-weight: 400;
     text-align: center;
+    letter-spacing: 0.1em;
 }
 
 p.header-description {
@@ -816,6 +831,7 @@ a.show {
     font-size: 1.6em;
     font-family: montserrat;
     text-decoration: none;
+    letter-spacing: 0.1em;
 }
 
 a.show:hover,
@@ -842,6 +858,7 @@ article#content-container {
 p.masthead-para {
     font-family: montserrat;
     font-weight: 100;
+    letter-spacing: 0.2px;
 }
 
 li .dropdown {
@@ -892,7 +909,6 @@ li .dropdown {
 }
 
 .culture-pitch {
-    border-bottom: 1px groove #00555f;
     padding-bottom: 10px;
     padding-top: 20px;
 }
@@ -965,11 +981,15 @@ li .dropdown {
 }
 
 .search-form {
-    background-color: rgba(41, 72, 125, 0.29);
     border: none;
     height: 55px;
     width: 70%;
-    box-shadow: -4px -3px 12px 0 #323232;
+    background-color: none;
+    box-shadow: none;
+    input {
+        @include border-radius(1px 3px 5px 7px,
+        2px 4px 6px 8px)
+    }
 }
 
 $color_1: #fff;
@@ -999,6 +1019,7 @@ span.estimate-proj {
         background: #00555e;
         border-radius: 0;
         font-family: montserrat;
+        letter-spacing: 0.1em;
     }
 }
 
@@ -1078,10 +1099,11 @@ $background_color_1: #F5D328;
 
 #lab_video_text_overlay {
     h2 {
-        font-weight: 200;
+        font-weight: 400;
         color: #faebd7;
         font-family: Montserrat;
         font-size: 55px;
+        letter-spacing: 0.5px;
     }
     .btn {
         border-radius: 0;
