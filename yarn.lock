@@ -365,6 +365,10 @@ boom@2.x.x:
   dependencies:
     hoek "2.x.x"
 
+bootstrap@^3.3.7:
+  version "3.3.7"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-3.3.7.tgz#5a389394549f23330875a3b150656574f8a9eb71"
+
 bourbon@^4.2.6:
   version "4.3.4"
   resolved "https://registry.yarnpkg.com/bourbon/-/bourbon-4.3.4.tgz#4da380029e92c0c8f9764c779451a134b11e7cc3"
@@ -684,7 +688,7 @@ configstore@^3.0.0:
     write-file-atomic "^2.0.0"
     xdg-basedir "^3.0.0"
 
-connect-flash@^0.1.1:
+connect-flash@0.1.x, connect-flash@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/connect-flash/-/connect-flash-0.1.1.tgz#d8630f26d95a7f851f9956b1e8cc6732f3b6aa30"
 
@@ -711,7 +715,7 @@ convert-source-map@1.X:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/convert-source-map/-/convert-source-map-1.5.1.tgz#b8278097b9bc229365de5c62cf5fcaed8b5599e5"
 
-cookie-parser@~1.4.3:
+cookie-parser@^1.4.3:
   version "1.4.3"
   resolved "https://registry.yarnpkg.com/cookie-parser/-/cookie-parser-1.4.3.tgz#0fe31fa19d000b95f4aadf1f53fdc2b8a203baa5"
   dependencies:
@@ -1083,6 +1087,12 @@ express-fileupload@^0.3.0:
     busboy "^0.2.14"
     fs-extra "^4.0.1"
     streamifier "^0.1.1"
+
+express-flash@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/express-flash/-/express-flash-0.0.2.tgz#23d1a8bcf3f90d707928e489f96869ecad0acda2"
+  dependencies:
+    connect-flash "0.1.x"
 
 express-messages@^1.0.1:
   version "1.0.1"
@@ -3054,6 +3064,10 @@ pinkie-promise@^2.0.0:
 pinkie@^2.0.0:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
+
+popper.js@^1.12.9:
+  version "1.12.9"
+  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.12.9.tgz#0dfbc2dff96c451bb332edcfcfaaf566d331d5b3"
 
 postcss-value-parser@^3.2.3:
   version "3.3.0"

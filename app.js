@@ -12,14 +12,20 @@ const express = require('express'),
     fileUpload = require('express-fileupload'),
     passport = require('passport'),
     Strategy = require('passport-facebook').Strategy;
+const app = express();
+app.use(cookieParser('secret'));
 
-mongoose.connect('mongodb://localhost/jws', { useMongoClient: true });
+app.use(session({ cookie: { maxAge: 60000 } }));
+
+app.use(flash());
+
+mongoose.connect('mongodb://localhost:27017/jws', { useMongoClient: true });
 
 mongoose.Promise = global.Promise;
 
 const db = mongoose.connection;
 
-const app = express();
+
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
@@ -27,14 +33,29 @@ app.set('port', (process.env.PORT || 3000));
 app.use(cookieParser());
 app.use(express.static(path.resolve(__dirname, 'public')));
 
+//Express flash
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Body Parser Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Express Messages
-app.use(require('connect-flash')());
+app.use(flash());
 app.use(function(req, res, next) {
-    res.locals.messages = require('express-messages')(req, res);
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
+    res.locals.user = req.user || null;
     next();
 });
 
@@ -59,14 +80,7 @@ app.use(expressValidator({
 
 }));
 
-//Express flash
-app.set('trust proxy', 1) // trust first proxy
-app.use(session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
-}))
+
 
 
 // Routes

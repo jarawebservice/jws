@@ -1,135 +1,191 @@
 extends layout
 block content
-    style.
-        body{
-            font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-            background:#00555e;
-        }
+    //- style.
+    //-     body{
+    //-         font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    //-         background:#00555e;
+    //-     }
 
-        .what{
-            text-align: center;
-            line-height: 1;
-            padding: 0;
-            margin: 0;
-            color: #fff;
-            font-size: 60px;
-            font-weight: lighter;
-            margin-top:10%;
-        }
-        input[type=date], input[type=email], input[type=tel], input[type=text], input[type=time], select {
-            border: .063em solid #d6d2d2;
-            border-radius: 3px;
-            width: 17em;
-            font-size: 1.2em;
-            height:130px;
-        }
+    //-     .what{
+    //-         text-align: center;
+    //-         line-height: 1;
+    //-         padding: 0;
+    //-         margin: 0;
+    //-         color: #fff;
+    //-         font-size: 60px;
+    //-         font-weight: lighter;
+    //-         margin-top:10%;
+    //-     }
+    //-     input[type=date], input[type=email], input[type=tel], input[type=text], input[type=time], select {
+    //-         border: .063em solid #d6d2d2;
+    //-         border-radius: 3px;
+    //-         width: 17em;
+    //-         font-size: 1.2em;
+    //-         height:130px;
+    //-     }
 
-        input{
+    //-     input{
             
-            border-bottom-width: 2px;
-            font-weight: bold;
-            margin: 0 auto;
-            display: block;
-            background: 0;
-            border: 0;
-            border-bottom: 3px solid #fff;
-            color: #fff;
-            outline: none;
-            text-align: center;
+    //-         border-bottom-width: 2px;
+    //-         font-weight: bold;
+    //-         margin: 0 auto;
+    //-         display: block;
+    //-         background: 0;
+    //-         border: 0;
+    //-         border-bottom: 3px solid #fff;
+    //-         color: #fff;
+    //-         outline: none;
+    //-         text-align: center;
             
-            font-size:40px;
-        }
+    //-         font-size:40px;
+    //-     }
 
-        .pass, .passr, .pnum, .submit{
-            display:none;
-        }
+    //-     .pass, .passr, .pnum, .submit, .email{
+    //-         display:none;
+    //-     }
 
-        .info{
+    //-     .info{
         
-            color:rgb(32, 32, 32);
-            text-align:center;
-            font-size:20px;
-            text-transform:uppercase;
+    //-         color:rgb(32, 32, 32);
+    //-         text-align:center;
+    //-         font-size:20px;
+    //-         text-transform:uppercase;
         
-        }
-    main    
+    //-     }
+    main
+    
+        if success_msg 
+            div.alert.alert-success #{success_msg}
+
+        if error
+            div.alert.alert-success #{error}
+
+        if error_msg
+            div.alert.alert-danger #{error_msg}
+
+    ul.errors
+        if errors
+        each error, i in errors
+            li.alert.alert-danger #{error.msg}
         h1.h1 Login here
-        .user.what.visible
-            | Type your email
-            input.focus(type='text')
-        .pass.what
-            | Type your password
-            input.cool1(type='password')
-        .passr.what
-            | Type your password again
-            input.cool2(type='password')
-        .pnum.what
-            | Type your phone number
-            input.cool3(type='tel')
-        .submit.what
-            input.btn.btn-lg.btn-info.btn-default.submit(type='button', value="submit")
-            p.info Press submit Register.
+        form.form-group.container(method='post', action='/register')
+            div
+                label(for='name') Name
+                input.form-control(type='text', name='name', placeholder='Name')
+            div
+                label(for='phone') Phone
+                input.form-control(type='Tel', name='phone', placeholder='Phone Number')
+            div
+                label(for='email') Email
+                input.form-control(type='email', name='email', placeholder='Email')
+            div
+                label(for='password') Password
+                input.form-control(type='password', name='password', placeholder='Password')
+            div
+                label(for='password2') Confirm Password
+                input.form-control(type='password', name='password2', placeholder='Confirm Password')
+                button(type='submit') Register
+            br
+            |  Have An Account? 
+            a.btn.Button--link-primary(href='/') Login Now
+
+        //- form.form(action="")
+        //- .user.what.visible
+        //-     | Type your name
+        //-     input.focus(type='text', name='name')
+        //- .email.what
+        //-     | Type your email
+        //-     input.coole(type='text', name='email')
+        //- .pass.what
+        //-     | Type your password
+        //-     input.cool1(type='password', name='password')
+        //- .passr.what
+        //-     | Type your password again
+        //-     input.cool2(type='password', name='password2')
+        //- .pnum.what
+        //-     | Type your phone number
+        //-     input.cool3(type='tel', name='phone')
+        //- .submit.what
+        //-     input.submit(type='submit', value="submit")
+        //-     p.info Press submit Register.
 
     script.
-        $(document).ready(function(){
-            $('.focus').focus();
-            $(document).keypress(function(e) {
-                if(e.which == 13) {
-                    var user = $('.user');
-                    var pass = $('.pass');
-                    var passr = $('.passr');
-                    var number = $('.pnum');
-                    var submit = $('.submit');
-                    $('.focus').focus();
-                    if(user.hasClass('visible')){
-                        user.removeClass('visible').fadeOut(function(){
-                            pass.addClass('visible').fadeIn(function(){
-                                $('.cool1').focus();
-                            });
-                        });
-                    }
-                    else if(pass.hasClass('visible')){
-                        pass.removeClass('visible').fadeOut(function(){
-                            passr.addClass('visible').fadeIn(function(){
-                                $('.cool2').focus();
-                        });
-                    });
-                    } else if(passr.hasClass('visible')){
-                        passr.removeClass('visible').fadeOut(function(){
-                            number.addClass('visible').fadeIn(function(){
-                             $('.cool3').focus();
-                            });
-                        });
-                    }
-                    else if(number.hasClass('visible')) {
-                        number.removeClass('visible').fadeOut(function(){
-                        submit.addClass('visible').fadeIn(function(){
-                            $('.submit').focus();
-                        })
-                        });
-                    }
-                }
+        
+        $(document).ready(function(e){
+            $("form").submit(function(e){
+                e.preventDefault();
+
+                var formData = {
+                    'name'       : $('input[name=name]').val(),
+                    'email'      : $('input[name=email]').val(),
+                    'password'   : $('input[name=password]').val()
+                    'password2'  : $('input[name=password2]').val()
+                    'phone'      : $('input[name=phone]').val()
+                 };
+
+                $.ajax({
+                    type     : 'POST', 
+                    url      : '/register', 
+                    data     : formData, 
+                    dataType : 'json', 
+                    encode   :  true
+                }).done(function(data) {
+                    console.log(data); 
+                });
+                event.preventDefault();
             });
+    
+
+           
+            //- $('.focus').focus();
+            //- $(document).keypress(function(e) {
+               
+            //-     if(e.which == 9) {
+            //-         var user = $('.user');
+            //-         var email = $('.email');
+            //-         var pass = $('.pass');
+            //-         var passr = $('.passr');
+            //-         var number = $('.pnum');
+            //-         var submit = $('.submit');
+            //-         $('.focus').focus();
+            //-         if(user.hasClass('visible')){
+            //-             user.removeClass('visible').fadeOut(function(){
+            //-                 email.addClass('visible').fadeIn(function(){
+            //-                     $('.coole').focus();
+            //-                 });
+            //-             });
+            //-         } else if (email.hasClass('visible')){
+            //-             email.removeClass('visible').fadeOut(function(){
+            //-                 pass.addClass('visible').fadeIn(function(){
+            //-                     $('.cool1').focus();
+            //-                 })
+            //-             })
+            //-         } else if(pass.hasClass('visible')){
+            //-                 pass.removeClass('visible').fadeOut(function(){
+            //-                     passr.addClass('visible').fadeIn(function(){
+            //-                         $('.cool2').focus();
+            //-                 });
+            //-             });
+            //-         } else if(passr.hasClass('visible')){
+            //-             passr.removeClass('visible').fadeOut(function(){
+            //-                 number.addClass('visible').fadeIn(function(){
+            //-                  $('.cool3').focus();
+            //-                 });
+            //-             });
+            //-         }
+            //-         else if(number.hasClass('visible')) {
+            //-             number.removeClass('visible').fadeOut(function(){
+            //-             submit.addClass('visible').fadeIn(function(){
+            //-                 $('.submit').focus();
+            //-             })
+            //-             });
+            //-         }
+            //-     }
+            //- });
+
+             
+
         });
 
     
-        //-   form.form-group.container(method='post', action='/register')
-        //-     div
-        //-         label(for='name') Name
-        //-         input.form-control(type='text', name='name', placeholder='Name')
-        //-     div
-        //-         label(for='username') Username
-        //-         input.form-control(type='text', name='username', placeholder='Username')
-        //-     div
-        //-         label(for='email') Email
-        //-         input.form-control(type='email', name='email', placeholder='Email')
-        //-     div
-        //-         label(for='password') Password
-        //-         input.form-control(type='password', name='password', placeholder='Password')
-        //-     div
-        //-         label(for='password2') Confirm Password
-        //-         input.form-control(type='password', name='password2', placeholder='Confirm Password')
-        //-         button(type='submit') Register
-        //-     br
-        //-     |  Have An Account? 
-        //-     a(href='/') Login Now
+          

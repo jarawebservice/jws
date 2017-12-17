@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
-
+mongoose.connect('mongodb://localhost/jws');
 const bcrypt = require('bcryptjs');
+const ObjectId = mongoose.Types.ObjectId;
 
 // User Schema
 const UserSchema = mongoose.Schema({
@@ -13,10 +14,24 @@ const UserSchema = mongoose.Schema({
     email: {
         type: String
     },
+    phone: {
+        type: String
+    },
+    date: {
+        type: { type: Date, default: Date.now },
+    },
     password: {
         type: String
     }
+    // managed_domain: {
+    //     type: ObjectId()
+    // },
+    // cart: {
+    //     type: ObjectId()
+    // }
+
 });
+
 
 const User = module.exports = mongoose.model('User', UserSchema);
 
@@ -29,5 +44,21 @@ module.exports.registerUser = function(newUser, callback) {
             newUser.password = hash;
             newUser.save(callback);
         });
+    });
+}
+
+module.exports.getUserById = function(id, callback) {
+    User.findById(id, callback);
+}
+
+module.exports.getUserByUsername = function(email, callback) {
+    const query = { email: email }
+    User.findOne(query, callback);
+}
+
+module.exports.comparePassword = function(candidatePassword, hash, callback) {
+    bcrypt.compare(candidatePassword, hash, (err, isMatch) => {
+        if (err) throw err;
+        callback(null, isMatch);
     });
 }
