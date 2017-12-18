@@ -1,14 +1,5 @@
 const mongoose = require('mongoose');
-// var uristring =
-//     process.env.MONGOLAB_URI ||
-//     process.env.MONGOHQ_URL ||
-//     'mongodb://localhost/HelloMongoose';
-mongoose.connect('mongodb://localhost:27017/jws', { useMongoClient: true });
-
-mongoose.Promise = global.Promise;
-
-const db = mongoose.connection;
-// mongoose.connect('mongodb://localhost/jws');
+mongoose.connect('mongodb://localhost/jws');
 const bcrypt = require('bcryptjs');
 const ObjectId = mongoose.Types.ObjectId;
 
@@ -23,17 +14,14 @@ const UserSchema = mongoose.Schema({
     email: {
         type: String
     },
-    phone: {
-        type: String
+    isAdmin: {
+        type: Boolean
     },
     date: {
         type: { type: Date, default: Date.now },
     },
     password: {
         type: String
-    },
-    isAdmin: {
-        type: Boolean
     }
     // managed_domain: {
     //     type: ObjectId()
@@ -73,8 +61,4 @@ module.exports.comparePassword = function(candidatePassword, hash, callback) {
         if (err) throw err;
         callback(null, isMatch);
     });
-}
-
-module.exports.checkIfUserIsAdmin = function() {
-    return User.isAdmin;
 }

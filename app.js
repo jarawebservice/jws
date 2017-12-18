@@ -6,24 +6,31 @@ const express = require('express'),
     bodyParser = require('body-parser'),
     expressValidator = require('express-validator'),
     session = require('express-session'),
-    flash = require('connect-flash'),
+    flash = require('express-flash'),
     unirest = require('unirest'),
     mongoose = require('mongoose'),
     fileUpload = require('express-fileupload'),
     passport = require('passport'),
     Strategy = require('passport-facebook').Strategy;
 const app = express();
-app.use(cookieParser('secret'));
+// app.use(cookieParser('secret'));
 
-app.use(session({ cookie: { maxAge: 60000 } }));
-
-app.use(flash());
+// app.use(session({ cookie: { maxAge: 60000 } }));
 
 mongoose.connect('mongodb://localhost:27017/jws', { useMongoClient: true });
 
 mongoose.Promise = global.Promise;
 
 const db = mongoose.connection;
+
+//Express session
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+}));
 
 
 
@@ -33,14 +40,7 @@ app.set('port', (process.env.PORT || 3000));
 app.use(cookieParser());
 app.use(express.static(path.resolve(__dirname, 'public')));
 
-//Express flash
-app.set('trust proxy', 1) // trust first proxy
-app.use(session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
-}));
+
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -115,6 +115,7 @@ const index = require('./routes/index'),
     caseStudy = require('./routes/case-study'),
     faqs = require('./routes/faqs'),
     admin = require('./routes/admin'),
+    profile = require('./routes/profile'),
     domain = require('./routes/domain-web-hosting');
 
 
@@ -151,6 +152,7 @@ app.use('/faqs', faqs);
 app.use('/case-study', caseStudy);
 app.use('/domain-web-hosting', domain);
 app.use('/admin', admin);
+app.use('/profile', profile);
 
 
 

@@ -1,5 +1,36 @@
 extends layout
 
 block content
+    style
+        include ../public/stylesheets/domain.css
+    
     main
-        h1 Domain Registration and and management
+        br
+        
+        h1.h1(style="text-align:center; font-size:35px; margin-bottom: 40px;") Domain Registration and management <span class="label label-default">New</span>
+        section.search-section.well
+    
+            form.search-form.form-inline(action='/domain-search')
+                input.ctrl-form( type='search', name='search_domain' autofocus='true'  placeholder='Claim that domain here')
+                input.btn.btn-default(type='submit', value='find domain')
+                <div id="results"></div>
+
+        section.domain-link.container
+            .row
+                .col-xs-6.col-md-3
+                    h3.h3 Login
+                    a.thumbnail(href='login')
+                        img(src="images/login.png", alt="login")
+                .col-xs-6.col-md-3
+                    h3.h3 Register
+                    a.thumbnail(href='Register')
+                        img(src="images/register.png", alt="") 
+                .col-xs-6.col-md-3
+                    h3.h3 Wishlist
+                    a.thumbnail(href='Wishlist')
+                        img(src="images/wishlist.png", alt="")
+                .col-xs-6.col-md-3
+                    h3.h3 Web Hosting
+                    a.thumbnail(href='Hosting')
+                        img(src="images/hosting.jpg", alt="")
+                    

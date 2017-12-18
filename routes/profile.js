@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('admin', { title: 'Admin here', content: 'Admin area' });
+    res.render('profile', { title: 'User Profile | JWS', content: 'Manage your domain here' });
 });
 
 module.exports = router;

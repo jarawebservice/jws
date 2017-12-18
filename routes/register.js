@@ -1,6 +1,6 @@
 const express = require('express'),
     router = express.Router(),
-    flash = require('connect-flash'),
+    flash = require('express-flash'),
     passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
     session = require('express-session');
@@ -8,6 +8,7 @@ const express = require('express'),
 
 
 let User = require('../models/user');
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -18,7 +19,7 @@ router.get('/admin', function(req, res, next) {
     res.render('admin', { title: 'Admin Area', content: 'Do admin related activity here' });
 });
 router.get('/profile', function(req, res, next) {
-    res.render('/profile', { title: 'Profile', content: 'Here is your profile' });
+    res.render('/profile', { title: 'Pr ofile', content: 'Here is your profile' });
 });
 
 
@@ -94,7 +95,7 @@ passport.deserializeUser((id, done) => {
 });
 
 //logout
-router.get('/logout', (req, res, next) => {
+router.get('/logout', ensureAuthenticated, (req, res, next) => {
     req.logout();
     req.flash('success_msg', 'You are now logged out');
     res.redirect('/login');
