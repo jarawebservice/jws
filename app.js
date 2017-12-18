@@ -13,24 +13,17 @@ const express = require('express'),
     passport = require('passport'),
     Strategy = require('passport-facebook').Strategy;
 const app = express();
-// app.use(cookieParser('secret'));
+app.use(cookieParser('secret'));
 
-// app.use(session({ cookie: { maxAge: 60000 } }));
+app.use(session({ cookie: { maxAge: 60000 } }));
+
+app.use(flash());
 
 mongoose.connect('mongodb://localhost:27017/jws', { useMongoClient: true });
 
 mongoose.Promise = global.Promise;
 
 const db = mongoose.connection;
-
-//Express session
-app.set('trust proxy', 1) // trust first proxy
-app.use(session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
-}));
 
 
 
@@ -40,7 +33,14 @@ app.set('port', (process.env.PORT || 3000));
 app.use(cookieParser());
 app.use(express.static(path.resolve(__dirname, 'public')));
 
-
+//Express flash
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+}));
 
 app.use(passport.initialize());
 app.use(passport.session());
