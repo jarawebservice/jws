@@ -114,6 +114,7 @@ const index = require('./routes/index'),
     what = require('./routes/what-we-do'),
     caseStudy = require('./routes/case-study'),
     faqs = require('./routes/faqs'),
+    admin = require('./routes/admin'),
     domain = require('./routes/domain-web-hosting');
 
 
@@ -149,6 +150,7 @@ app.use('/culture', culture);
 app.use('/faqs', faqs);
 app.use('/case-study', caseStudy);
 app.use('/domain-web-hosting', domain);
+app.use('/admin', admin);
 
 
 
@@ -157,11 +159,11 @@ app.use('/domain-web-hosting', domain);
 
 
 // catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//     var err = new Error('Not Found');
-//     err.status = 404;
-//     next(err);
-// });
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+});
 
 // error handler
 app.use(function(err, req, res, next) {
