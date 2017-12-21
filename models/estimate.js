@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 //     process.env.MONGOLAB_URI ||
 //     process.env.MONGOHQ_URL ||
 //     'mongodb://localhost/HelloMongoose';
-mongoose.connect('mongodb://localhost:27017/jws', { useMongoClient: true });
+mongoose.connect('mongodb://jara:jaracare@ds161306.mlab.com:61306/jws', { useMongoClient: true });
 
 mongoose.Promise = global.Promise;
 

@@ -1,12 +1,32 @@
 var express = require('express');
 var router = express.Router();
 
+let User = require('../models/user');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    if (req.user) {
+    console.log(req.user)
+    if (!req.user) {
+        res.render('login', { title: 'login | jws', content: 'login' });
+    } else {
         res.redirect('/profile');
     }
-    res.render('login', { title: 'login here', content: 'login' });
+
 });
+
+// //login
+// router.post('/login', (req, res, next) => {
+//     if (User.checkIfUserIsAdmin() === true) {
+//         res.redirect('/admin');
+//     }
+
+//     passport.authenticate('local', {
+//         successRedirect: '/profile',
+//         failureRedirect: '/login',
+//         failureFlash: true
+//     })(req, res, next);
+
+
+// });
 
 module.exports = router;

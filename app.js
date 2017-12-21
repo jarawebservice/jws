@@ -11,18 +11,25 @@ const express = require('express'),
     mongoose = require('mongoose'),
     fileUpload = require('express-fileupload'),
     passport = require('passport'),
+    compression = require('compression'),
     Strategy = require('passport-facebook').Strategy;
 const app = express();
-// app.use(cookieParser('secret'));
+app.use(compression())
+    // app.use(cookieParser('secret'));
 
 // app.use(session({ cookie: { maxAge: 60000 } }));
 
-mongoose.connect('mongodb://localhost:27017/jws', { useMongoClient: true });
+mongoose.connect('mongodb://jara:jaracare@ds161306.mlab.com:61306/jws', { useMongoClient: true });
 
 mongoose.Promise = global.Promise;
 
 const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
+
+app.use(session({ secret: 'anything' }));
+app.use(passport.initialize());
+app.use(passport.session());
 //Express session
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({
@@ -153,7 +160,7 @@ app.use('/ecatalog', ecat);
 app.use('/api', api);
 app.use('/contact', contact);
 app.use('/estimate', estimate);
-app.use('/briefs', brief);
+app.use('/brief', brief);
 app.use('/software-development', softdev);
 app.use('/telephony', telephony);
 app.use('/nda', nda);
