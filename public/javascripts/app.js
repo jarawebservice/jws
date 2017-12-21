@@ -116,126 +116,113 @@
     // });
 
 
-    var skewContentHandler = function(defaultHtml) {
-        var $skew = $(".skew");
-        var $skewWrapper = $(".skew-wrapper");
-        var $display = $(".skew-content-target");
-        $skew.hover(function() {
-            var content = $(this).find(".skew-content").html();
-            $display.hide().html(content).fadeIn(250);
+
+
+
+    $(document).ready(function() {
+        $('.section').not("#section1").hide();
+        $('.show').click(function() {
+            $("a.show-active").removeClass("show-active");
+            $(this).addClass("show-active");
+            $('#section' + $(this).attr('target')).fadeIn(400).siblings('.section').fadeOut(0);
         });
 
-        $skewWrapper.mouseleave(function() {
-            $display.hide().html(defaultHtml).fadeIn(250);
-        })
-    }
+        // For the form 
+        //validation
+        $('input, select').tooltipster({
+            trigger: 'custom',
+            onlyOne: false,
+            position: 'right',
+            theme: 'tooltipster-light'
+        });
 
-    var skewTargetHtml = $(".skew-content-target").html();
-    skewContentHandler(skewTargetHtml);
+        $("#form").validate({
+            errorPlacement: function(error, element) {
+                var lastError = $(element).data('lastError'),
+                    newError = $(error).text();
 
+                $(element).data('lastError', newError);
 
-    $('.section').not("#section1").hide();
-    $('.show').click(function() {
-        $("a.show-active").removeClass("show-active");
-        $(this).addClass("show-active");
-        $('#section' + $(this).attr('target')).fadeIn(400).siblings('.section').fadeOut(0);
-    });
-
-    // For the form 
-    //validation
-    $('input, select').tooltipster({
-        trigger: 'custom',
-        onlyOne: false,
-        position: 'right',
-        theme: 'tooltipster-light'
-    });
-
-    $("#form").validate({
-        errorPlacement: function(error, element) {
-            var lastError = $(element).data('lastError'),
-                newError = $(error).text();
-
-            $(element).data('lastError', newError);
-
-            if (newError !== '' && newError !== lastError) {
-                $(element).tooltipster('content', newError);
-                $(element).tooltipster('show');
+                if (newError !== '' && newError !== lastError) {
+                    $(element).tooltipster('content', newError);
+                    $(element).tooltipster('show');
+                }
+            },
+            success: function(label, element) {
+                $(element).tooltipster('hide');
             }
-        },
-        success: function(label, element) {
-            $(element).tooltipster('hide');
-        }
-    });
+        });
 
 
-    var navListItems = $('div.setup-panel div a'),
-        allWells = $('.setup-content'),
-        allNextBtn = $('.nextBtn');
+        var navListItems = $('div.setup-panel div a'),
+            allWells = $('.setup-content'),
+            allNextBtn = $('.nextBtn');
 
-    allWells.hide();
+        allWells.hide();
 
-    navListItems.click(function(e) {
-        e.preventDefault();
-        var $target = $($(this).attr('href')),
-            $item = $(this);
+        navListItems.click(function(e) {
+            e.preventDefault();
+            var $target = $($(this).attr('href')),
+                $item = $(this);
 
-        if (!$item.hasClass('disabled')) {
-            navListItems.removeClass('btn-primary').addClass('btn-default');
-            $item.addClass('btn-primary');
-            $('input, select').tooltipster("hide");
-            allWells.hide();
-            $target.show();
-            $target.find('input:eq(0)').focus();
-        }
-    });
-
-    /* Handles validating using jQuery validate.
-     */
-    allNextBtn.click(function() {
-        var curStep = $(this).closest(".setup-content"),
-            curStepBtn = curStep.attr("id"),
-            nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-            curInputs = curStep.find("input"),
-            isValid = true;
-
-        //Loop through all inputs in this form group and validate them.
-        for (var i = 0; i < curInputs.length; i++) {
-            if (!$(curInputs[i]).valid()) {
-                isValid = false;
+            if (!$item.hasClass('disabled')) {
+                navListItems.removeClass('btn-primary').addClass('btn-default');
+                $item.addClass('btn-primary');
+                $('input, select').tooltipster("hide");
+                allWells.hide();
+                $target.show();
+                $target.find('input:eq(0)').focus();
             }
-        }
+        });
 
-        if (isValid) {
-            //Progress to the next page.
-            nextStepWizard.removeClass('disabled').trigger('click');
-            // # # # AJAX REQUEST HERE # # # 
+        /* Handles validating using jQuery validate.
+         */
+        allNextBtn.click(function() {
+            var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                curInputs = curStep.find("input"),
+                isValid = true;
 
-            /*
-            Theoretically, in order to preserve the state of the form should the worst happen, we could use an ajax call that would look something like this:
-               
-            //Prepare the key-val pairs like a normal post request.
-            var fields = {};
-            for(var i= 0; i < curInputs.length; i++){
-              fields[$(curInputs[i]).attr("name")] = $(curInputs[i]).attr("name").val();
+            //Loop through all inputs in this form group and validate them.
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!$(curInputs[i]).valid()) {
+                    isValid = false;
+                }
             }
-               
-            $.post(
-                "location.php",
-                fields,
-                function(data){
-                  //Silent success handler.
-                }                
-            );
-               
-            //The FINAL button on last page should have its own logic to finalize the enrolment.
-            */
-        }
-    });
 
+            if (isValid) {
+                //Progress to the next page.
+                nextStepWizard.removeClass('disabled').trigger('click');
+                // # # # AJAX REQUEST HERE # # # 
+
+                /*
+                Theoretically, in order to preserve the state of the form should the worst happen, we could use an ajax call that would look something like this:
+                   
+                //Prepare the key-val pairs like a normal post request.
+                var fields = {};
+                for(var i= 0; i < curInputs.length; i++){
+                  fields[$(curInputs[i]).attr("name")] = $(curInputs[i]).attr("name").val();
+                }
+                   
+                $.post(
+                    "location.php",
+                    fields,
+                    function(data){
+                      //Silent success handler.
+                    }                
+                );
+                   
+                //The FINAL button on last page should have its own logic to finalize the enrolment.
+                */
+            }
+        });
+
+    });
 
     // $('div.setup-panel div a.btn-primary').trigger('click');
     $(document).ready(function() {
-        $('input[type=file]').change(function() {
+        $('.nda-input').change(function() {
             //console.log(this.files);
             var f = this.files;
             var el = $(this).parent();
@@ -251,11 +238,11 @@
                 Math.round(f[0].size / 1024) + ' KB</span>');
         });
 
-        $('input[type=file]').on('focus', function() {
+        $('.nda-input').on('focus', function() {
             $(this).parent().addClass('focus');
         });
 
-        $('input[type=file]').on('blur', function() {
+        $('.nda-input').on('blur', function() {
             $(this).parent().removeClass('focus');
         });
 

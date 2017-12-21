@@ -61,9 +61,8 @@ router.post('/add', function(req, res, next) {
         schedule.fullname = req.body.fullname;
         schedule.email = req.body.email;
         schedule.date = req.body.date;
-        schedule.time = req.body.time;
         schedule.timezone = req.body.timezone;
-        schedule.pNumber = req.body.contactNumber;
+        schedule.pNumber = req.body.phone;
         schedule.skypeId = req.body.skypeid;
         schedule.message = req.body.message;
 

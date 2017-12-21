@@ -127,15 +127,15 @@ block content
     main.estimate-section.container-fluid
         h1.h1 Estimate your software project here
         .container-fluid
-            form.container.estimate-form(action="submit-project")
+            form.container.estimate-form(action="/estimate/send", method="post")
                 .row
                     .col-md-5
-                        label(for="first-name") FIRST NAME*
-                        input.input-est(type="text", name="first name")
+                        label(for="firstName") FIRST NAME*
+                        input.input-est(type="text", name="firstName")
 
                     .col-md-5
-                        label(for="last-name") LAST NAME*
-                        input.input-est(type="text", name="Last name")
+                        label(for="lastName") LAST NAME*
+                        input.input-est(type="text", name="lastName")
 
                 br
                 .row
@@ -144,21 +144,21 @@ block content
                         input.input-est(type="email", name="email")
                     .col-md-5
 
-                        label(for="pnum") PHONE NUMBER*
-                        input.input-est(type="text", name="first name")
+                        label(for="phone") PHONE NUMBER*
+                        input.input-est(type="text", name="phone")
                 br
                 .row
                     .col-md-5
-                        label(for="company-name") COMPANY NAME*
-                        input.input-est(type="text", name="company-name")
-                
+                        label(for="companyName") COMPANY NAME*
+                        input.input-est(type="text", name="companyName")
+                    
 
                     .col-md-5
                         label(for="ctype") COMPANY TYPE*
                         select.input-est(name="ctype")
                             option(value="Company Type" disabled) Company Type
                             option(value="Early State") Early State
-                            option(value="late State") late State
+                            option(value="late State") Late State
                             option(value="small or Medium-sized Business") small or Medium-sized Business
                             option(value="Enterprise") Enterprise
                             option(value="Non-profit") Non-profit
@@ -176,7 +176,7 @@ block content
                         input(type="checkbox" id="ui-ux" name="services" value="UI/UX") 
                         label.est-chckbx-lbl(for="consulting") UI/UX
                     .col-md-5
-                        input(type="checkbox" id="cloudservices" name="services" value="cloudservices") 
+                        input(type="checkbox" id="cloudservices" name="services[" value="cloudservices") 
                         label.est-chckbx-lbl(for="cloudservices") Cloud Services
                 .row
                     .col-md-5
@@ -185,15 +185,25 @@ block content
                     .col-md-5
                         input(type="checkbox" id="webtel" name="services" value="webtel") 
                         label.est-chckbx-lbl(for="webtel") Web Telephony
+                        br
+                        br   
+                        label.est-chckbx-lbl(for="") Choose a price range
+
                 .range-slider
 
                     span from
-                        input(type='number', value='200000', min='200000', max='20000000 ')
+                        input(type='number', name='from', value='200000', min='200000', max='20000000 ')
                         |	to
-                        input(type='number', value='200000', min='200000', max='20000000')
+                        input(type='number', name='to' value='200000', min='200000', max='20000000')
+                        | in Naira
+
+                        br
+                        br
 	
                         input(value='200000', min='0', max='20000000', step='50000', type='range')
                         input(value='200000', min='0', max='20000000', step='50000', type='range')
+                        br
+                        br
 
                         //- svg(width='100%', height='24')
                         //-     line(x1='4', y1='0', x2='300', y2='0', stroke='#444', stroke-width='12', stroke-dasharray='1 28')
@@ -204,8 +214,7 @@ block content
                         textarea.est-txtarea(name="message", cols="90", rows="10")
                 
                 .row
-                    .col-md-10
-                        input.btn.bnt-default(type="button", name="send", value="submit")
+                    input.btn.btn-default(type="submit", value="submit")
 
     script.
         (function() {

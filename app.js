@@ -13,17 +13,24 @@ const express = require('express'),
     passport = require('passport'),
     Strategy = require('passport-facebook').Strategy;
 const app = express();
-app.use(cookieParser('secret'));
+// app.use(cookieParser('secret'));
 
-app.use(session({ cookie: { maxAge: 60000 } }));
-
-app.use(flash());
+// app.use(session({ cookie: { maxAge: 60000 } }));
 
 mongoose.connect('mongodb://localhost:27017/jws', { useMongoClient: true });
 
 mongoose.Promise = global.Promise;
 
 const db = mongoose.connection;
+
+//Express session
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+}));
 
 
 
@@ -33,14 +40,7 @@ app.set('port', (process.env.PORT || 3000));
 app.use(cookieParser());
 app.use(express.static(path.resolve(__dirname, 'public')));
 
-//Express flash
-app.set('trust proxy', 1) // trust first proxy
-app.use(session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
-}));
+
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -49,6 +49,23 @@ app.use(passport.session());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// // catch 404 and forward to error handler
+// app.use(function(req, res, next) {
+//     var err = new Error('Not Found');
+//     err.status = 404;
+//     next(err);
+// });
+
+// // error handler
+// app.use(function(err, req, res, next) {
+//     // set locals, only providing error in development
+//     res.locals.message = err.message;
+//     res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+//     // render the error page
+//     res.status(err.status || 500);
+//     res.render('error');
+// });
 // Express Messages
 app.use(flash());
 app.use(function(req, res, next) {
@@ -156,27 +173,19 @@ app.use('/profile', profile);
 
 
 
+if (process.env.NODE_ENV !== 'production') {
+    process.once('uncaughtException', function(err) {
+        console.error('FATAL: Uncaught exception.');
+        console.error(err.stack || err);
+        setTimeout(function() {
+            process.exit(1);
+        }, 100);
+    });
+}
 
 
 
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-});
-
-// error handler
-app.use(function(err, req, res, next) {
-    // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-    // render the error page
-    res.status(err.status || 500);
-    res.render('error');
-});
 
 app.listen(app.get('port'), () => {
     console.log("App started on port" + app.get('port'));

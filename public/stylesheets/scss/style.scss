@@ -12,8 +12,20 @@ $gray: #aaacaf;
 $border: #2762c1;
 $dark-blue: #0f224d;
 $db: #10214c;
-$gradient: #3B305F;
-//make a sprite
+$gradient: linear-gradient(to left,
+#141E30,
+#243B55); //make a sprite
+.js div#preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    background: #333 url('http://files.mimoymima.com/images/loading.gif') no-repeat center center;
+}
+
 %extend_1 {
     clear: both;
     margin-top: 20px;
@@ -684,7 +696,7 @@ a {
 
 .footer-list-header {
     color: #ffffff;
-    background: rgba(10, 9, 49, 0.61);
+    background: #0a0c27;
     padding: 10px 0 10px 20px;
     box-shadow: -2px 4px 3px 0px rgba(0, 0, 0, 0.25);
 }

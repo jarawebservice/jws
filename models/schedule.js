@@ -1,4 +1,16 @@
 const mongoose = require('mongoose');
+// var uristring =
+//     process.env.MONGOLAB_URI ||
+//     process.env.MONGOHQ_URL ||
+//     'mongodb://localhost/HelloMongoose';
+mongoose.connect('mongodb://localhost:27017/jws', { useMongoClient: true });
+
+mongoose.Promise = global.Promise;
+
+const db = mongoose.connection;
+// mongoose.connect('mongodb://localhost/jws');
+const bcrypt = require('bcryptjs');
+const ObjectId = mongoose.Types.ObjectId;
 
 const scheduleSchema = mongoose.Schema({
     fullname: {
@@ -11,13 +23,10 @@ const scheduleSchema = mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    time: {
-        type: String,
-    },
     timezone: {
         type: String
     },
-    pNumber: {
+    phone: {
         type: String
     },
     skypeId: {
@@ -39,4 +48,12 @@ module.exports.getSchedules = function(callback, limit) {
 
 module.exports.addSchedule = function(schedule, callback) {
     Schedule.create(schedule, callback);
+}
+
+module.exports.deleteSchedule = function(schedule, callback) {
+    Schedule.remove(schedule, callback);
+}
+
+module.exports.updateSchedule = function(schedule, callback) {
+    Schedule.update(schedule, callback);
 }

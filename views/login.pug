@@ -1,20 +1,6 @@
 extends layout
 block content
    main
-   
-    if success_msg != ""
-        div.alert.alert-success #{success_msg}
-
-    if error != ""
-        div.alert.alert-success #{error}
-
-    if error_msg != ""
-        div.alert.alert-danger #{error_msg}
-
-    ul.errors
-        if errors
-            each error, i in errors
-                li.alert.alert-danger #{error.msg}
     style
         include ../public/stylesheets/login.css
    

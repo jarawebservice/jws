@@ -10,6 +10,25 @@ const express = require('express'),
 let User = require('../models/user');
 
 
+passport.serializeUser((user, done) => {
+    done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+    User.getUserById(id, (err, user) => {
+        done(err, user);
+    });
+});
+// file:app/authentication/middleware.js
+function authenticationMiddleware() {
+    return function(req, res, next) {
+        if (req.isAuthenticated()) {
+            return next()
+        }
+        res.redirect('/')
+    }
+}
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.render('register', { title: 'You can register here for domain management', content: 'Registration has a lot of benefits' });
@@ -84,15 +103,6 @@ passport.use(new LocalStrategy((username, password, done) => {
 
 }));
 
-passport.serializeUser((user, done) => {
-    done(null, user.id);
-});
-
-passport.deserializeUser((id, done) => {
-    User.getUserById(id, (err, user) => {
-        done(err, user);
-    });
-});
 
 //logout
 router.get('/logout', ensureAuthenticated, (req, res, next) => {
@@ -103,12 +113,22 @@ router.get('/logout', ensureAuthenticated, (req, res, next) => {
 
 //login
 router.post('/login', (req, res, next) => {
-    passport.authenticate('local', {
-        successRedirect: '/profile',
-        failureRedirect: '/login',
-        failureFlash: true
-    })(req, res, next);
+
+    if (!req.user) {
+        passport.authenticate('local', {
+            successRedirect: '/profile',
+            failureRedirect: '/login',
+            failureFlash: true
+        })(req, res, next);
+    }
+    if (User.checkIfUserIsAdmin() === true) {
+        res.redirect('/admin');
+    }
+    res.redirect('/profile');
+
 });
+
+
 
 
 function ensureAuthenticated(req, res, next) {
