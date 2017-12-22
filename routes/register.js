@@ -113,10 +113,12 @@ router.get('/logout', ensureAuthenticated, (req, res, next) => {
 
 //login
 router.post('/login', (req, res, next) => {
-    if (User.checkIfUserIsAdmin() === true) {
+    console.log(User.isAdmin);
+    if (User.isAdmin) {
         res.redirect('/admin');
     }
     passport.authenticate('local', {
+
         successRedirect: '/profile',
         failureRedirect: '/login',
         failureFlash: true

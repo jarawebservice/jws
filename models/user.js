@@ -75,6 +75,6 @@ module.exports.comparePassword = function(candidatePassword, hash, callback) {
     });
 }
 
-module.exports.checkIfUserIsAdmin = function() {
-    return User.isAdmin;
+module.exports.checkIfUserIsAdmin = function(name) {
+    return getUserByUsername(name).isAdmin
 }
