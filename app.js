@@ -19,7 +19,8 @@ app.use(compression())
 
 // app.use(session({ cookie: { maxAge: 60000 } }));
 
-mongoose.connect('mongodb://jara:jaracare@ds161306.mlab.com:61306/jws', { useMongoClient: true });
+// mongoose.connect('mongodb://jara:jaracare@ds161306.mlab.com:61306/jws', { useMongoClient: true });
+mongoose.connect('mongodb://localhost/jws', { useMongoClient: true });
 
 mongoose.Promise = global.Promise;
 
