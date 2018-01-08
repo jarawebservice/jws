@@ -8,25 +8,12 @@ const express = require('express'),
     session = require('express-session'),
     flash = require('express-flash'),
     unirest = require('unirest'),
-    mongoose = require('mongoose'),
     fileUpload = require('express-fileupload'),
     passport = require('passport'),
     compression = require('compression'),
     Strategy = require('passport-facebook').Strategy;
 const app = express();
 app.use(compression())
-    // app.use(cookieParser('secret'));
-
-// app.use(session({ cookie: { maxAge: 60000 } }));
-
-// mongoose.connect('mongodb://jara:jaracare@ds161306.mlab.com:61306/jws', { useMongoClient: true });
-mongoose.connect('mongodb://localhost/jws', { useMongoClient: true });
-
-mongoose.Promise = global.Promise;
-
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-
 
 app.use(session({ secret: 'anything' }));
 app.use(passport.initialize());
@@ -57,24 +44,7 @@ app.use(passport.session());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// // catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//     var err = new Error('Not Found');
-//     err.status = 404;
-//     next(err);
-// });
 
-// // error handler
-// app.use(function(err, req, res, next) {
-//     // set locals, only providing error in development
-//     res.locals.message = err.message;
-//     res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-//     // render the error page
-//     res.status(err.status || 500);
-//     res.render('error');
-// });
-// Express Messages
 app.use(flash());
 app.use(function(req, res, next) {
     res.locals.success_msg = req.flash('success_msg');
@@ -179,7 +149,24 @@ app.use('/domain-web-hosting', domain);
 app.use('/admin', admin);
 app.use('/profile', profile);
 
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+});
 
+// error handler
+app.use(function(err, req, res, next) {
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
+});
+// Express Messages
 
 if (process.env.NODE_ENV !== 'production') {
     process.once('uncaughtException', function(err) {
