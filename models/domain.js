@@ -6,6 +6,10 @@ const domainSchema = mongoose.Schema({
     cname: {
         type: string
     },
+    aaa: [{
+        body: String,
+
+    }],
     user: {
         type: ObjectId
     }

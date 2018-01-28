@@ -34,14 +34,10 @@ const UserSchema = mongoose.Schema({
     },
     isAdmin: {
         type: Boolean
+    },
+    billing: {
+        type: String
     }
-    // managed_domain: {
-    //     type: ObjectId()
-    // },
-    // cart: {
-    //     type: ObjectId()
-    // }
-
 });
 
 
