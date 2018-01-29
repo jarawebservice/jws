@@ -1,29 +1,47 @@
 extends layout
 
 block content
-  link(rel="stylesheet" href="/stylesheets/web.css")
-  
+  link(rel="stylesheet" href="/stylesheets/mobile.css")
   style.
-    main{
-        padding-left: 30px;
+    .header-image {
+      background: url(/images/web.jpg) no-repeat top left / cover;
+      background: linear-gradient(rgba(#1d2326, 0.8), rgba(#1d2326, 0.8)), url(/images/web.jpg) no-repeat top left / cover;
     }
 
+  
+
+
   main(role='main ')
-   section
-     h1 Web Apps Development
-     p We have gained a lot of valuable experience from working on 
-     | various web projects, including e‑learning and e‑commerce platforms, 
-     | CRM solutions, web services, web sites, APIs, and more.
+    .header-image
+      .header-image-text
+        h2.header-title Web Application Development
+        p.header-description.container Mobile is now the rule rather than the exception. The mobile ecosystem is creating new interaction models between between people, corporate organisations, and Government. At JWS We have expertise in mobile development. We can create any mobile development shop you desire.
+        a.button.button-yellow(href='#') Case Study
+        a.button.button-blue(href='#') Samples
 
-     h2 Approach
-     p On our projects, we use highly efficient and flexible web frameworks, which are specifically adjusted to the individual needs of our clients.
-     |To us, development is more than a job, it’s a passion. We stay on top of all advances and trends in technology to ensure our solutions 
-     |are reliable, flexible, and relevant. In addition, our team of security and usability professionals make sure we do our best to avoid
-     |any developmental delays or missteps due to the misuse of outdated or inferior techniques or technology.
+    section
+      .jumbotron.jumbo-div.container-fluid 
+        h2.home-section-h2 Web Apps Development
+      .container-fluid
+        p We have gained a lot of valuable experience from working on 
+        | various web projects, including e‑learning and e‑commerce platforms, 
+        | CRM solutions, web services, web sites, APIs, and more.
+    section
+      .jumbotron.jumbo-div.container-fluid
+        h2.home-section-h2 Approach
+        p.header-description we have an hybrid approach that follows the SCRUM model
+      .container-fluid
+        p On our projects, we use highly efficient and flexible web frameworks, which are specifically adjusted to the individual needs of our clients.
+        |To us, development is more than a job, it’s a passion. We stay on top of all advances and trends in technology to ensure our solutions 
+        |are reliable, flexible, and relevant. In addition, our team of security and usability professionals make sure we do our best to avoid
+        |any developmental delays or missteps due to the misuse of outdated or inferior techniques or technology.
+    section
+      .jumbotron.jumbo-div.container-fluid
+        h2.home-section-h2 Tech Stack
+        p.header-description Our stack is a mixed bag
+      .container-fluid
+        p Reactjs, SASS, EXPRESS, WebPack, SinonJs
+        p ASP.NET Core, Entity Framework, WCF, Angular, DurandalJs, Typescript
+        p Firebase, Mysql, MongoDB, SQLite, Redis
 
-     h2 Tech Stack
-     p Reactjs, SASS, EXPRESS, WebPack, SinonJs
-     p ASP.NET Core, Entity Framework, WCF, Angular, DurandalJs, Typescript
-     p Firebase, Mysql, MongoDB, SQLite, Redis
-
-     button Check our portfolilio
+      button Check our portfolilio

@@ -1,42 +1,70 @@
 extends layout
 
 block content
-  style.
-      main{
-          padding-left: 30px;
-      }
   link(rel="stylesheet" href="/stylesheets/mobile.css")
+  style.
+    p.header-description {
+      font-family: Raleway;
+      letter-spacing: .05em;
+      font-weight: lighter;
+      font-size: 18px;
+      color: #ec7946;
+    }
+
+    p.content {
+      font-family: Raleway;
+      font-weight: 400;
+      font-size: 16px;
+    }
+
+    .section-mg{
+      margin: 20px 0px 20px 0px;
+    }
   
-  main(role='main ')
-    img(src="/images/mobile1.png" width="1200"  height="800")
-    section
-      article
-        section.droid
-          p We are like pigeons, we stay 
-          |  with you through the ups and downs. We are fully committed to your project throughout the development lifecyle,
-          |  event to the post production phase
-          div
-            h3 Native Android App Development
-        section.windows
-          p We are like pigeons, we stay 
-          |  with you through the ups and downs. We are fully committed to your project throughout the development lifecyle,
-          |  event to the post production phase
-          div
-            h3 Native Windows Phone App Development
+  
+  main
+    .header-image
+      .header-image-text
+        h2.header-title Mobile App Development
+        p.header-description.container Mobile is now the rule rather than the exception. The mobile ecosystem is creating new interaction models between between people, corporate organisations, and Government. At JWS We have expertise in mobile development. We can create any mobile development shop you desire.
+        a.button.button-yellow(href='#') Case Study
+        a.button.button-blue(href='#') Samples
 
-        section.rt
-          p We are like pigeons, we stay 
-          |  with you through the ups and downs. We are fully committed to your project throughout the development lifecyle,
-          |  event to the post production phase
-          div
-            h3 Window Surface App Development
-      h1 Mobile Development
-      p Mobile is now the rule rather than the exception. The mobile ecosystem is creating new interaction models between between people, corporate organisations, and Government. 
-      p At JWS We have expertise in mobile development. We can create any mobile development shop you desire.
-      h3 It’s never been easier to build a smart mobile product
+    section.headsup
+      .jumbotron.jumbo-div.container-fluid
+        h2.home-section-h2 Heads up! Pick a shore and you would find us there
+        p.header-description You can choose cross-platform or native application
+      .container-fluid
+        h3.home-section-h3  It’s never been a better time to build a smart mobile product
+        p.content We highly recommend starting out with a Minimum Viable Product (MVP), instead of going head first for the full package deal. Why? Because it will get you valuable information on how the core features of your mobile product work for the target user.
+          span Release the main product and optimize your strategies around actual results. Working with an MVP will enable you to make decisions based on real data, not speculations. This way, you’ll have better chances of building a sustainable business on mobile.
+    
+    section.droid
+      .jumbotron.jumbo-div.container-fluid.section-mg
+        h2.home-section-h2 Native Mobile application
+        p.header-description We build cutting edge native native applications for multiple platforms using 
+          a(href="http://") xamarin
+      .container-fluid
+        .row
+          .col-md-6
+            p.content Microsoft piece de resistance in the mobile software development world is Xamarin. Apps delivered with Xamarin have that look and feel across various platforms. Microsoft has made it so that the amount of work that would be done crafting applications for various platform is at the barest minimum. At JWS, Xamarin is one of our approaches to mobile app development. It not only offers an edge in building native app interfaces but also enables to overpower the limitations of hybrid apps.
+            p.content The guys at Facebook have also figured out a way to build mobile apps with a true native feel to it. Although a little different from what microsoft does, ReactNative apps offers native mobile development platform that is platform agnostic enough to build applications for monitoring heart rate as well as for managing insurance premiums across the enterprise. 
+          .col-md-5   
+            img.img-responsive(src="images/xamarin.png", alt="mobile cross platform", width="800", height="400")
+    section.windows
+      .jumbotron.container-fluid.jumbo-div.section-mg
+        h2.home-section-h2 Hybrid Mobile Application
+        p.header-description You can give hybrid mobile apps a consideration as well if you are not much concerned with performance
+      .container-fluid
+        .row
+          .col-md-5 
+            p.content Phonegap is what we use to build hybrid applications at JWS. We always encourage our clients to consider phonegap after due dilligence is done.
+          .col-md-5   
+            img.img-responsive(src="images/hybrid.png", alt="mobile cross platform", width="800", height="400")
+          
+ 
+     
 
 
 
-      p We highly recommend starting out with a Minimum Viable Product (MVP), instead of going head first for the full package deal. Why? Because it will get you valuable information on how the core features of your mobile product work for the target user.
-
-      span Release the main product and optimize your strategies around actual results. Working with an MVP will enable you to make decisions based on real data, not speculations. This way, you’ll have better chances of building a sustainable business on mobile.
+      

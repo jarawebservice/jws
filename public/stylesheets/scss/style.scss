@@ -62,7 +62,8 @@ main.contact {
 body {
     font-size: $base-font-size;
     font-family: $general;
-    $grid-background-column-width: 30px !default
+    $grid-background-column-width: 30px !default;
+    text-rendering: optimizeLegibility
 }
 
 .navbar-inverse {

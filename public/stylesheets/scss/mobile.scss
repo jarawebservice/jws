@@ -1,3 +1,192 @@
-h1 {
-    font-style: italic;
+// ********* //
+// Variables //
+// ********* //
+// Neutrals
+$dark: #1d2326;
+$white: #fff;
+$grey: darken(#f2f5f7, 2%);
+$mediumgrey: #DDE4E9;
+$lightgreyblue: #B8D0DC;
+$greyblue: #678EB2;
+// Colors
+$red: #E03E4F;
+$darkred: #BF2F45;
+$yellow: #F2B139;
+$darkyellow: #d68d33;
+$green: #6da768;
+$darkgreen: #528552;
+$blue: #229FBF;
+$darkblue: #1d7ba3;
+// Fonts
+$base-font-family: Raleway,
+'Helvetica Neue',
+sans-serif;
+$alt-font-family: 'Roboto Slab',
+serif;
+$base-font-size: 20px;
+$base-line-height: 1.4;
+$h1-font-size: 3.6;
+$h2-font-size: 1.8;
+$h3-font-size: 1.4;
+$h4-font-size: 1;
+$h5-font-size: 0.8;
+$h6-font-size: 0.7;
+$h1-mobile-size: 2.8;
+// Sizes
+$unit: $base-line-height * 1rem !default;
+$padding-xs: $unit / 2;
+$padding-s: $unit;
+$padding-m: $unit * 2;
+$padding-l: $unit * 3;
+$padding-xl: $unit * 4;
+$pixel-width: 1200px;
+$width: $pixel-width / $base-font-size * 1em;
+$half-width: $width / 2;
+$border-s: 4px;
+$border-m: 6px;
+$border-radius: 3px;
+// Mixins
+@mixin gridOverlay($color: #f00, $unit: $base-line-height * 1em) {
+    background-image: repeating-linear-gradient(90deg, rgba($color, 0.5) 0%, rgba($color, 0.5) 1px, transparent 1px, transparent), repeating-linear-gradient(0deg, rgba($color, 0.5) 0%, rgba($color, 0.5) 1px, transparent 1px, transparent);
+    background-size: $unit $unit;
+    pointer-events: none;
+    width: 100vw;
+    height: 200vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000000;
+}
+
+@mixin adjustType($fsize, $lheight: $base-line-height) {
+    $lines: ($fsize * $lheight + $base-line-height * 2) / $base-line-height;
+    $diff: (ceil($lines) - $lines) * $base-line-height;
+    font-size: $fsize * 1em;
+    line-height: $lheight;
+    margin-top: ($base-line-height + $diff / 2) / $fsize * 1em;
+    margin-bottom: ($base-line-height + $diff / 2) / $fsize * 1em;
+}
+
+@mixin clearfix {
+    &::after {
+        clear: both;
+        content: "";
+        display: table;
+    }
+}
+
+@mixin container($top: false, $bottom: false) {
+    padding: $padding-s;
+    @media (min-width: 75em) {
+        @if ($top and $bottom) {
+            padding: $top calc(50% - #{$half-width}) $bottom;
+        }
+        @else if ($top) {
+            padding: $top calc(50% - #{$half-width});
+        }
+        @else {
+            padding-left: calc(50% - #{$half-width});
+            padding-right: calc(50% - #{$half-width});
+        }
+    }
+}
+
+::selection {
+    background: $blue;
+    color: $white;
+}
+
+::-moz-selection {
+    background: $blue;
+    color: $white;
+}
+
+::-webkit-input-placeholder {
+    color: $blue;
+}
+
+::-moz-placeholder {
+    color: $blue;
+}
+
+// Reusable styles
+.button {
+    background: $green;
+    border-radius: $border-radius;
+    border: 0;
+    box-shadow: 0 $border-s $darkgreen;
+    color: $white;
+    display: inline-block;
+    padding: calc(#{$padding-xs} - 1px) $padding-s;
+    &:focus {
+        outline: 0;
+    }
+    &-red {
+        background: $red;
+        border: 1px solid $red;
+        box-shadow: 0 $border-s $darkred;
+        &:hover,
+        &:focus {
+            background: #f34459;
+            box-shadow: 0 $border-s #dd324d;
+            outline: 0;
+        }
+    }
+    &-yellow {
+        background: $yellow;
+        border: 1px solid $yellow;
+        box-shadow: 0 $border-s $darkyellow;
+        &:hover,
+        &:focus {
+            background: #F8CB4F;
+            box-shadow: 0 $border-s #F2B139, 0 0 10px $darkyellow;
+            outline: 0;
+        }
+    }
+    &-blue {
+        background: $blue;
+        border: 1px solid $blue;
+        box-shadow: 0 $border-s $darkblue;
+        &:hover,
+        &:focus {
+            background: #60BAD1;
+            box-shadow: 0 $border-s #4CA0BD, 0 0 10px $darkblue;
+            outline: 0;
+        }
+    }
+}
+
+.header-image-text {
+    padding: 150px 0px 150px 0px;
+}
+
+.header-image {
+    background: url(/images/projects.jpg) no-repeat top left / cover;
+    background: linear-gradient(rgba($dark, 0.8), rgba($dark, 0.8)), url(/images/projects.png) no-repeat top left / cover;
+    text-align: center;
+    padding: $padding-s $padding-s $padding-m;
+    .button {
+        margin: $padding-xs;
+    }
+}
+
+.header-title {
+    color: $white;
+    font-family: $base-font-family;
+    @include adjustType($h1-mobile-size);
+    margin-top: 0;
+}
+
+.header-description {
+    color: $green;
+    font-weight: 700;
+    text-shadow: 0px 0px 6px $dark;
+    @include adjustType($h3-font-size);
+    margin-top: 1.5em;
+}
+
+.jumbotron {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
 }

@@ -1,170 +1,196 @@
 extends layout
 
+
 block content
     style.
         input {
-            -webkit-box-shadow: 0;
+                    -webkit-box-shadow: 0;
                     box-shadow: 0;
-            outline: 0;
+                    outline: 0;
             }
             .range-slider {
-            width: 500px;
-            margin: auto;
-            text-align: center;
-            position: relative;
-            height: 6em;
+                width: 500px;
+                margin: auto;
+                text-align: center;
+                position: relative;
+                height: 6em;
+            }
+            textarea, textarea.form-control, input.form-control, input[type=text], input[type=password], input[type=email], input[type=number], [type=text].form-control, [type=password].form-control, [type=email].form-control, [type=tel].form-control, [contenteditable].form-control {
+                padding: 0;
+                /* border: none; */
+                border: .5px solid gray;
+                /* -webkit-appearance: none; */
+                /* -webkit-box-shadow: inset 0 -1px 0 #dddddd; */
+                /* box-shadow: inset 0 -1px 0 #dddddd; */
+                font-size: 16px;
+            }
+
+            select, select.form-control {
+                border: .5px solid gray;
             }
             .range-slider svg,
             .range-slider input[type=range] {
-            position: absolute;
-            left: 0;
-            bottom: 0;
+                position: absolute;
+                left: 0;
+                bottom: 0;
             }
             input[type=number] {
-            border: 1px solid #ddd;
-            text-align: center;
-            font-size: 1.6em;
-            -moz-appearance: textfield;
+                border: 1px solid #ddd;
+                text-align: center;
+                font-size: 1.6em;
+                -moz-appearance: textfield;
             }
             input[type=number]::-webkit-outer-spin-button,
             input[type=number]::-webkit-inner-spin-button {
-            -webkit-appearance: none;
+                -webkit-appearance: none;
             }
             input[type=number]:invalid,
             input[type=number]:out-of-range {
-            border: 2px solid #ff6347;
+                border: 2px solid #ff6347;
             }
             input[type=range] {
-            -webkit-appearance: none;
-            width: 100%;
+                -webkit-appearance: none;
+                width: 100%;
             }
             input[type=range]:focus {
-            outline: none;
+                outline: none;
             }
             input[type=range]:focus::-webkit-slider-runnable-track {
-            background: #2497e3;
+                background: #2497e3;
             }
             input[type=range]:focus::-ms-fill-lower {
-            background: #2497e3;
+                background: #2497e3;
             }
             input[type=range]:focus::-ms-fill-upper {
-            background: #2497e3;
+                background: #2497e3;
             }
             input[type=range]::-webkit-slider-runnable-track {
-            width: 100%;
-            height: 5px;
-            cursor: pointer;
-            animate: 0.2s;
-            background: #2497e3;
-            border-radius: 1px;
-            -webkit-box-shadow: none;
-                    box-shadow: none;
-            border: 0;
+                width: 100%;
+                height: 5px;
+                cursor: pointer;
+                animate: 0.2s;
+                background: #2497e3;
+                border-radius: 1px;
+                -webkit-box-shadow: none;
+                box-shadow: none;
+                border: 0;
             }
             input[type=range]::-webkit-slider-thumb {
-            z-index: 2;
-            position: relative;
-            -webkit-box-shadow: 0px 0px 0px #000;
-                    box-shadow: 0px 0px 0px #000;
-            border: 1px solid #2497e3;
-            height: 18px;
-            width: 18px;
-            border-radius: 25px;
-            background: #a1d0ff;
-            cursor: pointer;
-            -webkit-appearance: none;
-            margin-top: -7px;
+                z-index: 2;
+                position: relative;
+                -webkit-box-shadow: 0px 0px 0px #000;
+                        box-shadow: 0px 0px 0px #000;
+                border: 1px solid #2497e3;
+                height: 18px;
+                width: 18px;
+                border-radius: 25px;
+                background: #a1d0ff;
+                cursor: pointer;
+                -webkit-appearance: none;
+                margin-top: -7px;
             }
             input[type=range]::-moz-range-track {
-            width: 100%;
-            height: 5px;
-            cursor: pointer;
-            animate: 0.2s;
-            background: #2497e3;
-            border-radius: 1px;
-            box-shadow: none;
-            border: 0;
+                width: 100%;
+                height: 5px;
+                cursor: pointer;
+                animate: 0.2s;
+                background: #2497e3;
+                border-radius: 1px;
+                box-shadow: none;
+                border: 0;
             }
             input[type=range]::-moz-range-thumb {
-            z-index: 2;
-            position: relative;
-            box-shadow: 0px 0px 0px #000;
-            border: 1px solid #2497e3;
-            height: 18px;
-            width: 18px;
-            border-radius: 25px;
-            background: #a1d0ff;
-            cursor: pointer;
+                z-index: 2;
+                position: relative;
+                box-shadow: 0px 0px 0px #000;
+                border: 1px solid #2497e3;
+                height: 18px;
+                width: 18px;
+                border-radius: 25px;
+                background: #a1d0ff;
+                cursor: pointer;
             }
             input[type=range]::-ms-track {
-            width: 100%;
-            height: 5px;
-            cursor: pointer;
-            animate: 0.2s;
-            background: transparent;
-            border-color: transparent;
-            color: transparent;
+                width: 100%;
+                height: 5px;
+                cursor: pointer;
+                animate: 0.2s;
+                background: transparent;
+                border-color: transparent;
+                color: transparent;
             }
             input[type=range]::-ms-fill-lower,
             input[type=range]::-ms-fill-upper {
-            background: #2497e3;
-            border-radius: 1px;
-            box-shadow: none;
-            border: 0;
+                background: #2497e3;
+                border-radius: 1px;
+                box-shadow: none;
+                border: 0;
             }
             input[type=range]::-ms-thumb {
-            z-index: 2;
-            position: relative;
-            box-shadow: 0px 0px 0px #000;
-            border: 1px solid #2497e3;
-            height: 18px;
-            width: 18px;
-            border-radius: 25px;
-            background: #a1d0ff;
-            cursor: pointer;
+                z-index: 2;
+                position: relative;
+                box-shadow: 0px 0px 0px #000;
+                border: 1px solid #2497e3;
+                height: 18px;
+                width: 18px;
+                border-radius: 25px;
+                background: #a1d0ff;
+                cursor: pointer;
+            }
+
+            label {
+                font-family: raleway;
+                font-size: 14px;
             }
    
     main.estimate-section.container-fluid
-        h1.h1 Estimate your software project here
+        .jumbotron
+            h1.h1 Estimate your software project here
         .container-fluid
             form.container.estimate-form(action="/estimate/send", method="post")
                 .row
-                    .col-md-5
-                        label(for="firstName") FIRST NAME*
-                        input.input-est(type="text", name="firstName")
+                    .col-md-6
+                        label(for="firstName") FIRST NAME *
+                        input.form-control(type="text", name="firstName")
 
-                    .col-md-5
-                        label(for="lastName") LAST NAME*
-                        input.input-est(type="text", name="lastName")
+                    .col-md-6
+                        label(for="lastName") LAST NAME
+                            strong *
+                        input.form-control(type="text", name="lastName")
 
                 br
                 .row
-                    .col-md-5
-                        label(for="email") EMAIL*
-                        input.input-est(type="email", name="email")
-                    .col-md-5
-
-                        label(for="phone") PHONE NUMBER*
-                        input.input-est(type="text", name="phone")
+                    .col-md-6
+                        label(for="email") EMAIL
+                            strong *
+                        input.form-control(type="email", name="email")
+                    .col-md-6
+                        label(for="phone") PHONE NUMBER
+                            strong *
+                        input.form-control(type="phone", name="phone")
                 br
                 .row
-                    .col-md-5
-                        label(for="companyName") COMPANY NAME*
-                        input.input-est(type="text", name="companyName")
+                    .col-md-6
+                        label(for="companyName") COMPANY NAME
+                            strong *
+                        input.form-control(type="text", name="companyName")
                     
 
-                    .col-md-5
-                        label(for="ctype") COMPANY TYPE*
-                        select.input-est(name="ctype")
+                    .col-md-6
+                        label(for="ctype") COMPANY TYPE
+                            strong *
+                        select.form-control(name="ctype")
                             option(value="Company Type" disabled) Company Type
-                            option(value="Early State") Early State
-                            option(value="late State") Late State
+                            option(value="Early State") Early startup
+                            option(value="late State") Late startup
                             option(value="small or Medium-sized Business") small or Medium-sized Business
                             option(value="Enterprise") Enterprise
                             option(value="Non-profit") Non-profit
                             option(value="Other")
                 br
-                .row    
+                .divider
+                .row
+                    h4 Select application type applicable
                     .col-md-5
                         input(type="checkbox" id="consulting" name="services" value="consulting") 
                         label.est-chckbx-lbl(for="consulting") Consulting
@@ -185,36 +211,38 @@ block content
                     .col-md-5
                         input(type="checkbox" id="webtel" name="services" value="webtel") 
                         label.est-chckbx-lbl(for="webtel") Web Telephony
-                        br
-                        br   
-                        label.est-chckbx-lbl(for="") Choose a price range
+                .divider
+                    br
 
-                .range-slider
 
-                    span from
-                        input(type='number', name='from', value='200000', min='200000', max='20000000 ')
-                        |	to
-                        input(type='number', name='to' value='200000', min='200000', max='20000000')
-                        | in Naira
+                    h4 Choose a price range
+                .range-slider.row
+                    br
+                    div
+                        .col-md-5
+                            span from
+                                input(type='number', name='from', value='200000', min='200000', max='20000000 ')
+                                |	to
+                                input(type='number', name='to' value='200000', min='200000', max='20000000')
+                                | in Naira
 
-                        br
-                        br
-	
-                        input(value='200000', min='0', max='20000000', step='50000', type='range')
-                        input(value='200000', min='0', max='20000000', step='50000', type='range')
-                        br
-                        br
-
-                        //- svg(width='100%', height='24')
-                        //-     line(x1='4', y1='0', x2='300', y2='0', stroke='#444', stroke-width='12', stroke-dasharray='1 28')
-
+                        .col-md-5
+                            br
+                            input(value='200000', min='0', max='20000000', step='50000', type='range')
+                            input(value='200000', min='0', max='20000000', step='50000', type='range')
+                    br
                                     
                 .row
-                    .col-md-10
-                        textarea.est-txtarea(name="message", cols="90", rows="10")
+                    h4 Project Details
+                    .divider
+                        .col-md-10
+                            textarea.form-control(name="message", cols="100", rows="10", placeholder="Tell us about a bit your project")
                 
                 .row
-                    input.btn.btn-default(type="submit", value="submit")
+                    .col-md-7
+                        input.btn.btn-default.btn-primary.pull-right(type="submit", value="submit")
+
+                .divider
 
     script.
         (function() {
