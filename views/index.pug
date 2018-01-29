@@ -1,8 +1,5 @@
 extends layout
 
-include ./_extends_bootstrap.pug
-
-
 block content
   main(role='main ')
     section#lab_video_slider
@@ -102,9 +99,10 @@ block content
                     | learn more
               |                 
     
-    section#content-container2.container-fluid.section-3header      
-          h2.home-section-h2 How would you like to accomplish it
-          p.header-description we would shine the light on all facets of your company and reveal your domain model
+    section#content-container2.container-fluid.section-3header
+          div.jumbotron.container-fluid.jumbo-div      
+            h2.home-section-h2 How would you like to accomplish it
+            p.header-description we would shine the light on all facets of your company and reveal your domain model
           div.home-content.plain
             section.estimate
               div.main-lede
@@ -129,7 +127,7 @@ block content
                   i(class="fa fa-chevron-down fa-1x pull-right" aria-hidden="true")
 
 
-          section#section1.section.well-lg
+          section#section1.section
             h4 Write a brief
             .container
               .stepwizard
@@ -182,7 +180,7 @@ block content
                         p Take a moment to review the form, and edit any information.
                         button.btn.btn-success.pull-right(type='submit') Finish!
 
-          #section2.section.well-lg
+          #section2.section
             h3 Upload Your NDA here, we will sign it and send it back to you
             form.file-upload(method='post', action='nda/send', encType='multipart/form-data', ref='uploadForm' )
               label(for="name") Full Name
@@ -195,7 +193,7 @@ block content
                 // use multiple, even if it’s not allowed, to be able to show an info text
               button.pull-right.schedule-btn(type='submit') Upload
            
-          section#section3.section.well-lg
+          section#section3.section
             h3 Book a schedule on skype
             
             form(action='/schedule/add', method='post')
@@ -259,8 +257,9 @@ block content
 
 
 
-    section.container-fluid
-      h2.home-section-h2 Our work culture
+    section.container-fluid.section-3header 
+      div.jumbotron.container-fluid.jumbo-div
+        h2.home-section-h2 Our work culture
       .container-fluid.culture-home
         .row.culture-pitch
           .container-fluid.culture
@@ -278,7 +277,7 @@ block content
             h3.home-section-h3 The client is king
             img.culture-img(src="images/client-king.gif", alt="Client is king")
             p In line with our Scrum mindset we not only bring the client as part of the project team, we are responsive to are clients and are interested in ways they would get the best return on their investment. This means we build with the business in mind as much as we want to listen to the needs of the client.
-        .well.tech-img
+        .tech-img
           img.techs(src="images/html5.png" caption="HTML5")
           img.techs(src="images/reactjs.png")
           img.techs(src="images/net.png")
