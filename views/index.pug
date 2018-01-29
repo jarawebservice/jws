@@ -106,153 +106,146 @@ block content
           div.home-content.plain
             section.estimate
               div.main-lede
-                h3 Click on the blue button to get started
-                span.header-description Spare us some details about your project 
+                h3 Estimate Project
+                span.header-description Spare us some details about your project and we shall do the estimate
               div.main-action
-                a.show.show-active(target='1' aria-hidden="true") Estimate
+                a.show(data-toggle="modal" data-target="#estimate") Estimate
                   i(class="fa fa-chevron-down fa-1x pull-right" aria-hidden="true")
             section.nda
               div.main-lede
                 h3 Start with an NDA
                 span.header-description Do you have propriety information to share? Let's provide you with a non-disclosure aggrement(NDA)
               div.main-action
-                a.show(target='2') Submit NDA 
+                a.show(data-toggle="modal" data-target="#submitNDA") Submit NDA 
                   i(class="fa fa-chevron-down fa-1x pull-right" aria-hidden="true")
             section.call
               div.main-lede
                 h3 Schedule a meeting
                 span.header-description We can provide you with 30 mintues of of our time on skype to discuss your next big thing
               div.main-action
-                a.show(target='3' aria-hidden="true") Schedule
+                a.show(data-toggle="modal" data-target="#schedule") Schedule
                   i(class="fa fa-chevron-down fa-1x pull-right" aria-hidden="true")
 
 
-          section#section1.section
-            h4 Write a brief
-            .container-fluid
-              .stepwizard
-                .stepwizard-row.setup-panel
-                  .stepwizard-step
-                    a.btn.btn-primary.btn-circle(href='#step-1', type='button') 1
-                    p Company details
-                  .stepwizard-step
-                    a.btn.btn-default.btn-circle.disabled(href='#step-2', type='button') 2
-                    p Project details
-                  .stepwizard-step
-                    a.btn.btn-default.btn-circle.disabled(href='#step-3', type='button') 3
-                    p Submission and feedback
-              form(role='form' action="brief/add" method="post")
-                #step-1.row.setup-content
-                  .col-xs-9.col-md-8.col-lg-offset-2
-                      h3  Company Details
-                      .form-group
-                        label(for="email") Email
-                        input#firstName.form-control(name='email', type='email', required='', placeholder='Enter Email Address')
-                      .form-group
-                        label(for="brief") brief message
-                        textarea.form-control(name="brief", cols="20", rows="6")
-                      button.btn.btn-primary.nextBtn.pull-right(type='button') Next
-                #step-2.row.setup-content
-                  .col-xs-12.col-md-11
-                      h3  Project Details
-                      .form-group
-                        label(for="companyName").control-label Company Name
-                        input.form-control(type='text', required='required', name='companyName' placeholder='Enter Company Name')
-                      .form-group
-                        label.control-label(for='address') Company Address
-                        input.form-control(type='text', name='address', required='required', placeholder='Enter Company Address')
-                      
-                      .form-group
-                        label.control-label(for="phone") Phone Number
-                        input.form-control( type='tel', required='required', name='phone' placeholder='Enter Company Name')                      
+          section#estimate.section.modal.fade(role="dialog")
+            .modal-dialog(role='document')
+              .modal-content
+                .modal-header
+                  h4 Write a brief (Click on the blue button to get started)
+                .modal-body
 
-                      button.btn.btn-primary.nextBtn.pull-right(type='button') Next
-                      
-                #step-3.row.setup-content
-                  .col-xs-12.col-md-11
-                      h3  Step 3
-                      .form-group                        
-                        label.file
+                  .container-fluid
+                    .stepwizard
+                      .stepwizard-row.setup-panel
+                        .stepwizard-step
+                          a.btn.btn-primary.btn-circle(href='#step-1', type='button') 1
+                          p Company details
+                        .stepwizard-step
+                          a.btn.btn-default.btn-circle.disabled(href='#step-2', type='button') 2
+                          p Project details
+                        .stepwizard-step
+                          a.btn.btn-default.btn-circle.disabled(href='#step-3', type='button') 3
+                          p Submission and feedback
+                    form(role='form' action="brief/add" method="post")
+                      #step-1.row.setup-content
+                        .col-xs-12.col-md-11
+                            h3  Company Details
+                            .form-group
+                              label(for="email") Email
+                              input#firstName.form-control(name='email', type='email', required='', placeholder='Enter Email Address')
+                            .form-group
+                              label(for="brief") brief message
+                              textarea.form-control(name="brief", cols="20", rows="6")
+                            button.btn.btn-primary.nextBtn.pull-right(type='button') Next
+                      #step-2.row.setup-content
+                        .col-xs-12.col-md-11
+                            h3  Project Details
+                            .form-group
+                              label(for="companyName").control-label Company Name
+                              input.form-control(type='text', required='required', name='companyName' placeholder='Enter Company Name')
+                            .form-group
+                              label.control-label(for='address') Company Address
+                              input.form-control(type='text', name='address', required='required', placeholder='Enter Company Address')
+                            
+                            .form-group
+                              label.control-label(for="phone") Phone Number
+                              input.form-control( type='tel', required='required', name='phone' placeholder='Enter Company Name')                      
+
+                            button.btn.btn-primary.nextBtn.pull-right(type='button') Next
+                            
+                      #step-3.row.setup-content
+                        .col-xs-12.col-md-11
+                            h3  Step 3
+                            .form-group                        
+                              label.file
+                              | Drop a file or click to select one
+                              input(type='file', multiple='' name='nda' class='nda-input')
+                              // use multiple, even if it’s not allowed, to be able to show an info text
+                              p Take a moment to review the form, and edit any information.
+                              button.btn.btn-success.pull-right(type='submit') Finish!
+
+          section#submitNDA.section.modal.fade(role="dialog")
+            .modal-dialog(role='document')
+              .modal-content
+                .modal-header
+                  h3 Upload Your NDA here, we will sign it and send it back to you
+                .modal-body
+                  form.file-upload(method='post', action='nda/send', encType='multipart/form-data', ref='uploadForm' )
+                    .form-group
+                      label(for="name") Full Name
+                      input.form-control(type='text', value='Type your name here' name="name")
+                    .form-group
+                      label(for="email") Email
+                      input.form-control(type='email', value='provide your email' name="email")
+                    .form-group
+                      label.file
                         | Drop a file or click to select one
-                        input(type='file', multiple='' name='nda' class='nda-input')
+                        input.form-control(type='file', multiple='' name='nda' class='nda-input')
                         // use multiple, even if it’s not allowed, to be able to show an info text
-                        p Take a moment to review the form, and edit any information.
-                        button.btn.btn-success.pull-right(type='submit') Finish!
-
-          #section2.section
-            h3 Upload Your NDA here, we will sign it and send it back to you
-            form.file-upload(method='post', action='nda/send', encType='multipart/form-data', ref='uploadForm' )
-              label(for="name") Full Name
-              input(type='text', value='Type your name here' name="name")
-              label(for="email") Email
-              input(type='email', value='provide your email' name="email")
-              label.file
-                | Drop a file or click to select one
-                input(type='file', multiple='' name='nda' class='nda-input')
-                // use multiple, even if it’s not allowed, to be able to show an info text
-              button.pull-right.schedule-btn(type='submit') Upload
+                    button.schedule-btn(type='submit') Upload
            
-          section#section3.section
-            h3 Book a schedule on skype
-            
-            form(action='/schedule/add', method='post')
-              .header.row
-              // row
-              .row
-                .inputs.contact.col-6
-                  label(for='fullname') Full Name
-                  br
-                  input#fullname(type='text', name='fullname')
-                .inputs.email.col-6
-                  label(for='email') Email
-                  <br/>
-                  input(type='email', name='email', id='')
-              // row
-              // row
-              .row
-                .inputs.date.col-4
-                  label(for='date') Date
-                  <br/>
-                  input(type='date', id='', name='date')
-                .inputs.time-zone.col-4
-                  label(for='timezone') Time Zone
-                  <br/>
-                  select.appt-sel(name='timezone')
-                    option Timezone
-                    option Lagos Central African Time
-                    option London GMT
-                    option Pacific
-                    option Mountain
-                    option Central
-                    option Eastern
-                    option Atlantic
-                    option Chamarro
-                    option Samoa
-                    option Hawaii-Aleutian
-                    option Alaska
-              // row
-              .row
-                .inputs.contact.col-6
-                  label(for='phone') Contact Number
-                  <br/>
-                  input#contactNumber(type='tel', name='phone')
-                .inputs.email.col-6
-                  label(for='skypeid') Skype ID (Email)
-                  <br/>
-                  input(type='text', id='', name='skypeid')
-              // row
+          section#schedule.section.modal.fade(role="dialog")
+            .modal-dialog(role='document')
+                .modal-content
+                  .modal-header
+                    h3 Book a schedule on skype
 
-              .row
-                .inputs.message.col-12
-                  label(for='message') Message
-                  <br/>
-                  textarea.txt-appt(name='message')
-              // row
-              .row
-                .col-12
-                  button.schedule-btn.pull-right(type='submit')
-                    strong Submit
-              // row
+                  .modal-body            
+                    form.form-horizontal.container-fluid(action='/schedule/add', method='post')
+                      .div.form-group
+                          label(for='fullname') Full Name
+                          input.form-control#fullname(type='text', name='fullname')
+                          label(for='email') Email
+                          input.form-control(type='email', name='email', id='')
+                      .div.form-group
+                          label(for='date') Date
+                          input.form-control(type='date', id='', name='date')
+                          label(for='timezone') Time Zone
+                          select.form-control(name='timezone')
+                            option Lagos Central African Time
+                            option London GMT
+                            option Pacific
+                            option Mountain
+                            option Central
+                            option Eastern
+                            option Atlantic
+                            option Chamarro
+                            option Samoa
+                            option Hawaii-Aleutian
+                            option Alaska
+                      .form-group
+                          label(for='phone') Phone
+                          input.form-control#contactNumber(type='tel', name='phone')
+                          label(for='skypeid') Skype ID
+                          input.form-control(type='text', id='', name='skypeid')
+                      .form-group
+                        .message
+                          label(for='message') Message
+                          textarea.form-control.txt-appt(name='message', rows="3")
+                      .form-group
+                        button.schedule-btn.pull-right(type='submit')
+                          strong Submit
+                      // row
 
 
 
@@ -260,31 +253,47 @@ block content
       div.jumbotron.container-fluid.jumbo-div
         h2.home-section-h2 Our work culture
       .container-fluid.culture-home
-        .row.culture-pitch
+        .row.culture-pitch.jumbotron
           .container-fluid.culture
             h3.home-section-h3  Proven and Tested Technology Stacks
             img.culture-img(src="images/tech-stack.jpg", alt="technology stack")
             p The technology stacks we use have been tested and have been proven to deliver in their domain. Whether we are building a transformation pipeline, a client-facing web application, or a native cross-platform mobile application, we would deploy the best tools and platform in bringing the best experience to our clients. 
         //- p We are like pigeons, we stay with you through the ups and downs. We are fully committed to your project throughout the development lifecyle, event to the post production phase
-        .row.culture-pitch
+        .row.culture-pitch.jumbotron
           .container-fluid.culture
             h3.home-section-h3 Proven and Tested Philosophy
             img.culture-img(src="images/agile-process.jpg", alt="Agile process")
             p We are disciplined in agile but we are not purists. Rather we rely on our discretion in replanning and reshifting our focus to ensure a smooth application lifecycle. Our low-level Agile framework is XP, so we enforce it within our developer sub-team. We leave teams to focus more on construction stuffs, We are more concerned about how the cross-functional teams work together on a project, so we embrace Scrum whole-heartedly. With us, your project would be in a stable state all the time.
-        .row.culture-pitch
+        .row.culture-pitch.jumbotron
           .container-fluid.culture
             h3.home-section-h3 The client is king
             img.culture-img(src="images/client-king.gif", alt="Client is king")
             p In line with our Scrum mindset we not only bring the client as part of the project team, we are responsive to are clients and are interested in ways they would get the best return on their investment. This means we build with the business in mind as much as we want to listen to the needs of the client.
-        .tech-img
-          img.techs(src="images/html5.png" caption="HTML5")
-          img.techs(src="images/reactjs.png")
-          img.techs(src="images/net.png")
-          img.techs(src="images/asp.png")
-          img.techs(src="images/expressjs.jpg")
-          img.techs(src="images/git.png")
-          img.techs(src="images/jquery.png")
-          img.techs(src="images/csharp.png")
+        .tech-img.jumbotron
+            figure
+              img.techs(src="images/html5.png", caption="HTML5", alt="html5")
+              figcaption HTML5
+            figure
+              img.techs(src="images/reactjs.png", caption="React.js", alt="React.js")
+              figcaption React.js
+            figure
+              img.techs(src="images/asp.png", caption="ASP.NET", alt="ASP.NET")
+              figcaption ASP.NET
+            figure
+              img.techs(src="images/expressjs.jpg", caption="Express.js", alt="Express.js")
+              figcaption Express.js
+            figure
+              img.techs(src="images/git.png", caption="Git", alt="Git")
+              figcaption Git
+            figure
+              img.techs(src="images/jquery.png", caption="JQuery", alt="JQuery")
+              figcaption JQuery
+            figure
+              img.techs(src="images/csharp.png", caption="C#", alt="C#")
+              figcaption C#
+            figure
+              img.techs.align-center(src="images/net.png", caption=".NET", alt=".NET")
+              figcaption .NET
 
     section.container-fluid
     script.

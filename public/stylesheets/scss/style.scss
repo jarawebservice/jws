@@ -652,8 +652,8 @@ h3.home-section-h3 {
     font-size: 20px;
     margin-top: 30px;
     margin-bottom: 20px;
-    font-family: montserrat;
-    font-weight: 200;
+    font-family: raleway;
+    font-weight: 600;
 }
 
 img.techs {
@@ -903,8 +903,9 @@ li .dropdown {
 .culture {
     p {
         font-family: Raleway;
-        font-weight: 200px;
+        font-weight: normal;
         font-size: 15px;
+        font-size: 16px;
     }
 }
 
@@ -914,9 +915,11 @@ li .dropdown {
     padding-top: 10px;
 }
 
-.tech-img img {
-    width: 80px;
-    height: 120px;
+img.techs {
+    width: 60px;
+    height: 80px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .culture-pitch {
