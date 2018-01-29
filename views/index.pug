@@ -129,7 +129,7 @@ block content
 
           section#section1.section
             h4 Write a brief
-            .container
+            .container-fluid
               .stepwizard
                 .stepwizard-row.setup-panel
                   .stepwizard-step
@@ -143,16 +143,15 @@ block content
                     p Submission and feedback
               form(role='form' action="brief/add" method="post")
                 #step-1.row.setup-content
-                  .col-xs-12
-                    .col-md-11
+                  .col-xs-9.col-md-8.col-lg-offset-2
                       h3  Company Details
                       .form-group
-                        label.control-label Email
+                        label(for="email") Email
                         input#firstName.form-control(name='email', type='email', required='', placeholder='Enter Email Address')
                       .form-group
-                        label.control-label brief message
-                        textarea.form-control(name="brief", cols="30", rows="10")
-                      button.schedule-btn.nextBtn.pull-right(type='button') Next
+                        label(for="brief") brief message
+                        textarea.form-control(name="brief", cols="20", rows="6")
+                      button.btn.btn-primary.nextBtn.pull-right(type='button') Next
                 #step-2.row.setup-content
                   .col-xs-12.col-md-11
                       h3  Project Details
