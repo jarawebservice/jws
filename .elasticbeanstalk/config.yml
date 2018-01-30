@@ -1,7 +1,11 @@
 branch-defaults:
   admin:
-    environment: null
+    environment: jarawebservices
     group_suffix: null
+environment-defaults:
+  jarawebservices:
+    branch: admin
+    repository: jws.com
 global:
   application_name: jws
   branch: admin
