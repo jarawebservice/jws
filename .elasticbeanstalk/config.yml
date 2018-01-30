@@ -1,5 +1,0 @@
-branch-defaults:
-  admin:
-    environment: null
-global:
-  profile: eb-cli
