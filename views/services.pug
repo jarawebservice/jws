@@ -2,34 +2,43 @@
 
 extends layout
 
+  
 block content
+  
+
   style
     include ../public/stylesheets/services.css  
+
+   
   nav.navbar.navbar-default(role='navigation')
   
     .nav-main
       .collapse.navbar-collapse
         ul.nav.navbar-nav
           li
-            a(href='#domain-service') Domain Service
+            a(href='#domain') Domain Service
           li.active
-            a(href='#web-hosting') Web Hosting 
+            a(href='#hosting') Web Hosting 
           li
-            a(href='#sms-marketing') SMS Marketing
+            a(href='#sms') SMS Marketing
           li
-            a(href='#content-writing') Content Writing
+            a(href='#content') Content Writing
           li
-            a(href='#online-marketing') Online Marketing
+            a(href='#online') Online Marketing
           li
             a(href='#seo') SEO
 
   section#domain
-    .heading.container-fluid
-      h2.h2 Domain Service
+    .container-fluid.jumbotron.jumbo-div
+      h2.h2.home-section-h2 Domain Service
+      p.header-description There is still many great domains out there waiting for you to snap up.
     .body.container-fluid
       .narative
-        p.lead There is still many great domains out there waiting for you to snap up.
-        p.lead We provide one-stop shop for domain registration and management for our teeming client. We provide a full-feature domain registration that's tailored to your needs. Our domain registration service is not a one-size fits all approach. You won't be limited to functionalities available to you on our web portal, you can also get a direct involvement with the registrant. It's not smoke and mirrors, we don't claim to be an ICANN accredited registrant. But we want you to have full control of your domain and to be able to do so directly from our website.
+        
+        p.lead We provide one-stop shop for domain registration and management for our teeming client. 
+        | We provide a full-feature domain registration that's tailored to your needs. Our domain registration service is not a 
+        | one-size fits all approach. You won't be limited to functionalities available to you on our web portal, 
+        | you can also get a direct involvement with the registrant. It's not smoke and mirrors, we don't claim to be an ICANN accredited registrant. But we want you to have full control of your domain and to be able to do so directly from our website.
         .action
           a.btn-link.btn-lg(href="/domain") Get Started
       .process
@@ -37,111 +46,63 @@ block content
           li You have full control over your domain and choice of registrar
           li A highly sophisticated .NG domain is available 
           li 
-      .partners
 
   section#hosting
-    .heading.container-fluid
-      h2.h2 Cloud Hosting Service
+    .heading.container-fluid.jumbotron.jumbo-div
+      h2.h2.home-section-h2 Cloud Hosting Service
+      p.header-description We also have a couple of cloud hosting services
     .body.container-fluid
+      h3 Our cloud hosting offering include
+        ul
+          li Software as a Service
+          li Platform as a Service
+          li Shared hosting service
+          li Dedicated hosting service
+      h3 Be informed
+      p Your choice largely depends on the services and programs that shall be running on 
       .narative
         p.lead In an age when every application cries for hosting on the cyberspace, we not just host for you but we help you host your application while taking into consideration many attributes that would affect the success of the application. Our cloud offerings come in many shapes and sizes. 
         .action
-      .process
-      .partners
 
   section#sms
-    .heading.container-fluid
-      h2.h2 SMS Marketing
+    .container-fluid.jumbotron.jumbo-div
+      h2.h2.home-section-h2 SMS Service
+      p.header-description Different SMS API Gateways for your organisation
+
     .body.container-fluid
+      p Via our SMS platform, you can send and recieve SMS messages online. You can send to multiple phone numbers or to a single recipient. You can also reserve a dedicated short code(DSC) for a tailored SMS campaign.
 
   section#content
-    .heading
-      h2.h2 content Writing
+    .container-fluid.jumbotron.jumbo-div
+      h2.h2.home-section-h2 Web Content Development
+      p.header-description Great content makes great website
     .body.container-fluid
-      .narative
-        .action
-      .process
-      .partners
+      h3 Do you have a blog or intend to have one? Are you planning on having an e-brochure? Do you need great content for your website? Do you need bespoke images for your websites?
+
+      p For any website to fulfill it purpose on the open internet, it must match contents to its core processes. Your contents must match your visitor preference, and what you set out to achieve. Our goal is to make your website a living and breathing business that  doesn't compare to any other website but that bears favourable comparison in terms of user satisfaction and retention to other best in class web applications 
+      p Our web content strategy deliver digital assets to your doorstep at competitive pricing.
+
+      p We curate your content, copyright and fact check it to ensure that no other website has that same content
 
   section#online
-    .heading.container-fluid
-      h2.h2 Online Marketing
+    .container-fluid.jumbotron.jumbo-div
+      h2.h2.home-section-h2 Online Marketing
+      p.header-description From Facebook Ads, to Google Ads
     .body.container-fluid
-      .narative
-        .action
-      .process
-      .partners
+     
   section#seo
-    .heading.container-fluid
-      h2.h2 Search Engine Optimization
+    .container-fluid.jumbotron.jumbo-div
+      h2.h2.home-section-h2 Search Engine Optimization
+      p.header-description Increase user engagement through SEO
     .body.container-fluid
-      .narative
-        .action
-      .process
-      .partners
+      p Many websites are discovered via Search Engines. 
+      | These search engines have bots or crawlers that index web pages. The higher a website ranks on search engine 
+      | the likelier for that website to appear in searches
 
-  //- .bg-primary.domain.result
-  //-   .container-fluid
-  //-     .header-main
-  //-       .header-left
-  //-         h1 Domain Service
-  //-         p A one-stop shop for domain registration and management for our teeming client.
-  //-       // about-left
-  //-       .header-right
-  //-         p
-  //-           a(href='') Get started now
-  //-       // about-right
-  //-     // about-main
-  //-   // about
-  //- .center.container-fluid
-  //-   .center-main
-  //-     .row
-  //-       .col-lg-6.col-md-6.col-sm-12.col-xs-12
-  //-         h2 How it works
-  //-         p
-  //-           | We provide a full-feature domain registration that's tailored to your needs. Our domain
-  //-           | registration service is not a one-size fits all approach. You won't be limited to
-  //-           | functionalities available to you on our web portal, you can also get a direct involvement
-  //-           | with the registrant. It's not smoke and mirrors, we don't claim to be an ICANN accredited registrant. But we want you to have full control of your domain and to be able to do so directly from our website.
-  //-       .col-lg-6.col-md-6.col-sm-12.col-xs-12
-  //-         h2 Just how you like it
-  //-         div
-  //-           h3 Our tech partners
+      
+       
 
-  //-       // col-lg-6 col-md-6 col-sm-12 col-xs-12
-  //-     // row
-  //- .bg-info
-  //-   .container-fluid
-  //-     .header-main
-  //-       .header-left
-  //-         h1 Cloud Hosting
-  //-         p A one-stop shop for web apps, mobile apps, and web services.
-  //-       // about-left
-  //-       .about-right
-  //-         p In an age when every application cries for hosting on the cyberspace, we not just host for you but we help you host your application while taking into consideration many attributes that would affect the success of the application. Our cloud offerings come in many shapes and sizes. 
-  //-           a(href='') Get started now
-  //-       // about-right
-  //-     // about-main
-  //-   // about
-  //- .center.container-fluid
-  //-   .center-main
-  //-     .row
-  //-       .col-lg-6.col-md-6.col-sm-12.col-xs-12
-  //-         h3 Our cloud hosting offering include
-  //-         ul
-  //-           li Software as a Service
-  //-           li Platform as a Service
-  //-           li Shared hosting service
-  //-           li Dedicated hosting service
-  //-         h3 Be informed
-  //-         p Your choice largely depends on the services and programs that shall be running on 
-  //-         p
-  //-           | We provide a full-feature domain registration that's tailored to your needs. Our domain
-  //-           | registration service is not a one-size fits all approach. You won't be limited to
-  //-           | functionalities available to you on our web portal, you can also get a direct involvement
-  //-           | with the registrant. It's not smoke and mirrors, we don't claim to be an ICANN accredited registrant. But we want you to have full control of your domain and to be able to do so directly from our website.
-  //-       .col-lg-6.col-md-6.col-sm-12.col-xs-12
-  //-         h2 Our cloud platform -- Just how you like it
+  
          
 
 

@@ -106,6 +106,7 @@ const index = require('./routes/index'),
     who = require('./routes/who-we-are'),
     portfolio = require('./routes/portfolio'),
     culture = require('./routes/culture'),
+    services = require('./routes/services'),
     what = require('./routes/what-we-do'),
     caseStudy = require('./routes/case-study'),
     faqs = require('./routes/faqs'),
@@ -148,6 +149,7 @@ app.use('/case-study', caseStudy);
 app.use('/domain-web-hosting', domain);
 app.use('/admin', admin);
 app.use('/profile', profile);
+app.use('/services', services);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
