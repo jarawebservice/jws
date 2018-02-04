@@ -5,8 +5,7 @@ let User = require('../models/user');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    console.log(req.user)
-    if (!req.user) {
+    if (!req.isAuthenticated()) {
         res.render('login', { title: 'login | jws', content: 'login' });
     } else {
         res.redirect('/profile');

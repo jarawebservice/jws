@@ -3,12 +3,18 @@ const express = require('express'),
     flash = require('express-flash'),
     passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
+    FacebookStrategy = require('passport-facebook').Strategy,
     session = require('express-session');
 
 
-
-let User = require('../models/user');
-
+function requireAuthentication(req, res, next) {
+    if (req.isAuthenticated) {
+        next();
+    } else {
+        req.flash('success_msg', 'You are not allowed to view that page');
+        res.redirect('/login');
+    }
+}
 
 passport.serializeUser((user, done) => {
     done(null, user.id);
@@ -19,6 +25,11 @@ passport.deserializeUser((id, done) => {
         done(err, user);
     });
 });
+
+
+let User = require('../models/user');
+
+
 // file:app/authentication/middleware.js
 function authenticationMiddleware() {
     return function(req, res, next) {
@@ -37,9 +48,9 @@ router.get('/', function(req, res, next) {
 router.get('/admin', function(req, res, next) {
     res.render('admin', { title: 'Admin Area', content: 'Do admin related activity here' });
 });
-router.get('/profile', function(req, res, next) {
-    res.render('/profile', { title: 'Pr ofile', content: 'Here is your profile' });
-});
+// router.get('/profile', function(req, res, next) {
+//     res.render('/profile', { title: 'Profile', content: 'Here is your profile' });
+// });
 
 
 
@@ -75,7 +86,7 @@ router.post('/', (req, res, next) => {
         User.registerUser(newUser, (err, user) => {
             if (err) throw err;
             req.flash('success_msg', 'You are registered and can log in');
-            res.redirect('/login');
+            res.redirect('/check-mail');
         });
     }
 });
@@ -103,9 +114,23 @@ passport.use(new LocalStrategy((username, password, done) => {
 
 }));
 
+//facebookStrategy
+passport.use(new FacebookStrategy({
+        clientID: '127911371324381',
+        clientSecret: '92f5501a9414af4fd4d67f587a716501',
+        callbackURL: 'http://localhost:3000/auth/facebook/callback'
+    },
+    function(accessToken, refreshToken, profile, done) {
+        User.findOrCreate({ facebookId: profile.id }, profile, function(err, user) {
+            if (err) { return done(err); }
+            done(null, user);
+        });
+    }
+));
+
 
 //logout
-router.get('/logout', ensureAuthenticated, (req, res, next) => {
+router.get('/logout', requireAuthentication, (req, res, next) => {
     req.logout();
     req.flash('success_msg', 'You are now logged out');
     res.redirect('/login');
@@ -113,21 +138,23 @@ router.get('/logout', ensureAuthenticated, (req, res, next) => {
 
 //login
 router.post('/login', (req, res, next) => {
-    console.log(User.isAdmin);
-    if (User.verified) {
-        passport.authenticate('local', {
-
-            successRedirect: '/profile',
-            failureRedirect: '/login',
-            failureFlash: true
-        })(req, res, next);
-    }
-
-
-
+    passport.authenticate('local', {
+        successRedirect: '/profile',
+        failureRedirect: '/login',
+        failureFlash: true
+    })(req, res, next);
 });
 
 
+//profile
+router.get('/profile', [requireAuthentication, (req, res, next) => {
+    console.log(req);
+    res.render('profile', {
+        title: 'User Profile | JWS',
+        content: 'Manage your domain here',
+        profile: res.profile
+    });
+}]);
 
 
 function ensureAuthenticated(req, res, next) {

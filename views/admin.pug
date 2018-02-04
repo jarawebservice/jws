@@ -1,77 +1,88 @@
 extends layout
 
 block content
-  main
-    .row
-      .col-lg-4.col-lg-offset-1
-        h2.h2 User
-        table.table.table-hover.table-responsive
-          thead
-            th #
-            th Name
-            th email
-            th Phone
-            th Registration Date
-          we can do all of this 
-      .col-lg-5
-        h2.h2 Schedule
-        table.table.table-hover.table-responsive
-          thead
-            th #
-            th Full Name
-            th email
-            th Timezone
-            th Phone
-            th SkypeID
-            th Message
-    
-    .row
-      .col-lg-4.col-lg-offset-1
-        h2.h2 Briefs
-        table.table.table-hover.table-responsive
-          thead
-            th #
-            th Name
-            th email
-            th Phone
-            th Registration Date
-      .col-lg-5
-        h2.h2 Estimate
-        table.table.table-hover.table-responsive
-          thead
-            th #
-            th First Name
-            th Last Name
-            th Email
-            th Phone
-            th Company Name
-            th Company Type
-            th Services
-            th From
-            th To
-    .row
-      .col-lg-4.col-lg-offset-1
-        h2.h2 Billing
-        table.table.table-hover.table-responsive
-          thead
-            th #
-            th Name
-            th email
-            th Phone
-            th Registration Date
-      .col-lg-5
-        h2.h2 Domain
-        table.table.table-hover.table-responsive
-          thead
-            th #
-            th First Name
-            th Last Name
-            th Email
-            th Phone
-            th Company Name
-            th Company Type
-            th Services
-            th From
-            th To
 
+  //- style.
+  //-   main {
+  //-     height: 400px;
+  //-     background: black;
+  //-   }
+  
+  
+  main
+
+    .admin
+      .container
+        .row
+          .col-xs12
+            p Bootstrap btn-group radio buttons tab panel
+
+            .btn-group.btn-group-justified#tab(data-toggle="buttons")
+              a.btn.btn-default.active(href="#nda" data-toggle="tab")
+                input(type="radio" ) 
+                | Non-Disclosure
+              a.btn.btn-default(href="#estimate" data-toggle="tab")
+                input(type="radio") 
+                | Estimate
+              a.btn.btn-default(href="#billing" data-toggle="tab")
+                input(type="radio")
+                | Billings
+              a.btn.btn-default(href="#user" data-toggle="tab")
+                input(type="radio")
+                | Users
+              a.btn.btn-default(href="#domain" data-toggle="tab")
+                input(type="radio")
+                | Domains
+
+            .tab-content
+              .tab-pane.active#nda Prices content
+                
+              .tab-pane#estimate Features Content
+              .tab-pane#billing Requests content
+              .tab-pane#user Contact content
+              .tab-pane#domain Contact content
+
+      //- ul.nav.nav-tabs(role="justified")
+      //-     li.active
+      //-       a(href="#nda" aria-controls="" role="tab" data-toggle="tab")
+      //-     li
+      //-       a(href="#project" aria-controls="" role="tab" data-toggle="tab")
+      //-     li
+      //-       a(href="#user" aria-controls="" role="tab" data-toggle="tab")
+      //-     li
+      //-       a(href="#schedule" aria-controls="" role="tab" data-toggle="tab")
+      //-     li
+      //-       a(href="#billings" aria-controls="" role="tab" data-toggle="tab")
+      //- .tab-content
+      //-     .tab-pane.fade.in.active#nda(role="tabpanel")
+      //-     .tab-pane.fade.in#project(role="tabpanel") Estimates
+      //-     .tab-pane.fade.in#users(role="tabpanel")
+      //-     .tab-pane.fade.in#schedule(role="tabpanel")
+      //-     .tab-pane.fade.in#billings(role="tabpanel")
+
+      //- script.
+      //-   $('#nda a').click(function (e) {
+      //-     e.preventDefault()
+      //-     $(this).tab('show')
+      //-   })
+      //-   $('#project').click(function (e) {
+      //-     e.preventDefault()
+      //-     $(this).tab('show')
+      //-   })
+      //-   $('#user a').click(function (e) {
+      //-     e.preventDefault()
+      //-     $(this).tab('show')
+      //-   })
+      //-   $('#schedule a').click(function (e) {
+      //-     e.preventDefault()
+      //-     $(this).tab('show')
+      //-   })
+      //-   $('#billing a').click(function (e) {
+      //-     e.preventDefault()
+      //-     $(this).tab('show')
+        });
+
+
+ 
+          
 

@@ -45,6 +45,6 @@ module.exports.deleteNda = function(nda, callback) {
     Nda.remove(nda, callback);
 }
 
-moudle.exports.updateNda = function(nda, callback) {
+module.exports.updateNda = function(nda, callback) {
     Nda.update(nda, callback);
 }

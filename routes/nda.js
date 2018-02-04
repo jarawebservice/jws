@@ -8,6 +8,8 @@ var router = express.Router();
 
 
 var app = express();
+
+var nda = require('../models/nda');
 // app.use(formidable({
 //     maxFieldsSize: 2 * 1024 * 1024,
 //     encoding: 'utf-8',
@@ -20,6 +22,12 @@ var app = express();
 router.get('/', function(req, res, next) {
     res.render('nda', { title: 'NDA', content: 'Your non-disclosure aggreement might be all that week set off the project  ' });
 });
+
+router.get('/nda', (req, res, next) => {
+    nda.find(function(err, nda, count) {
+        res.json(nda);
+    })
+})
 
 router.post('/send', function(req, res) {
     var form = new formidable.IncomingForm();

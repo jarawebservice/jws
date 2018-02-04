@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'),
+    Schema = mongoose.Schema;
 // var uristring =
 //     process.env.MONGOLAB_URI ||
 //     process.env.MONGOHQ_URL ||
@@ -13,7 +14,7 @@ const bcrypt = require('bcryptjs');
 const ObjectId = mongoose.Types.ObjectId;
 
 // User Schema
-const UserSchema = mongoose.Schema({
+const UserSchema = new Schema({
     name: {
         type: String
     },
@@ -35,9 +36,14 @@ const UserSchema = mongoose.Schema({
     isAdmin: {
         type: Boolean
     },
-    billing: {
-        type: String
-    }
+    isVerified: {
+        type: Boolean,
+        default: false
+    },
+    billing: [{
+        date: Date,
+        bill: { type: Schema.Types.ObjectId, ref: '' }
+    }]
 });
 
 
@@ -46,9 +52,7 @@ const User = module.exports = mongoose.model('User', UserSchema);
 module.exports.registerUser = function(newUser, callback) {
     bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
-            if (err) {
-                console.log(err);
-            }
+            if (err) return next(err);
             newUser.password = hash;
             newUser.save(callback);
         });
@@ -70,6 +74,24 @@ module.exports.comparePassword = function(candidatePassword, hash, callback) {
         callback(null, isMatch);
     });
 }
+
+UserSchema.pre('save', (next) => {
+    var user = this;
+    if (!user.isModified('password')) return next();
+    bycrypt.genSalt(10, (err, salt) => {
+        if (err) return next(err);
+        bcrypt.hash(user.password, salt, null, (err, hash) => {
+            if (err) return next(err);
+            user.password = hash;
+            next();
+        });
+    });
+});
+
+UserSchema.methods.comparePassword = function(password) {
+    return bcrypt.compareSync(password, this.password);
+}
+
 
 module.exports.checkIfUserIsAdmin = function(name) {
     return getUserByUsername(name).isAdmin

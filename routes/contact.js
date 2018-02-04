@@ -12,29 +12,34 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/send', urlencodedParser, function(req, res, next) {
-    var transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: 'waleander@gmail.com',
-            pass: 'iamborn2win85'
+    nodemailer.createTestAccount((eer, account) => {
+
+        var transporter = nodemailer.createTransport({
+            // service: 'gmail',
+            auth: {
+                user: account.user,
+                pass: account.pass
+            }
+        });
+
+        var mailOptions = {
+            from: '"Jara Web Services ?" <waleander@gmail.com>',
+            to: 'guva4all@yahoo.com, waleander@gmail.com',
+            subject: 'Hello from Jaracare',
+            text: 'Jara Web Service has a new message submission from... Name: ' + req.body.name + ' Email: ' + req.body.email + ' message: ' + req.body.message,
+            html: '<p>You have a submission from...</p> <ul><li>Name: ' + req.body.name + '</li> <li>Email: ' + req.body.email + '</li> <li>message: ' + req.body.message + '</li></ul>'
         }
+
+        transporter.sendMail(mailOptions, function(error, info) {
+            if (error) {
+                return console.log(error);
+            }
+            console.log('message sent' + info.response);
+            res.redirect('/');
+        })
+
     });
 
-    var mailOptions = {
-        from: '"Jara Web Services ?" <waleander@gmail.com>',
-        to: 'guva4all@yahoo.com, waleander@gmail.com',
-        subject: 'Hello from Jaracare',
-        text: 'Jara Web Service has a new message submission from... Name: ' + req.body.name + ' Email: ' + req.body.email + ' message: ' + req.body.message,
-        html: '<p>You have a submission from...</p> <ul><li>Name: ' + req.body.name + '</li> <li>Email: ' + req.body.email + '</li> <li>message: ' + req.body.message + '</li></ul>'
-    }
-
-    transporter.sendMail(mailOptions, function(error, info) {
-        if (error) {
-            return console.log(error);
-        }
-        console.log('message sent' + info.response);
-        res.redirect('/');
-    })
 });
 
 module.exports = router;

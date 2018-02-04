@@ -20,7 +20,6 @@ router.get('/', function(req, res, next) {
         return next();
     });
 }, function(req, res) {
-    console.log(output);
     res.render('search-domain', { title: 'Search Result', response: output });
 });
 

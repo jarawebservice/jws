@@ -1,5 +1,10 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/jws');
+var uristring =
+    process.env.MONGOLAB_URI ||
+    process.env.MONGOHQ_URL ||
+    'mongodb://localhost/jws';
+// mongoose.connect('mongodb://jara:jaracare@ds161306.mlab.com:61306/jws', { useMongoClient: true });
+mongoose.connect(uristring, { useMongoClient: true });
 const bcrypt = require('bcryptjs');
 const ObjectId = mongoose.Types.ObjectId;
 

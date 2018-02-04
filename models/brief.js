@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
-// var uristring =
-//     process.env.MONGOLAB_URI ||
-//     process.env.MONGOHQ_URL ||
-//     'mongodb://localhost/HelloMongoose';
-mongoose.connect('mongodb://jara:jaracare@ds161306.mlab.com:61306/jws', { useMongoClient: true });
+
 
 mongoose.Promise = global.Promise;
 
 const db = mongoose.connection;
-// mongoose.connect('mongodb://localhost/jws');
+var uristring =
+    process.env.MONGOLAB_URI ||
+    process.env.MONGOHQ_URL ||
+    'mongodb://localhost/jws';
+mongoose.connect('mongodb://jara:jaracare@ds161306.mlab.com:61306/jws', { useMongoClient: true });
 const ObjectId = mongoose.Types.ObjectId;
 
 const briefSchema = mongoose.Schema({

@@ -11,40 +11,70 @@ const express = require('express'),
     fileUpload = require('express-fileupload'),
     passport = require('passport'),
     compression = require('compression'),
-    Strategy = require('passport-facebook').Strategy;
-const app = express();
-app.use(compression())
+    mongoose = require('mongoose'),
+    FacebookStrategy = require('passport-facebook').Strategy,
+    findOrCreateProfile = require('./modules/findOrCreateProfile');
 
-app.use(session({ secret: 'anything' }));
-app.use(passport.initialize());
-app.use(passport.session());
+
+passport.use(new FacebookStrategy({
+        clientID: '127911371324381',
+        clientSecret: '92f5501a9414af4fd4d67f587a716501',
+        callbackURL: 'http://localhost:3000/auth/facebook/callback'
+    },
+    function(accessToke, refreshToken, profile, done) {
+        findOrCreateProfile({ facebookId: profile.id }, profile, done);
+    }
+));
+
+
+// set app to express
+const app = express();
+
+app.use(cookieParser('asdf33g4w4hghjkuil8saef345')); // cookie parser must use the same secret as express-session.
+
+const cookieExpirationDate = new Date();
+const cookieExpirationDays = 365;
+cookieExpirationDate.setDate(cookieExpirationDate.getDate() + cookieExpirationDays);
+
+
 //Express session
-app.set('trust proxy', 1) // trust first proxy
 app.use(session({
-    secret: 'keyboard cat',
-    resave: false,
+    secret: 'asdf33g4w4hghjkuil8saef345', // must match with the secret for cookie-parser
+    resave: true,
     saveUninitialized: true,
-    cookie: { secure: true }
+    cookie: {
+        httpOnly: true,
+        expires: cookieExpirationDate // use expires instead of maxAge
+    }
 }));
 
+// Set the passport middleware here
+app.use(passport.initialize());
+app.use(passport.session());
 
 
+// Ask expres to use the compression middleware for performance
+app.use(compression())
+
+// logging middleware
+app.use(logger('dev'));
+
+// Set the view engine to pug
 app.set('view engine', 'pug');
+// point express to the view directory
 app.set('views', path.join(__dirname, 'views'));
+//set the port
 app.set('port', (process.env.PORT || 3000));
 app.use(cookieParser());
 app.use(express.static(path.resolve(__dirname, 'public')));
 
 
 
-app.use(passport.initialize());
-app.use(passport.session());
-
 // Body Parser Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
+// use the flash middleware to show alerts
 app.use(flash());
 app.use(function(req, res, next) {
     res.locals.success_msg = req.flash('success_msg');
@@ -54,6 +84,7 @@ app.use(function(req, res, next) {
     next();
 });
 
+//use fileupload for handling file uploads
 app.use(fileUpload());
 
 // Express Validator
@@ -112,7 +143,9 @@ const index = require('./routes/index'),
     faqs = require('./routes/faqs'),
     admin = require('./routes/admin'),
     profile = require('./routes/profile'),
-    domain = require('./routes/domain-web-hosting');
+    blog = require('./routes/blog'),
+    domain = require('./routes/domain-web-hosting'),
+    checkMail = require('./routes/checkmail');
 
 
 
@@ -150,6 +183,15 @@ app.use('/domain-web-hosting', domain);
 app.use('/admin', admin);
 app.use('/profile', profile);
 app.use('/services', services);
+app.use('/blog', blog);
+app.use('/checkmail', checkMail);
+
+app.get('/auth/facebook', passport.authenticate('facebook'));
+app.get('/auth/facebook/callback',
+    passport.authenticate('facebook', {
+        successRedirect: '/profile',
+        failureRedirect: '/login'
+    }));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -180,7 +222,23 @@ if (process.env.NODE_ENV !== 'production') {
     });
 }
 
+if ('development' == app.get('env')) {
+    mongoose.connect('mongodb://localhost:27017/jws');
+} else {
+    // insert db connection for production
+}
+
+mongoose.connect('mongodb://localhost:27017/jws', { useMongoClient: true }).then(
+    () => {
+        console.log("connected to the database Successfully");
+    },
+    (err) => {
+        console.log(err);
+    }
+)
+
 
 app.listen(app.get('port'), () => {
     console.log("App started on port" + app.get('port'));
+
 });

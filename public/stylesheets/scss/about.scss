@@ -20,7 +20,7 @@ $L: 1000px;
 }
 
 * {
-    @include box-sizing(border-box);
+    box-sizing: border-box;
 }
 
 body {
